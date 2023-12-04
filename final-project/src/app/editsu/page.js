@@ -7,9 +7,6 @@ export default function EditSU() {
         <main>
             <BackButton/>
             <h1>Edit Service User</h1>
-            <Link href="/">
-                <button>Sign Out Button</button>
-            </Link>
         </main>
     )
 }
