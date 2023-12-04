@@ -1,14 +1,12 @@
 import Link from 'next/link'
-import styles from '../page.module.css'
 import Image from 'next/image'
+import BackButton from "../components/BackButton.jsx"
 export default function ViewSUProfile() {
     return (
         
-        <main className={styles.main}>
-            {/* //back button ----- */}
-            <Link href="/dashboard">
-            <Image src="/arrow_back.png" alt="me" width="64" height="64" />
-            </Link>
+        <main>
+
+        <BackButton/>
             <h1>View SU Profile</h1>
             <Link href="/editsu">
                 <button>Edit Service User Button</button>

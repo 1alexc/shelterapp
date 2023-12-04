@@ -1,21 +1,25 @@
 import Link from 'next/link'
-import styles from '../page.module.css'
+import styles from './dashboard.css'
+
 export default function Dashboard() {
     return (
-        <main className={styles.main}>
+        <main>
             <h1>Dashboard</h1>
-            <Link href="/viewallsus">
-                <button>View Service User Button</button>
+            <div className="linksbox">
+
+            <Link href="/viewallsus" >
+                <button className="linkitem">View Service User Button</button>
+            </Link>
+            <Link href="/addsu">
+                <button className="linkitem">Add Service User Button</button>
             </Link>
             <Link href="">
-                <button>Add Service User Button</button>
-            </Link>
-            <Link href="">
-                <button>Referral Link Button</button>
+                <button className="linkitem">Referral Link Button</button>
             </Link>
             <Link href="/">
-                <button>Sign Out Button</button>
+                <button className="linkitem">Sign Out Button</button>
             </Link>
+            </div>
         </main>
     )
 }
