@@ -6,6 +6,7 @@ export default function Login() {
     <main>
         <h1>Login Page</h1>
         <h2>test branching</h2>
+        <h3>Test with 2nt branch!</h3>
         <Link href="/dashboard">
           <button>Login Button</button>
 
