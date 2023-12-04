@@ -6,14 +6,13 @@ export default function Dashboard() {
         <main>
             <h1>Dashboard</h1>
             <div className="linksbox">
-
             <Link href="/viewallsus" >
                 <button className="linkitem">View Service User Button</button>
             </Link>
             <Link href="/addsu">
                 <button className="linkitem">Add Service User Button</button>
             </Link>
-            <Link href="">
+            <Link href="/referrallinks">
                 <button className="linkitem">Referral Link Button</button>
             </Link>
             <Link href="/">

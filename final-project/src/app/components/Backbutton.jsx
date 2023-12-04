@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BackButtonStyles from "./BackButton.css"
 
-export default function Backbutton() {
+export default function BackButton() {
     return (
         <>
         <Link href="/dashboard">
