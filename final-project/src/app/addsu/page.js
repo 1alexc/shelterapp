@@ -4,7 +4,7 @@ import BackButton from "../components/BackButton.jsx"
 
 export default function ViewAllSUs() {
     return (
-        <main className={styles.main}>
+        <main>
         <BackButton/>
             <h1>Add SU page</h1>
         </main>
