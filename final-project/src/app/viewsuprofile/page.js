@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import BackButton from "../components/BackButton.jsx"
 export default function ViewSUProfile() {
     return (
