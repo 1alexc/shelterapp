@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
+import Link from "next/link";
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -30,6 +31,20 @@ export default function Login() {
   if (!session) {
     return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
   } else {
-    return <div>Logged in!</div>;
+    return (
+      <>
+      <button
+        onClick={async () => {
+          const {error } = await supabase.auth.signOut();
+          if (error) {
+            console.error(error);
+          }
+        }}
+        >Log Out</button>
+        <Link href="/dashboard">
+          <button>Login Button</button>
+        </Link>
+      </>
+      );
   }
 }
