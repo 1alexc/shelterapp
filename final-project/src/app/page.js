@@ -1,13 +1,15 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
+import Login from "./components/Login";
 
-export default function Login() {
+export default function Home() {
   return (
     <main>
-        <h1>Login Page</h1>
-        <Link href="/dashboard">
-          <button>Login Button</button>
-        </Link>
+      <h1>Login Page</h1>
+      <Login />
+      <Link href="/dashboard">
+        <button>Login Button</button>
+      </Link>
     </main>
-  )
+  );
 }
