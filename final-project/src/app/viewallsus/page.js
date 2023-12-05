@@ -19,7 +19,6 @@ export default function ViewAllSUs() {
     useEffect(() => {
         async function fetchData() {
           try {
-            // Replace 'your_table_name' with the actual table name
             const { data, error } = await supabase.from('service_users').select('*');
             console.log(data);
             if (error) {
