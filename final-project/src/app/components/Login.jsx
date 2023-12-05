@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { redirect } from 'next/navigation'
 import Link from "next/link";
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -30,21 +31,23 @@ export default function Login() {
 
   if (!session) {
     return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
-  } else {
-    return (
-      <>
-      <button
-        onClick={async () => {
-          const {error } = await supabase.auth.signOut();
-          if (error) {
-            console.error(error);
-          }
-        }}
-        >Log Out</button>
-        <Link href="/dashboard">
-          <button>Login Button</button>
-        </Link>
-      </>
-      );
   }
+  redirect("/dashboard")
 }
+
+// } else {
+//   return (
+//     <>
+//     <button
+//       onClick={async () => {
+//         const {error } = await supabase.auth.signOut();
+//         if (error) {
+//           console.error(error);
+//         }
+//       }}
+//       >Log Out</button>
+//       <Link href="/dashboard">
+//         <button>Login Button</button>
+//       </Link>
+//     </>
+//     );

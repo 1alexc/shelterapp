@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styles from './dashboard.css'
 
 export default function Dashboard() {
+    //route guards 
     return (
         <main>
             <h1>Dashboard</h1>
@@ -15,7 +16,7 @@ export default function Dashboard() {
             <Link href="/referrallinks">
                 <button className="linkitem">Referral Link Button</button>
             </Link>
-            <Link href="/">
+            <Link href="./">
                 <button className="linkitem">Sign Out Button</button>
             </Link>
             </div>
