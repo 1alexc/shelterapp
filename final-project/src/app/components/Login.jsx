@@ -8,9 +8,9 @@ import { redirect } from 'next/navigation'
 import Link from "next/link";
 
 // components
-import DashboardComp from "./DashboardComp";
-import EditSU from '../components/EditSU'
-import AddSU from "./AddSu";
+import DashboardComp from "../pages/DashboardComp";
+import EditSU from '../pages/EditSUComp'
+import AddSU from "../pages/AddSUComp";
 
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;

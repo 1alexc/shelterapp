@@ -1,8 +1,0 @@
-.linksbox {
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.linkitem {width: 80%;
-}
