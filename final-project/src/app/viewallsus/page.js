@@ -17,6 +17,10 @@ export default function ViewAllSUs() {
     const [info, setInfo] = useState(null);
     const [data, setData] = useState([]);
   
+    function handleClick(){
+      console.log("hi")
+    }
+  
     useEffect(() => {
       async function fetchData() {
         try {
@@ -42,9 +46,13 @@ export default function ViewAllSUs() {
       <main>
         <BackButton />
         <h1>View SU</h1>
-        {data.map(item => (
-          <button key={item.id}>{item.first_name} {item.last_name}</button>
-        ))}
+        {data.map(profiles => (
+        <Link key={profiles.id} href={`/viewsuprofile`}>
+          
+            <button>{profiles.first_name} {profiles.last_name}</button>
+          
+        </Link>
+      ))}
         <Link href="/viewsuprofile">
           <button>View Specific Service User Button</button>
         </Link>
