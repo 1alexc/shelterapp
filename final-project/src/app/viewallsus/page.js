@@ -31,7 +31,7 @@ export default function ViewAllSUs() {
           //supabase-specific syntax for a SQL query .from('service_users').select('*') instead of SELECT * from service_users
           // data from supabase is fetched as an object - this is deconstructed as data and error
           const { data, error } = await supabase.from('service_users').select('*');
-          console.log(data);
+          console.log("data fetched on viewallsus",data);
           if (error) {
             throw error;
           }
@@ -54,7 +54,7 @@ export default function ViewAllSUs() {
         <h1>View SU</h1>
         {/* map su data to the buttons - currently they are not connected to a specific profile but they are links */}
         {data.map(profiles => (
-        <Link key={profiles.user_id} href={`/viewsuprofile`}>
+        <Link key={profiles.user_id} href={`/viewsuprofile/${profiles.user_id}`}>
           
             <button>{profiles.first_name} {profiles.last_name}</button>
           
