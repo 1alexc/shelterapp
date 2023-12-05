@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Login from "./components/Login";
+import Login from "./AuthRouter";
 
 export default function Home() {
   return (

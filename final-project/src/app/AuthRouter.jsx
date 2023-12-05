@@ -8,17 +8,19 @@ import { redirect } from 'next/navigation'
 import Link from "next/link";
 
 // components
-import DashboardComp from "../pages/DashboardComp";
-import EditSU from '../pages/EditSUComp'
-import AddSU from "../pages/AddSUComp";
-
+import DashboardComp from "./pagecomponents/DashboardComp";
+import DisplayAllSUComp from "./pagecomponents/DisplayAllSUComp";
+import DisplayOneSUComp from "./pagecomponents/DisplayOneSUComp";
+import AddSUComp from "./pagecomponents/AddSUComp";
+import EditSUComp from './pagecomponents/EditSUComp'
+import ReferralLinksComp from "./referrallinks/page";
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseURL, supabaseKey);
 
-export default function Login({pageName}) {
+export default function AuthRouter({pageName}) {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
@@ -40,12 +42,19 @@ export default function Login({pageName}) {
   }
   // redirector
   switch (pageName) {
-    case 'Dashboard':
+    case 'dashboard':
       return <DashboardComp />;
-    case 'editpage':
-      return <EditSU />;
-    case 'AddSU':
-      return <AddSU />;
+    case 'displayallsu':
+      return <DisplayAllSUComp />;
+    case 'displayonesu':
+      return <DisplayOneSUComp />;
+    case 'editsu':
+      return <EditSUComp />;
+    case 'addsu':
+      return <AddSUComp />;
+    case 'referrallinks':
+      return <ReferralLinksComp />;
+
     default:
       return <div>page Name passed to login as a prop wasnt matched</div>;
   }

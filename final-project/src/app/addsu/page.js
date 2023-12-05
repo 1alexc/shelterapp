@@ -1,12 +1,9 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import BackButton from "../components/BackButton.jsx"
-import Login from '../components/Login.jsx'
+import AuthRouter from '../AuthRouter.jsx'
 
 export default function AddSU() {
     return (
-        <main>
-            <Login pageName={"AddSU"}/>
-        </main>
+        <>
+            <AuthRouter pageName={"addsu"}/>
+        </>
     )
 }

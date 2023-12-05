@@ -4,9 +4,9 @@ import Image from 'next/image'
 import BackButton from "../components/BackButton.jsx"
 export default function ReferralLinks() {
     return (
-        <main>
-        <BackButton/>
+        <>
+            <Login pageName={"referrallinks"}/>
             <h1>Referral links</h1>
-        </main>
+        </>
     )
 }
