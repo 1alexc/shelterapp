@@ -7,12 +7,18 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { redirect } from 'next/navigation'
 import Link from "next/link";
 
+// components
+import DashboardComp from "./DashboardComp";
+import EditSU from '../components/EditSU'
+import AddSU from "./AddSu";
+
+
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseURL, supabaseKey);
 
-export default function Login() {
+export default function Login({pageName}) {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
@@ -32,7 +38,17 @@ export default function Login() {
   if (!session) {
     return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
   }
-  redirect("/dashboard")
+  // redirector
+  switch (pageName) {
+    case 'Dashboard':
+      return <DashboardComp />;
+    case 'editpage':
+      return <EditSU />;
+    case 'AddSU':
+      return <AddSU />;
+    default:
+      return <div>page Name passed to login as a prop wasnt matched</div>;
+  }
 }
 
 // } else {

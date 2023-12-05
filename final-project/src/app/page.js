@@ -5,8 +5,8 @@ import Login from "./components/Login";
 export default function Home() {
   return (
     <main>
-      <h1>Login Page</h1>
-      <Login />
+      <h1>Login Page - Login Component will render below</h1>
+      <Login pageName={"Dashboard"}/>
     </main>
   );
 }
