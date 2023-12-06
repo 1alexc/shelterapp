@@ -1,10 +1,9 @@
-import BackButton from "../components/BackButton.jsx"
-
+import AuthRouter from '../AuthRouter.jsx'
 export default function ReferralLinks() {
     return (
-        <main>
-        <BackButton/>
+        <>
+            <AuthRouter pageName={"referrallinks"}/>
             <h1>Referral links</h1>
-        </main>
+        </>
     )
 }
