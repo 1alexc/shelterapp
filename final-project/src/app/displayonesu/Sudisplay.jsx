@@ -13,6 +13,7 @@ export default function SuDisplay({ user_id, first_name, last_name, age, gender,
       <p>Emergency Contact Name: {emergency_contact_name}</p>
       <p>Emergency Contact Relationship: {emergency_contact_relationship} </p>
       <p>Emergency Contact Phone: {emergency_contact_phone} </p>
+      <p>{user_id}</p>
     </>
   );
 }
