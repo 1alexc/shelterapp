@@ -13,7 +13,7 @@ async function getSuProfile() {
     const res = await supabase.from('service_users').select('*');
     const data = res;
     
-    return data;
+    return data.data;
 };
 
 
@@ -28,7 +28,7 @@ export default async function ViewSUProfile() {
         <main>
         <BackButton/>
             <h1>View SU Profile</h1>
-            {suProfiles.map(({user_id, first_name, last_name}) => (
+            {suProfiles && suProfiles.map(({user_id, first_name, last_name}) => (
                 <SuDisplay key={user_id} first_name={first_name} last_name={last_name}  />
             ))
 
