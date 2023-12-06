@@ -31,18 +31,28 @@ export default async function DisplayOneSU() {
     const suProfiles = await getSuProfile();
   console.log("su profile", suProfiles);
   const id = generateStaticParams();
+  console.log(id);
 
     return (
         <>
             <AuthRouter pageName={"displayonesu"}/>
             <h1>View SU Profile</h1>
             {suProfiles &&
-        suProfiles.map(({ user_id, first_name, last_name }) => (
+        suProfiles.map(({ user_id, first_name, last_name, age, gender, dob, ni_number, phone, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_phone }) => (
           <SuDisplay
             key={user_id}
             first_name={first_name}
             last_name={last_name}
             id={id}
+            age={age}
+            gender={gender}
+            dob={dob}
+            ni_number={ni_number}
+            phone={phone}
+            email={email}
+            emergency_contact_name={emergency_contact_name}
+            emergency_contact_relationship={emergency_contact_relationship}
+            emergency_contact_phone={emergency_contact_phone}
           />
         ))}
       
