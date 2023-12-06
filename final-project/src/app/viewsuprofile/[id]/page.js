@@ -1,5 +1,5 @@
 import Link from "next/link";
-import BackButton from "../../components/BackButton.jsx";
+
 import { createClient } from "@supabase/supabase-js";
 import SuDisplay from "@/app/components/Sudisplay.js";
 

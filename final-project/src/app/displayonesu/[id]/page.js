@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import AuthRouter from '../AuthRouter.jsx'
+import AuthRouter from '../../AuthRouter.jsx'
 export default function DisplayOneSU() {
     return (
         <>
