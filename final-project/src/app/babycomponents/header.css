@@ -5,8 +5,8 @@
 }
 
 .logo {
-    height: 100px;
-    width: 250px;
+    height: 10rem;
+    width: 25rem;
     justify-content: space-between;
     align-items: center;
 }
