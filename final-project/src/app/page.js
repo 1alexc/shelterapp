@@ -1,13 +1,10 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import AuthRouter from "./AuthRouter";
 
-export default function Login() {
+export default function Home() {
   return (
     <main>
-        <h1>Login Page</h1>
-        <Link href="/dashboard">
-          <button>Login Button</button>
-        </Link>
+      <h1>Login Page - Login Component will render below</h1>
+      <AuthRouter pageName={"dashboard"}/>
     </main>
-  )
+  );
 }

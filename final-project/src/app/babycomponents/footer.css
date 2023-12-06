@@ -1,0 +1,8 @@
+.rat{
+    display:flex;
+    flex-direction: row;
+    border-top: 1rem solid blue;
+    padding-top: 0.5em;
+    justify-content: center;
+    margin-top: 0.5rem
+}

@@ -1,0 +1,5 @@
+.header{
+    display:flex;
+    flex-direction: row;
+    border-bottom: 1rem solid red;
+    background-color: blue;}
