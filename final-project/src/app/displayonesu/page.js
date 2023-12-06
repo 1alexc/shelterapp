@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import BackButton from "../components/BackButton.jsx"
 import AuthRouter from '../AuthRouter.jsx'
 export default function DisplayOneSU() {
     return (

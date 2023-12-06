@@ -1,10 +1,13 @@
+import compStyles from "./dashboard.css"
+
 import Link from "next/link"
 
 export default function DashboardComp() {
     return (
     <>
-        <div className="linksbox">
-            <Link href="/viewallsus" >
+        <h2 className="linksbox">Hi</h2>
+        <div>
+            <Link href="/displayallsu" >
                 <button>View Service User Button</button>
             </Link>
             <Link href="/addsu">

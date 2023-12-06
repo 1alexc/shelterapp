@@ -1,8 +1,9 @@
+import compStyles from "./referrallinks.css"
 
 export default function ReferralLinksComp() {
     return (
         <>
-            <div >
+            <div className="referral">
                 "this is the referral page"
             </div>
         </>

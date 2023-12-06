@@ -13,7 +13,7 @@ import DisplayAllSUComp from "./pagecomponents/DisplayAllSUComp";
 import DisplayOneSUComp from "./pagecomponents/DisplayOneSUComp";
 import AddSUComp from "./pagecomponents/AddSUComp";
 import EditSUComp from './pagecomponents/EditSUComp'
-import ReferralLinksComp from "./referrallinks/page";
+import ReferralLinksComp from "./pagecomponents/ReferralLinksComp";
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -54,7 +54,6 @@ export default function AuthRouter({pageName}) {
       return <AddSUComp />;
     case 'referrallinks':
       return <ReferralLinksComp />;
-
     default:
       return <div>page Name passed to login as a prop wasnt matched</div>;
   }

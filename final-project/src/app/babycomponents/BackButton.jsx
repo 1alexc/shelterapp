@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import BackButtonStyles from "./BackButton.css"
+import babyCompStyles from "./BackButton.css"
 
 export default function BackButton() {
     return (
