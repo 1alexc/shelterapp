@@ -6,13 +6,13 @@ export default function DashboardComp() {
   return (
     <>
       <div className="flexbox-container1">
-        <p className="flexbox-item flexbox-item1">
+        <p className="flexbox-item1">
           Welcome XXX to your Dashboard
         </p>
       </div>
 
       <div className="flexbox-container2">
-        <div className="flexbox-item flexbox-item2">
+        <div className="flexbox-item2">
           <Link href="/displayallsu">
             <button>View Service User Button</button>
           </Link>

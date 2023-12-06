@@ -14,27 +14,22 @@
     gap: 20px;
   }
 
-  .flexbox-item {
-    width: 400px;
-    height:200px;
+  .flexbox-item1 {
+    width: 300px;
+    height:80px;
     margin: 10px;
     padding: 20px;
     background-color: #D1E7FE;
     border-radius: 10px;
-  
+    text-align: center;
   }
-  
-  .flexbox-item-1 {
-    width: 400px;
-    height:100px;
+
+  .flexbox-item2 {
+    width: 300px;
+    height:600px;
     margin: 10px;
     padding: 20px;
     background-color: #D1E7FE;
-  }
-  
-  .flexbox-item-2 {
-    width: 400px;
-    height:200px;
-    margin: 10px;
-    background-color: #D1E7FE;
+    border-radius: 10px;
+    text-align: center;
   }
