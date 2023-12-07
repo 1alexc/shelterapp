@@ -1,7 +1,7 @@
   /* page master */
   
   .page-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,13 +21,13 @@
     justify-content: center;
     border-radius: 10px;
     align-items: center;
-    width: 85%;
+    width: 84%;
     gap: 20px;
     padding: 1rem;
   }
 
   .flexbox-container-info{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,4 +78,14 @@
 
   .value {
     
+  }
+
+  .flexbox-item-image {
+    display:flex;
+    justify-content: center;
+  }
+
+  .SU-pic {
+    width: 40%;
+    border-radius: 40%;
   }

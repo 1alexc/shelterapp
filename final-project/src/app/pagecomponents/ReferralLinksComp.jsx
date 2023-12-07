@@ -8,7 +8,9 @@ export default function ReferralLinksComp() {
       <div className="page-container">
         {/* WELCOME BOX */}
         <div className="flexbox-container-w">
-          <div className="flexbox-item-image">image</div>
+          <div className="flexbox-item-image">
+            <img className="SU-pic" src="/William_Brown.png" alt="William Brown" />
+          </div>
           <div className="flexbox-item-serviceusername">
             Welcome to William Brown's profile
           </div>
