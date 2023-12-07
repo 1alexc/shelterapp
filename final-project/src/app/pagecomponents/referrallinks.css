@@ -1,7 +1,7 @@
   /* page master */
   
   .page-container {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +27,7 @@
   }
 
   .flexbox-container-info{
-    /* border: 1px solid red; */
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
