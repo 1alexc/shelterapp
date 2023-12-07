@@ -1,35 +1,23 @@
-.header{
-    display:flex;
-    flex-direction: row;
-    background-color: #6AC3F7;
-    border: 1px white solid;
-}
-
-.logo {
-    height: 10rem;
-    width: 25rem;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.login-status {
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    transform: translate(-50%, -50%);
-}
-
 .flexbox-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    background-color: purple;
+    padding-bottom: 10px;
 }
 
-.flexbox-item {
-    padding: 10px;
-    justify-content: space-between;
-    align-items: center;
+.flexbox-item-home {
 
+}
+
+.flexbox-item-title {
+
+}
+
+.flexbox-item-status {
+    background-color: #D1E7FE;
+    border-radius: 10px;
+    padding-inline: 1rem;
 }

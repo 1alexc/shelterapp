@@ -3,18 +3,16 @@ import babyCompStyles from "./header.css";
 import Image from "next/image";
 export default function Header() {
   return (
-    <nav className="header">
       <div className="flexbox-container">
-        <BackButton />
-        <Image
-          src="/logo1.png"
-          alt="Home Horizon Logo"
-          width="64"
-          height="64"
-          className="logo"
-        />
-        <p className="login-status">Key Worker</p>
+        <div className="flexbox-item-home">
+          <BackButton />
+        </div>
+        <div className="flexbox-item-title">
+          <h1 >Home Horizon</h1>
+        </div>
+        <div className="flexbox-item-status">
+          <p>Username</p>
+        </div>
       </div>
-    </nav>
   );
 }

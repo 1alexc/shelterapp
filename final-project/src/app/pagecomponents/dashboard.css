@@ -1,18 +1,20 @@
   /* page master */
   
   .page-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
   }
 
 
   /* Flex box for welcome  */
 
 .flexbox-container-w{
-  border: 1px solid red;
+  /* border: 1px solid red; */
     display: flex;
     background-color: #D1E7FE;
     flex-direction: column;
@@ -24,16 +26,47 @@
   }
 
 .flexbox-item-w {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   }
 
   /* Flex box for links */
 
   .flexbox-container-links{
-    border: 1px solid red;
-    
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #D1E7FE;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+  
   }
 
-  .flexbox-item-links {
-    border: 1px solid red;
+  .flexbox-item-links-box {
+    display: flex;
+    /* border: 1px solid blue; */
+    flex-direction: row;
+    background-color: white;
+    border-radius: 10px;
+    width: 75%;
+    gap: 4rem;
+  }
+
+  .flexbox-item-links-box:hover {
+    background-color: yellow;
+  }
+
+  .item-links-img {
+    /* border: 1px solid brown; */
+    width: 15%;
+    padding-left: 1rem;
+    padding-block: 0.5rem;
+
+  }
+
+  .item-links-text {
+    /* border: 1px solid black; */
   }
