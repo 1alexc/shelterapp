@@ -1,4 +1,6 @@
-export default function SuDisplay({ user_id, first_name, last_name, age, gender, dob, ni_number, phone, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_phone }) {
+//because generatestaticparams was used in the parent component, you will probably need to restart the server for the display to update any changes made here. 
+
+export default function SuDisplay({ first_name, last_name, age, gender, dob, ni_number, phone, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_phone }) {
     return (
       <>
         <h2>
@@ -13,7 +15,6 @@ export default function SuDisplay({ user_id, first_name, last_name, age, gender,
         <p>Emergency Contact Name: {emergency_contact_name}</p>
         <p>Emergency Contact Relationship: {emergency_contact_relationship} </p>
         <p>Emergency Contact Phone: {emergency_contact_phone} </p>
-        <p>{user_id}</p>
       </>
     );
   }

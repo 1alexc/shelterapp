@@ -1,5 +1,5 @@
-"use client"
-//must use client for useffect and usestate
+"use client";
+//must use client for useffect and usestate. this means data is fetched client-side on this page.
 import Link from "next/link";
 import AuthRouter from "../AuthRouter.jsx";
 import { createClient } from "@supabase/supabase-js";
@@ -38,23 +38,21 @@ export default function ViewAllSUs() {
 
     fetchData();
   }, []);
-    console.log(data)
+  console.log(data);
 
   return (
     <>
       <AuthRouter pageName={"displayallsu"} />
       <h1>View SU</h1>
-      {/* map su data to the buttons - currently they are not connected to a specific profile but they are links */}
-      {data.map(profiles => (
+
+      {/* map su data to the buttons - they are links connected to a specific profile */}
+      {data.map((profiles) => (
         <Link key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
-          
-            <button>{profiles.first_name} {profiles.last_name}</button>
-          
+          <button>
+            {profiles.first_name} {profiles.last_name}
+          </button>
         </Link>
       ))}
-      <Link href="/displayonesu">
-        <button>View Specific Service User Button</button>
-      </Link>
     </>
   );
 }
