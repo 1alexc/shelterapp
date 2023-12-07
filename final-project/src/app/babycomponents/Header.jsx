@@ -1,9 +1,18 @@
-import BackButton from "./BackButton"
-import babyCompStyles from "./header.css"
+import BackButton from "./BackButton";
+import babyCompStyles from "./header.css";
+import Image from "next/image";
 export default function Header() {
-    return (
-        <nav className="header">
-            <BackButton />
-            <h1>Home Horizon</h1>
-        </nav>
-    )}
+  return (
+      <div className="flexbox-container">
+        <div className="flexbox-item-home">
+          <BackButton />
+        </div>
+        <div className="flexbox-item-title">
+          <h1 >Home Horizon</h1>
+        </div>
+        <div className="flexbox-item-status">
+          <p>Username</p>
+        </div>
+      </div>
+  );
+}

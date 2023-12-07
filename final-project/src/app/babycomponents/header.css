@@ -1,5 +1,23 @@
-.header{
-    display:flex;
+.flexbox-container {
+    display: flex;
     flex-direction: row;
-    border-bottom: 1rem solid red;
-    background-color: blue;}
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: purple;
+    padding-bottom: 10px;
+}
+
+.flexbox-item-home {
+
+}
+
+.flexbox-item-title {
+
+}
+
+.flexbox-item-status {
+    background-color: #D1E7FE;
+    border-radius: 10px;
+    padding-inline: 1rem;
+}
