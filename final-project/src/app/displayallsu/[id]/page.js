@@ -53,54 +53,37 @@ async function getSuStrengths(id) {
 
 export default async function DisplayOneSU({ params }) {
   const id = params.id;
-  console.log("id", id);
+  // console.log("id", id);
 
   const suProfiles = await getSuProfile(id);
-  console.log("su profile", suProfiles);
+  // console.log("su profile", suProfiles);
   const suStrengths = await getSuStrengths(id);
-  console.log(suStrengths);
-  console.log(suProfiles.push(suStrengths));
+  // console.log(suStrengths);
 
   return (
     <>
       <AuthRouter pageName={"displayonesu"} />
       <h1>View SU Profile</h1>
-      {suProfiles &&
-        suProfiles.map(
-          ({
-            user_id,
-            first_name,
-            last_name,
-            age,
-            gender,
-            dob,
-            ni_number,
-            phone,
-            email,
-            emergency_contact_name,
-            emergency_contact_relationship,
-            emergency_contact_phone,
-            strengths_text_one,
-          }) => (
-            <SuDisplay
-              key={user_id}
-              first_name={first_name}
-              last_name={last_name}
-              id={id}
-              age={age}
-              gender={gender}
-              dob={dob}
-              ni_number={ni_number}
-              phone={phone}
-              email={email}
-              emergency_contact_name={emergency_contact_name}
-              emergency_contact_relationship={emergency_contact_relationship}
-              emergency_contact_phone={emergency_contact_phone}
-              strengths_text_one={strengths_text_one}
-            />
-          )
-        )}
+    
+        <h1>
+          {suProfiles[0].first_name} {suProfiles[0].last_name}
+        </h1>
+    {/* HIGHLEVELTABLE */}
 
+        <p><strong>Age: </strong>{suProfiles[0].age}</p>
+        <p><strong>Age: </strong>{suProfiles[0].gender}</p>
+        <p><strong>DOB: </strong>{suProfiles[0].dob}</p>
+        <p><strong>NI Number: </strong>{suProfiles[0].ni_number}</p>
+        <p><strong>Phone: </strong>{suProfiles[0].phone}</p>
+        <p><strong>Email: </strong>{suProfiles[0].email}</p>
+        <p><strong>Emergency Contact Name: </strong>{suProfiles[0].emergency_contact_name}</p>
+        <p><strong>Emergency Contact Relationship:: </strong>Emergency Contact Relationship: {suProfiles[0].emergency_contact_relationship} </p>
+        <p><strong>Emergency Contact Phone: </strong>{suProfiles[0].emergency_contact_phone} </p>
+      {/* STRENGTHS TABLE  */}
+        <h1>STRENGTHS</h1>
+        <p><strong>One: </strong>{suStrengths[0].strengths_text_one}</p>
+        <p><strong>Two: </strong>{suStrengths[0].strengths_text_two}</p>
+        <p><strong>Three: </strong>{suStrengths[0].strengths_text_three}</p>
       <Link href="/editsu">
         <button>Edit Service User Button</button>
       </Link>
