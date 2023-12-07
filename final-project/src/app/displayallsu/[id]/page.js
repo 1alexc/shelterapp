@@ -21,7 +21,7 @@ export async function generateStaticParams() {
     } else {
       // Handles the case where no user with the user_id is found
       // Throws an error if this happens
-      return []; 
+      return [];
     }
   } catch (error) {
     console.error("Error fetching data from Supabase:", error);
@@ -42,6 +42,12 @@ async function getSuProfile(id) {
   return data.data;
 }
 
+async function getSuStrengths(id) {
+  const res = await supabase.from("strengths").select("*").eq("user_id", id);
+
+  const data = res;
+  return data.data;
+}
 //renders the page, gets the user id from generatestaticparams, fetches profile using this id as an argument
 //as data is fetched server-side the console logs will only be in the next.js terminal and not on the website
 
@@ -51,7 +57,9 @@ export default async function DisplayOneSU({ params }) {
 
   const suProfiles = await getSuProfile(id);
   console.log("su profile", suProfiles);
- 
+  const suStrengths = await getSuStrengths(id);
+  console.log(suStrengths);
+  console.log(suProfiles.push(suStrengths));
 
   return (
     <>
@@ -72,6 +80,7 @@ export default async function DisplayOneSU({ params }) {
             emergency_contact_name,
             emergency_contact_relationship,
             emergency_contact_phone,
+            strengths_text_one,
           }) => (
             <SuDisplay
               key={user_id}
@@ -87,6 +96,7 @@ export default async function DisplayOneSU({ params }) {
               emergency_contact_name={emergency_contact_name}
               emergency_contact_relationship={emergency_contact_relationship}
               emergency_contact_phone={emergency_contact_phone}
+              strengths_text_one={strengths_text_one}
             />
           )
         )}
