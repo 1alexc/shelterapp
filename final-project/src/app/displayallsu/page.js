@@ -46,7 +46,7 @@ export default function ViewAllSUs() {
       <h1>View SU</h1>
       {/* map su data to the buttons - currently they are not connected to a specific profile but they are links */}
       {data.map(profiles => (
-        <Link key={profiles.user_id} href={`/displayonesu/${profiles.user_id}`}>
+        <Link key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
           
             <button>{profiles.first_name} {profiles.last_name}</button>
           
