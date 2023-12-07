@@ -1,49 +1,39 @@
-.flexbox-container1{
+  /* page master */
+  
+  .page-container {
+    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
   }
 
-  .flexbox-container2{
+
+  /* Flex box for welcome  */
+
+.flexbox-container-w{
+  border: 1px solid red;
     display: flex;
+    background-color: #D1E7FE;
     flex-direction: column;
     justify-content: center;
+    border-radius: 10px;
     align-items: center;
+    width: 90%;
     gap: 20px;
   }
 
-  .flexbox-item1 {
-    width: 300px;
-    height:80px;
-    margin: 10px;
-    padding: 20px;
-    background-color: #D1E7FE;
-    border-radius: 10px;
-    text-align: center;
+.flexbox-item-w {
+  border: 1px solid red;
   }
 
-  .flexbox-item2 {
-    width: 300px;
-    height:600px;
-    margin: 10px;
-    padding: 20px;
-    background-color: #D1E7FE;
-    border-radius: 10px;
-    text-align: center;
+  /* Flex box for links */
+
+  .flexbox-container-links{
+    border: 1px solid red;
+    
   }
 
-  .button-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .button-container img {
-    width: 50px;
-    height: 50px;
-  }
-  .button-container button {
-    padding: 10px;
-    border-radius: 10px;
+  .flexbox-item-links {
+    border: 1px solid red;
   }
