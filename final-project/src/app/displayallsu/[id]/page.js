@@ -13,9 +13,7 @@ const supabase = createClient(supaurl, supakey);
 export async function generateStaticParams() {
   try {
     const res = await supabase.from("service_users").select("user_id");
-
     const userData = res.data[0]; //This only fetches one result
-
     if (userData) {
       return [{ id: userData.user_id.toString() }];
     } else {
@@ -32,58 +30,76 @@ export async function generateStaticParams() {
 //This fetches a specific profile (server-side so the code is different from the diaplayallsu which fetches client-side)
 // .eq is equivalent to WHERE in SQL
 
-async function getSuProfile(id) {
-  const res = await supabase
+async function getSuData(id) {
+  const profileResponse = await supabase
     .from("service_users")
     .select("*")
     .eq("user_id", id);
+    
+  const strengthsResponse = await supabase
+    .from("strengths")
+    .select("*")
+    .eq("user_id", id);
 
-  const data = res;
-  return data.data;
-}
+  const medicalResponse = await supabase
+    .from("medical")
+    .select("*")
+    .eq("user_id", id);
 
-async function getSuStrengths(id) {
-  const res = await supabase.from("strengths").select("*").eq("user_id", id);
+  const employment_statusResponse = await supabase
+    .from("employment_status")
+    .select("*")
+    .eq("user_id", id);
 
-  const data = res;
-  return data.data;
+    const residenceResponse = await supabase
+    .from("residence")
+    .select("*")
+    .eq("user_id", id);
+
+  const profile = profileResponse.data;
+  const strengths = strengthsResponse.data;
+  const medical = medicalResponse.data;
+  const employment_status = employment_statusResponse.data;
+  const residence = residenceResponse.data;
+  let allInfo = { profile, strengths, medical, employment_status, residence }
+  return allInfo
 }
 //renders the page, gets the user id from generatestaticparams, fetches profile using this id as an argument
 //as data is fetched server-side the console logs will only be in the next.js terminal and not on the website
 
 export default async function DisplayOneSU({ params }) {
   const id = params.id;
-  // console.log("id", id);
-
-  const suProfiles = await getSuProfile(id);
-  // console.log("su profile", suProfiles);
-  const suStrengths = await getSuStrengths(id);
-  // console.log(suStrengths);
+  const { profile, strengths, medical, employment_status, residence } = await getSuData(id);
 
   return (
     <>
       <AuthRouter pageName={"displayonesu"} />
       <h1>View SU Profile</h1>
-    
-        <h1>
-          {suProfiles[0].first_name} {suProfiles[0].last_name}
-        </h1>
+      <h1>{profile[0].first_name} {profile[0].last_name}</h1>
     {/* HIGHLEVELTABLE */}
 
-        <p><strong>Age: </strong>{suProfiles[0].age}</p>
-        <p><strong>Age: </strong>{suProfiles[0].gender}</p>
-        <p><strong>DOB: </strong>{suProfiles[0].dob}</p>
-        <p><strong>NI Number: </strong>{suProfiles[0].ni_number}</p>
-        <p><strong>Phone: </strong>{suProfiles[0].phone}</p>
-        <p><strong>Email: </strong>{suProfiles[0].email}</p>
-        <p><strong>Emergency Contact Name: </strong>{suProfiles[0].emergency_contact_name}</p>
-        <p><strong>Emergency Contact Relationship:: </strong>Emergency Contact Relationship: {suProfiles[0].emergency_contact_relationship} </p>
-        <p><strong>Emergency Contact Phone: </strong>{suProfiles[0].emergency_contact_phone} </p>
+        <p><strong>Age: </strong>{profile[0].age}</p>
+        <p><strong>Age: </strong>{profile[0].gender}</p>
+        <p><strong>DOB: </strong>{profile[0].dob}</p>
+        <p><strong>NI Number: </strong>{profile[0].ni_number}</p>
+        <p><strong>Phone: </strong>{profile[0].phone}</p>
+        <p><strong>Email: </strong>{profile[0].email}</p>
+        <p><strong>Emergency Contact Name: </strong>{profile[0].emergency_contact_name}</p>
+        <p><strong>Emergency Contact Relationship:: </strong>{profile[0].emergency_contact_relationship} </p>
+        <p><strong>Emergency Contact Phone: </strong>{profile[0].emergency_contact_phone} </p>
       {/* STRENGTHS TABLE  */}
         <h1>STRENGTHS</h1>
-        <p><strong>One: </strong>{suStrengths[0].strengths_text_one}</p>
-        <p><strong>Two: </strong>{suStrengths[0].strengths_text_two}</p>
-        <p><strong>Three: </strong>{suStrengths[0].strengths_text_three}</p>
+        <p><strong>One: </strong>{strengths[0].strengths_text_one}</p>
+        <p><strong>Two: </strong>{strengths[0].strengths_text_two}</p>
+        <p><strong>Three: </strong>{strengths[0].strengths_text_three}</p>
+        <h1>Medical Hostory</h1>
+        <p><strong>NHS Number: </strong>{medical[0].nhs_number}</p>
+        <p><strong>Medical: </strong>{medical[0].mental_health_disclosures}</p>
+        <p><strong>NHS Number: </strong>{medical[0].physical_health_disclosures}</p>
+        <p><strong>NHS Number: </strong>{medical[0].substance_abuse_disclosures}</p>
+        <p><strong>NHS Number: </strong>{medical[0].registered_medical_practice}</p>
+        <p><strong>NHS Number: </strong>{medical[0].blood_type}</p>
+        <p><strong>NHS Number: </strong>{medical[0].allergies}</p>
       <Link href="/editsu">
         <button>Edit Service User Button</button>
       </Link>
