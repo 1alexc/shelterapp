@@ -1,3 +1,68 @@
-.referral{
-    color:grey;
+  /* page master */
+  
+  .page-container {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+
+
+  /* Flex box for welcome  */
+
+.flexbox-container-w{
+  /* border: 1px solid red; */
+    display: flex;
+    background-color: #D1E7FE;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    width: 90%;
+    gap: 20px;
+  }
+
+  .flexbox-container-info{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #D1E7FE;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
+  
 }
+.flexbox-item-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.flexbox-item-keyvaluepair {
+    /* background-color: white; */
+    display: flex;
+    /* border: 1px solid blue; */
+    flex-direction: row;
+    border-radius: 10px;
+    width: 75%;
+    gap: 4rem;
+    /* display: none */
+  }
+
+
+  .item-links-img {
+    /* border: 1px solid brown; */
+    width: 15%;
+    padding-left: 1rem;
+    padding-block: 0.5rem;
+
+  }
+
+  .item-links-text {
+    /* border: 1px solid black; */
+  }
