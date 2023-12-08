@@ -2,6 +2,7 @@ import Link from "next/link";
 import AuthRouter from "../../AuthRouter.jsx";
 import { createClient } from "@supabase/supabase-js";
 import styles from "./sudisplay.css"
+import Image from "next/image.js";
 
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -98,7 +99,7 @@ export default async function DisplayOneSU({ params }) {
         {/* WELCOME BOX */}
         <div className="flexbox-container-w">
           <div className="flexbox-item-image">
-            <img className="SU-pic" src="/William_Brown.png" alt="William Brown" />
+            <Image className="SU-pic" src="/William_Brown.png" alt="William Brown" width="100" height="100" />
           </div>
           <div className="flexbox-item-serviceusername">
             Welcome to {profile[0].first_name}'s profile
