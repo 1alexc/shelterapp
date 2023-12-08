@@ -1,7 +1,6 @@
 import Link from "next/link";
 import AuthRouter from "../../AuthRouter.jsx";
 import { createClient } from "@supabase/supabase-js";
-import SuDisplay from "./SuDisplay.jsx";
 import styles from "./sudisplay.css"
 
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
