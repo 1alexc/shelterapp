@@ -213,7 +213,7 @@ export default async function DisplayOneSU({ params }) {
         {residence[0].previous_stays}
       </p>
       {/* COMMENTS TABLE  */}
-      <h1>Comments</h1>
+      <h1>Comment (oldest)</h1>
       <p>
         <strong>Comment Text: </strong>
         {comments[0].comment_text}
@@ -226,6 +226,8 @@ export default async function DisplayOneSU({ params }) {
         <strong>Staff ID: </strong>
         {comments[0].staff_id}
       </p>
+      {/* To display all comments for loop, repeating comments.length number of times, returning the comment object */}
+      
       <Link href="/editsu">
         <button>Edit Service User Button</button>
       </Link>
