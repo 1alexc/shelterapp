@@ -2,6 +2,7 @@ import Link from "next/link";
 import AuthRouter from "../../AuthRouter.jsx";
 import { createClient } from "@supabase/supabase-js";
 import SuDisplay from "./SuDisplay.jsx";
+import styles from "./sudisplay.css"
 
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -94,138 +95,179 @@ export default async function DisplayOneSU({ params }) {
   return (
     <>
       <AuthRouter pageName={"displayonesu"} />
-      <h1>View SU Profile</h1>
-      <h1>
-        {profile[0].first_name} {profile[0].last_name}
-      </h1>
+      <div className="page-container">
+        {/* WELCOME BOX */}
+        <div className="flexbox-container-w">
+          <div className="flexbox-item-image">
+            <img className="SU-pic" src="/William_Brown.png" alt="William Brown" />
+          </div>
+          <div className="flexbox-item-serviceusername">
+            Welcome to {profile[0].first_name}'s profile
+          </div>
+        </div>
+
+        {/* NEXT BOX */}
+        <div className="flexbox-container-info">
+          <div className="flexbox-item-title">Basic Information</div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">First Name:</div>
+            <div className="value">{profile[0].first_name}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Last Name:</div>
+            <div className="value">{profile[0].last_name}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Age:</div>
+            <div className="value">{profile[0].age}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Gender:</div>
+            <div className="value">{profile[0].gender}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">DOB:</div>
+            <div className="value">{profile[0].dob}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">NI Number:</div>
+            <div className="value">{profile[0].ni_number}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Phone Number:</div>
+            <div className="value">{profile[0].phone}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Email:</div>
+            <div className="value">william.b@example.com</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Emergency Contact Name:</div>
+            <div className="value">Olivia Brown</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Emergency Contact Relationship:</div>
+            <div className="value">Aunt</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Emergency Contact Phone Number:</div>
+            <div className="value">07654321098</div>
+          </div>
+        </div>
+    
+
+        {/* NEXT BOX */}
+        <div className="flexbox-container-info">
+          <div className="flexbox-item-title">Strengths</div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Strengths One:</div>
+            <div className="value">
+              {strengths[0].strengths_text_one}
+            </div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Strength Two:</div>
+            <div className="value">
+              {strengths[0].strengths_text_two}
+            </div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Strength Three:</div>
+            <div className="value">
+             {strengths[0].strengths_text_three}
+            </div>
+          </div>
+        </div>
+
+        {/* NEXT BOX */}
+        <div className="flexbox-container-info">
+          <div className="flexbox-item-title">Medical</div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">NHS Number:</div>
+            <div className="value">{medical[0].nhs_number}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Mental Health Disclosures:</div>
+            <div className="value">{medical[0].mental_health_disclosures}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Physical Health Disclosure:</div>
+            <div className="value">{medical[0].physical_health_disclosures}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Substance Abuse Disclosures:</div>
+            <div className="value">{medical[0].substance_abuse_disclosures}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Registered Medical Practitioner:</div>
+            <div className="value">{medical[0].registered_medical_practice}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Blood Type:</div>
+            <div className="value">{medical[0].blood_type}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Allergies</div>
+            <div className="value">{medical[0].allergies}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Medications</div>
+            <div className="value">{medical[0].medications}</div>
+          </div>
+        </div>
+        {/* NEXT BOX */}
+        <div className="flexbox-container-info">
+          <div className="flexbox-item-title">Employment History</div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Job Description:</div>
+            <div className="value"> {employment_status[0].job_description}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Start Date:</div>
+            <div className="value">{employment_status[0].start_date}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">End Date:</div>
+            <div className="value">{employment_status[0].end_date}</div>
+          </div>
+        </div>
+        {/* NEXT BOX */}
+        <div className="flexbox-container-info">
+          <div className="flexbox-item-title">Comments</div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Comment text:</div>
+            <div className="value">{comments[0].comment_text}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Date issued:</div>
+            <div className="value">{comments[0].comment_date}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Staff member:</div>
+            <div className="value">{comments[0].staff_id}</div>
+          </div>
+        </div>
+        {/* NEXT BOX */}
+        <div className="flexbox-container-info">
+          <div className="flexbox-item-title">Residence</div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Entry Date:</div>
+            <div className="value">{residence[0].date_entry}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Current Status:</div>
+            <div className="value">{residence[0].current_status}</div>
+          </div>
+          <div className="flexbox-item-keyvaluepair">
+            <div className="key">Previous Stays:</div>
+            <div className="value">{residence[0].previous_stays}</div>
+          </div>
+        </div>
+      </div>
+
       {/* HIGHLEVELTABLE */}
 
-      <p>
-        <strong>Age: </strong>
-        {profile[0].age}
-      </p>
-      <p>
-        <strong>Age: </strong>
-        {profile[0].gender}
-      </p>
-      <p>
-        <strong>DOB: </strong>
-        {profile[0].dob}
-      </p>
-      <p>
-        <strong>NI Number: </strong>
-        {profile[0].ni_number}
-      </p>
-      <p>
-        <strong>Phone: </strong>
-        {profile[0].phone}
-      </p>
-      <p>
-        <strong>Email: </strong>
-        {profile[0].email}
-      </p>
-      <p>
-        <strong>Emergency Contact Name: </strong>
-        {profile[0].emergency_contact_name}
-      </p>
-      <p>
-        <strong>Emergency Contact Relationship:: </strong>
-        {profile[0].emergency_contact_relationship}{" "}
-      </p>
-      <p>
-        <strong>Emergency Contact Phone: </strong>
-        {profile[0].emergency_contact_phone}{" "}
-      </p>
-      {/* STRENGTHS TABLE  */}
-      <h1>STRENGTHS</h1>
-      <p>
-        <strong>One: </strong>
-        {strengths[0].strengths_text_one}
-      </p>
-      <p>
-        <strong>Two: </strong>
-        {strengths[0].strengths_text_two}
-      </p>
-      <p>
-        <strong>Three: </strong>
-        {strengths[0].strengths_text_three}
-      </p>
-      {/* MEDICAL HISTORY TABLE  */}
-      <h1>Medical History</h1>
-      <p>
-        <strong>NHS Number: </strong>
-        {medical[0].nhs_number}
-      </p>
-      <p>
-        <strong>Mental Health Disclosures: </strong>
-        {medical[0].mental_health_disclosures}
-      </p>
-      <p>
-        <strong>Physical Health Disclosures: </strong>
-        {medical[0].physical_health_disclosures}
-      </p>
-      <p>
-        <strong>Substance Abuse Disclosures: </strong>
-        {medical[0].substance_abuse_disclosures}
-      </p>
-      <p>
-        <strong>Registered Medical Practice: </strong>
-        {medical[0].registered_medical_practice}
-      </p>
-      <p>
-        <strong>Blood Typer: </strong>
-        {medical[0].blood_type}
-      </p>
-      <p>
-        <strong>Allergies: </strong>
-        {medical[0].allergies}
-      </p>
-      <p>
-        <strong>Medications: </strong>
-        {medical[0].medications}
-      </p>
-      {/* EMPLOYMENT STATUS TABLE  */}
-      <h1>Employment Status</h1>
-      <p>
-        <strong>Job Description: </strong>
-        {employment_status[0].job_description}
-      </p>
-      <p>
-        <strong>Start Date: </strong>
-        {employment_status[0].start_date}
-      </p>
-      <p>
-        <strong>End Date: </strong>
-        {employment_status[0].end_date}
-      </p>
-      {/* RESIDENCE TABLE  */}
-      <h1>Residence Status</h1>
-      <p>
-        <strong>Date Entry: </strong>
-        {residence[0].date_entry}
-      </p>
-      <p>
-        <strong>Current Status: </strong>
-        {residence[0].current_status}
-      </p>
-      <p>
-        <strong>Previous Stays: </strong>
-        {residence[0].previous_stays}
-      </p>
-      {/* COMMENTS TABLE  */}
-      <h1>Comment (oldest)</h1>
-      <p>
-        <strong>Comment Text: </strong>
-        {comments[0].comment_text}
-      </p>
-      <p>
-        <strong>Comment Date: </strong>
-        {comments[0].comment_date}
-      </p>
-      <p>
-        <strong>Staff ID: </strong>
-        {comments[0].staff_id}
-      </p>
+     
       {/* To display all comments for loop, repeating comments.length number of times, returning the comment object */}
       
       <Link href="/editsu">

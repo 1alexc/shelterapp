@@ -4,8 +4,7 @@ import './sudisplay.css'
 
 export default function SuDisplay({ first_name, last_name, age, gender, dob, ni_number, phone, email, emergency_contact_name, emergency_contact_relationship, emergency_contact_phone, strengths_text_one }) {
     return (
-      <> <p>hi</p>
-
+      <> 
       </>
     );
   }

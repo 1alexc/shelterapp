@@ -43,7 +43,9 @@ export default function ViewAllSUs() {
   return (
     <>
       <AuthRouter pageName={"displayallsu"} />
-      <h1>View SU</h1>
+      <h1>View All Service Users</h1>
+      <p>Click the person below to view their data.</p>
+
 
       {/* map su data to the buttons - they are links connected to a specific profile */}
       {data.map((profiles) => (
