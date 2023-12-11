@@ -42,50 +42,15 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                   <SUDataValuePair data={"text"} value={"answer"} />
                   <SUDataValuePair data={"First name"} value={profile[0].first_name} />
                   <SUDataValuePair data={"Last name"} value={profile[0].last_name} />
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">First Name:</div>
-                    <div className="value">{profile[0].first_name}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Last Name:</div>
-                    <div className="value">{profile[0].last_name}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Age:</div>
-                    <div className="value">{profile[0].age}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Gender:</div>
-                    <div className="value">{profile[0].gender}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">DOB:</div>
-                    <div className="value">{profile[0].dob}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">NI Number:</div>
-                    <div className="value">{profile[0].ni_number}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Phone Number:</div>
-                    <div className="value">{profile[0].phone}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Email:</div>
-                    <div className="value">william.b@example.com</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Emergency Contact Name:</div>
-                    <div className="value">Olivia Brown</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Emergency Contact Relationship:</div>
-                    <div className="value">Aunt</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Emergency Contact Phone Number:</div>
-                    <div className="value">07654321098</div>
-                  </div>
+                  <SUDataValuePair data={"Age"} value={profile[0].age} />
+                  <SUDataValuePair data={"Gender"} value={profile[0].gender} />
+                  <SUDataValuePair data={"DOB"} value={profile[0].dob} />
+                  <SUDataValuePair data={"NI Number"} value={profile[0].ni_number} />
+                  <SUDataValuePair data={"Phone Number"} value={profile[0].phone} />
+                  <SUDataValuePair data={"Email"} value={"william.b@example.com"} />
+                  <SUDataValuePair data={"Emergency Contact Name"} value={"Olivia Brown"} />
+                  <SUDataValuePair data={"Emergency Contact Relationship"} value={"Aunt"} />
+                  <SUDataValuePair data={"Emergency Contact Phone Number"} value={"07654321098"} />
                 </div>
             
 
