@@ -25,7 +25,7 @@ export default function ViewAllSUs() {
         const { data, error } = await supabase
           .from("service_users")
           .select("*")
-          .order('last_name', { ascending: true });;
+          .order('last_name', { ascending: true });
         console.log("data fetched on viewallsus", data);
         if (error) {
           throw error;

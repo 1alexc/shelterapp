@@ -256,7 +256,7 @@ export default async function DisplayOneSU({ params }) {
           </div>
           <div className="flexbox-item-keyvaluepair">
             <div className="key">Current Status:</div>
-            <div className="value">{residence[0].current_status}</div>
+            <div className="value">{residence[0].current_status ? "True" : "False"}</div>
           </div>
           <div className="flexbox-item-keyvaluepair">
             <div className="key">Previous Stays:</div>
