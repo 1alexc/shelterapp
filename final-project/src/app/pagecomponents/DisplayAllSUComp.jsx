@@ -44,10 +44,10 @@ export default function DisplayAllSUComp() {
             <div className="displayall">
                 {data.map((profiles) => (
                     <Link key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
-                <button>
-                     {profiles.first_name} {profiles.last_name}
-                </button>
-        </Link>
+                        <button>
+                          {profiles.first_name} {profiles.last_name}
+                        </button>
+                    </Link>
       ))}
                 
             </div>
