@@ -5,7 +5,7 @@ export default function BackButton() {
     return (
         <>
         <Link href="/dashboard">
-            <Image src="/logoblack.png" alt="back button" width="64" height="64" className="arrow"/>
+            <Image src="/logoblack.png" alt="back button" width="64" height="64" className="home"/>
         </Link>
         </>
         )

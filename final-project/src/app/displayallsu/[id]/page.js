@@ -72,6 +72,7 @@ async function fetchSpecificSUDataFromSupabase(id) {
   const employment_status = employment_statusResponse.data;
   const residence = residenceResponse.data;
   const comments = commentsResponse.data;
+
   let fetchedData = {
     profile,
     strengths,

@@ -1,3 +1,31 @@
-.displayall{
-    color:green;
-}
+.flexbox-container-w{
+    /* border: 1px solid red; */
+      display: flex;
+      background-color: #D1E7FE;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 10px;
+      align-items: center;
+      width: 84%;
+      gap: 20px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .flexbox-item {
+        font-weight: bold;
+        font-size: 18px;
+        background-color: white;
+        width: 80%;
+        border-radius: 15%;
+        height: 2rem;
+        padding-top: 0.5rem;
+    }
+    
+    .flexbox-item:hover {
+        font-weight: bold;
+        font-size: 18px;
+        background-color: yellow;
+        cursor: pointer;
+    }
+    
