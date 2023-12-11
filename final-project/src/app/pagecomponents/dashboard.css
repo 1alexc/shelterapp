@@ -57,6 +57,7 @@
 
   .flexbox-item-links-box:hover {
     background-color: yellow;
+    cursor: pointer;
   }
 
   .item-links-img {

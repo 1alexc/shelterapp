@@ -45,23 +45,9 @@
 }
 
   .item-links-img {
-    /* border: 1px solid brown; */
     width: 15%;
     padding-left: 1rem;
     padding-block: 0.5rem;
-
-  }
-
-  .item-links-text {
-    /* border: 1px solid black; */
-  }
-
-  .key {
-    font-weight: bold;
-  }
-
-  .value {
-    
   }
 
   .flexbox-item-image {
@@ -72,3 +58,34 @@
   .SU-pic {
     border-radius: 40%;
   } 
+
+
+  .edit-button {
+      /* border: 1px solid red; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 90%;
+      border-radius: 10px;
+      background-color: white;
+      align-items: center;
+      gap: 1rem;
+      padding-block: 1rem;
+    
+  }   
+
+  .edit-button {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: white;
+    padding-block: 1rem;
+}   
+.edit-button:hover {
+  background-color: yellow;
+  cursor: pointer;
+}     

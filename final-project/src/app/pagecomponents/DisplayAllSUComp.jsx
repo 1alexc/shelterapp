@@ -43,13 +43,17 @@ export default function DisplayAllSUComp() {
             <p>Click the person below to view their data.</p>
 
             <div className="displayall">
+                      <div className="flexbox-container-w">
                 {data.map((profiles) => (
-                    <Link key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
-                        <button>
-                        {profiles.last_name}, {profiles.first_name}
-                        </button>
-                    </Link>
-      ))}
+                    <div className="flexbox-item">
+                        <Link passHref legacyBehavior key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
+                            <div>
+                              {profiles.last_name}, {profiles.first_name}
+                            </div>
+                        </Link>
+                        </div>
+                      ))}
+                      </div>
                 
             </div>
         </>

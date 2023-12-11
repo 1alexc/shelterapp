@@ -45,7 +45,6 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         {/* NEXT BOX */}
         <div className="flexbox-container-info">
           <div className="flexbox-item-title">Basic Information</div>
-          <SUDataValuePair data={"text"} value={"answer"} />
           <SUDataValuePair data={"First name"} value={profile[0].first_name} />
           <SUDataValuePair data={"Last name"} value={profile[0].last_name} />
           <SUDataValuePair data={"Age"} value={profile[0].age} />
@@ -59,10 +58,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         {/* NEXT BOX */}
         <div className="flexbox-container-info">
           <div className="flexbox-item-title">Emergency Contact</div>
-          <SUDataValuePair
-            data={"EC Name"}
-            value={profile[0].emergency_contact_name}
-          />
+          <SUDataValuePair data={"EC Name"} value={profile[0].emergency_contact_name}/>
           <SUDataValuePair
             data={"EC Relationship"}
             value={profile[0].emergency_contact_relationship}
@@ -100,7 +96,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
             data="Substance abuse disclosures"
             value={medical[0].substance_abuse_disclosures}
           />
-          <SUDataValuePair
+          <SUDataValuePair 
             data="Registered medical practitioner"
             value={medical[0].registered_medical_practice}
           />
@@ -111,38 +107,22 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         {/* NEXT BOX */}
         <div className="flexbox-container-info">
           <div className="flexbox-item-title">Employment History</div>
-          <SUDataValuePair
-            data={"Job description"}
-            value={employment_status[0].job_description}
-          />
-          <SUDataValuePair
-            data={"Start date"}
-            value={employment_status[0].start_date}
-          />
+          <SUDataValuePair data={"Job description"} value={employment_status[0].job_description}/>
+          <SUDataValuePair data={"Start date"} value={employment_status[0].start_date} />
           <SUDataValuePair
             data={"End date"}
             value={employment_status[0].end_date}
           />
         </div>
-        {console.log(comments)}
         {/* NEXT BOX */}
-        {/* comments.length === */}
         <div className="flexbox-container-info">
           <div className="flexbox-item-title">Comments</div>
           {comments.map((commentrow) => (
             <div key={commentrow}>
-              <SUDataValuePair
-                data="Comment text"
-                value={commentrow.comment_text}
-              />
-              <SUDataValuePair
-                data="Date issued"
-                value={commentrow.comment_date}
-              />
-              <SUDataValuePair
-                data="Staff member"
-                value={commentrow.staff_id}
-              />
+              <hr></hr>
+              <SUDataValuePair data="Comment" value={commentrow.comment_text}/>
+              <SUDataValuePair data="Date" value={commentrow.comment_date} />
+              <SUDataValuePair data="Staff member" value={commentrow.staff_id} />
             </div>
           ))}
         </div>
@@ -151,23 +131,17 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
         <div className="flexbox-container-info">
           <div className="flexbox-item-title">Residence</div>
-          <SUDataValuePair
-            data={"Entry date"}
-            value={residence[0].date_entry}
-          />
-          <SUDataValuePair
-            data={"Current status"}
-            value={residence[0].current_status}
-          />
-          <SUDataValuePair
-            data={"Previous stays"}
-            value={residence[0].previous_stays}
-          />
+          <SUDataValuePair data={"Entry date"} value={residence[0].date_entry} />
+          <SUDataValuePair data={"Current status"} value={residence[0].current_status} />
+          <SUDataValuePair data={"Previous stays"} value={residence[0].previous_stays} />
+        </div>
+        {/* NEXT BOX */}
+        <div className="edit-button">
+          <Link href="/editsu" passHref legacyBehavior>
+             <p>Edit Service User</p>
+          </Link>
         </div>
       </div>
-      <Link href="/editsu">
-        <button>Edit Service User Button</button>
-      </Link>
     </>
   );
 }
