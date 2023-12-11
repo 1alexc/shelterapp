@@ -5,7 +5,6 @@ import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { redirect } from 'next/navigation'
-import Link from "next/link";
 
 // components
 import DashboardComp from "./pagecomponents/DashboardComp";

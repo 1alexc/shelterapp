@@ -86,11 +86,16 @@ async function fetchSpecificSUDataFromSupabase(id) {
 // AUTHROUTER WITH PROPS -----------------------------------------------------
 export default async function DisplayOneSU({ params }) {
   const id = params.id;
-  const allFetchedDataAboutSpecificSU = await fetchSpecificSUDataFromSupabase(id);
-  
+  const allFetchedDataAboutSpecificSU = await fetchSpecificSUDataFromSupabase(
+    id
+  );
+
   return (
     <>
-      <AuthRouter pageName={"displayonesu"} allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU} />
+      <AuthRouter
+        pageName={"displayonesu"}
+        allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU}
+      />
     </>
   );
 }
