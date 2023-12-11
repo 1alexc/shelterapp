@@ -21,6 +21,7 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 export default function AuthRouter({pageName}) {
   const [session, setSession] = useState(null);
+  
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -37,12 +38,18 @@ export default function AuthRouter({pageName}) {
   }, []);
 
   if (!session) {
+    
     return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
   }
+
+  const userDetails = session.user.id;
+    console.log("user", userDetails);
+
   // redirector
+     
   switch (pageName) {
     case 'dashboard':
-      return <DashboardComp />;
+      return <DashboardComp userDetails={userDetails}  />;
     case 'displayallsu':
       return <DisplayAllSUComp />;
     case 'displayonesu':
