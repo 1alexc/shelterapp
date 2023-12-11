@@ -11,7 +11,7 @@ ________________________________________________________________________________
 import compStyles from "./displayonesu.css"
 import Link from "next/link";
 import Image from "next/image.js";
-
+import SUDataValuePair from "../babycomponents/SUDataValuePair";
 
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
@@ -39,6 +39,9 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 {/* NEXT BOX */}
                 <div className="flexbox-container-info">
                   <div className="flexbox-item-title">Basic Information</div>
+                  <SUDataValuePair data={"text"} value={"answer"} />
+                  <SUDataValuePair data={"First name"} value={profile[0].first_name} />
+                  <SUDataValuePair data={"Last name"} value={profile[0].last_name} />
                   <div className="flexbox-item-keyvaluepair">
                     <div className="key">First Name:</div>
                     <div className="value">{profile[0].first_name}</div>
