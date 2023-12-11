@@ -48,118 +48,57 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                   <SUDataValuePair data={"NI Number"} value={profile[0].ni_number} />
                   <SUDataValuePair data={"Phone Number"} value={profile[0].phone} />
                   <SUDataValuePair data={"Email"} value={"william.b@example.com"} />
-                  <SUDataValuePair data={"Emergency Contact Name"} value={"Olivia Brown"} />
-                  <SUDataValuePair data={"Emergency Contact Relationship"} value={"Aunt"} />
-                  <SUDataValuePair data={"Emergency Contact Phone Number"} value={"07654321098"} />
                 </div>
-            
 
                 {/* NEXT BOX */}
                 <div className="flexbox-container-info">
-                  <div className="flexbox-item-title">Strengths</div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Strengths One:</div>
-                    <div className="value">
-                      {strengths[0].strengths_text_one}
-                    </div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Strength Two:</div>
-                    <div className="value">
-                      {strengths[0].strengths_text_two}
-                    </div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Strength Three:</div>
-                    <div className="value">
-                    {strengths[0].strengths_text_three}
-                    </div>
-                  </div>
+                  <div className="flexbox-item-title">Emergency Contact</div>
+                  <SUDataValuePair data={"EC Name"} value={profile[0].emergency_contact_name} />
+                  <SUDataValuePair data={"EC Relationship"} value={profile[0].emergency_contact_relationship} />
+                  <SUDataValuePair data={"EC Phone Number"} value={profile[0].emergency_contact_phone} />
+                </div>
+
+                {/* NEXT BOX */}
+                <div className="flexbox-container-info">
+                  <div className="flexbox-item-title">Strengths & Interests</div>
+                  <SUDataValuePair data={"1"} value={strengths[0].strengths_text_one} />
+                  <SUDataValuePair data={"2"} value={strengths[0].strengths_text_two} />
+                  <SUDataValuePair data={"3"} value={strengths[0].strengths_text_three} />
                 </div>
 
                 {/* NEXT BOX */}
                 <div className="flexbox-container-info">
                   <div className="flexbox-item-title">Medical</div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">NHS Number:</div>
-                    <div className="value">{medical[0].nhs_number}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Mental Health Disclosures:</div>
-                    <div className="value">{medical[0].mental_health_disclosures}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Physical Health Disclosure:</div>
-                    <div className="value">{medical[0].physical_health_disclosures}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Substance Abuse Disclosures:</div>
-                    <div className="value">{medical[0].substance_abuse_disclosures}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Registered Medical Practitioner:</div>
-                    <div className="value">{medical[0].registered_medical_practice}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Blood Type:</div>
-                    <div className="value">{medical[0].blood_type}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Allergies</div>
-                    <div className="value">{medical[0].allergies}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Medications</div>
-                    <div className="value">{medical[0].medications}</div>
-                  </div>
+                  <SUDataValuePair data="NHS number" value={medical[0].nhs_number} />
+                  <SUDataValuePair data="Mental health disclosures" value={medical[0].mental_health_disclosures} />
+                  <SUDataValuePair data="Physical health disclosure" value={medical[0].physical_health_disclosures} />
+                  <SUDataValuePair data="Substance abuse disclosures" value={medical[0].substance_abuse_disclosures} />
+                  <SUDataValuePair data="Registered medical practitioner" value={medical[0].registered_medical_practice} />
+                  <SUDataValuePair data="Blood Type" value={medical[0].blood_type} />
+                  <SUDataValuePair data="Allergies" value={medical[0].allergies} />
+                  <SUDataValuePair data="Medications" value={medical[0].medications} />
                 </div>
                 {/* NEXT BOX */}
                 <div className="flexbox-container-info">
                   <div className="flexbox-item-title">Employment History</div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Job Description:</div>
-                    <div className="value"> {employment_status[0].job_description}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Start Date:</div>
-                    <div className="value">{employment_status[0].start_date}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">End Date:</div>
-                    <div className="value">{employment_status[0].end_date}</div>
-                  </div>
+                  <SUDataValuePair data={"Job description"} value={employment_status[0].job_description} />
+                  <SUDataValuePair data={"Start date"} value={employment_status[0].start_date} />
+                  <SUDataValuePair data={"End date"} value={employment_status[0].end_date} />
                 </div>
+
                 {/* NEXT BOX */}
                 <div className="flexbox-container-info">
                   <div className="flexbox-item-title">Comments</div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Comment text:</div>
-                    <div className="value">{comments[0].comment_text}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Date issued:</div>
-                    <div className="value">{comments[0].comment_date}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Staff member:</div>
-                    <div className="value">{comments[0].staff_id}</div>
-                  </div>
+                  <SUDataValuePair data="Comment text" value={comments[0].comment_text} />
+                  <SUDataValuePair data="Date issued" value={comments[0].comment_date} />
+                  <SUDataValuePair data="Staff member" value={comments[0].staff_id} />
                 </div>
                 {/* NEXT BOX */}
                 <div className="flexbox-container-info">
                   <div className="flexbox-item-title">Residence</div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Entry Date:</div>
-                    <div className="value">{residence[0].date_entry}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Current Status:</div>
-                    <div className="value">{residence[0].current_status}</div>
-                  </div>
-                  <div className="flexbox-item-keyvaluepair">
-                    <div className="key">Previous Stays:</div>
-                    <div className="value">{residence[0].previous_stays}</div>
-                  </div>
+                  <SUDataValuePair data={"Entry date"} value={residence[0].date_entry} />
+                  <SUDataValuePair data={"Current status"} value={residence[0].current_status} />
+                  <SUDataValuePair data={"Previous stays"} value={residence[0].previous_stays} />
                 </div>
               </div>
               <Link href="/editsu">

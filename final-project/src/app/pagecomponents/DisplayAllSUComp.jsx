@@ -21,7 +21,8 @@ export default function DisplayAllSUComp() {
           // data from supabase is fetched as an object - this is deconstructed as data and error
           const { data, error } = await supabase
             .from("service_users")
-            .select("*");
+            .select("*")
+            .order('last_name', { ascending: true });
           console.log("data fetched on viewallsus", data);
           if (error) {
             throw error;
@@ -45,7 +46,7 @@ export default function DisplayAllSUComp() {
                 {data.map((profiles) => (
                     <Link key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
                         <button>
-                          {profiles.first_name} {profiles.last_name}
+                        {profiles.last_name}, {profiles.first_name}
                         </button>
                     </Link>
       ))}

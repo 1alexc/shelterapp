@@ -1,7 +1,6 @@
 
 .flexbox-item-keyvaluepair {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: white;
     display: flex;
     /* border: 1px solid blue; */
     flex-direction: row;
@@ -9,11 +8,15 @@
     width: 85%;
     gap: 1rem;
     padding-inline: 0.5rem;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding-block: 0.3rem;
     /* display: none */
   }
 
   .data {
     font-weight: bold;
+  }
+
+  .value {
+    text-align: right;
   }
