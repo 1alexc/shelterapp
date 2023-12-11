@@ -1,0 +1,22 @@
+
+.flexbox-item-keyvaluepair {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    /* border: 1px solid blue; */
+    flex-direction: row;
+    border-radius: 10px;
+    width: 85%;
+    gap: 1rem;
+    padding-inline: 0.5rem;
+    justify-content: space-between;
+    padding-block: 0.3rem;
+    /* display: none */
+  }
+
+  .data {
+    font-weight: bold;
+  }
+
+  .value {
+    text-align: right;
+  }

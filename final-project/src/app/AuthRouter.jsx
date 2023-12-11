@@ -19,7 +19,7 @@ const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseURL, supabaseKey);
 
-export default function AuthRouter({pageName}) {
+export default function AuthRouter({pageName, allFetchedDataAboutSpecificSU}) {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function AuthRouter({pageName}) {
     case 'displayallsu':
       return <DisplayAllSUComp />;
     case 'displayonesu':
-      return <DisplayOneSUComp />;
+      return <DisplayOneSUComp allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU} />;
     case 'editsu':
       return <EditSUComp />;
     case 'addsu':
@@ -57,20 +57,3 @@ export default function AuthRouter({pageName}) {
       return <div>page Name passed to login as a prop wasnt matched</div>;
   }
 }
-
-// } else {
-//   return (
-//     <>
-//     <button
-//       onClick={async () => {
-//         const {error } = await supabase.auth.signOut();
-//         if (error) {
-//           console.error(error);
-//         }
-//       }}
-//       >Log Out</button>
-//       <Link href="/dashboard">
-//         <button>Login Button</button>
-//       </Link>
-//     </>
-//     );
