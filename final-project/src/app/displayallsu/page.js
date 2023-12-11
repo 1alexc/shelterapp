@@ -26,7 +26,6 @@ export default function ViewAllSUs() {
           .from("service_users")
           .select("*")
           .order('last_name', { ascending: true });
-      
         console.log("data fetched on viewallsus", data);
         if (error) {
           throw error;
