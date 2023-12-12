@@ -130,7 +130,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickProfile}>
             <span>Basic Info </span>
-            <Image src="/arrowdown.png" alt="collapse headings button" width="50" height="15" className="link"/>
+            <Image src={displayStatusProfile==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
           <div className="toggle-information-flexbox" style={{display: displayStatusProfile}}>
               <SUDataValuePair data={"First name"} value={profile[0].first_name} />
@@ -148,7 +148,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickStrengths}>
             <span>Strengths & Interests</span>
-            <Image src="/arrowdown.png" alt="collapse headings button" width="50" height="15" className="link"/>
+            <Image src={displayStatusStrengths==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
           <div className="toggle-information-flexbox" style={{display: displayStatusStrengths}}>
               <SUDataValuePair data={"1"} value={strengths[0].strengths_text_one} />
@@ -160,7 +160,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickEmergencyContact}>
             <span>Emergency Contact</span>
-            <Image src="/arrowdown.png" alt="collapse headings button" width="50" height="15" className="link"/>
+            <Image src={displayStatusEmergencyContact==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
           <div className="toggle-information-flexbox" style={{display: displayStatusEmergencyContact}}>
               <SUDataValuePair data={"EC Name"} value={profile[0].emergency_contact_name}/>
@@ -174,7 +174,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickMedical}>
             <span>Medical</span>
-            <Image src="/arrowdown.png" alt="collapse headings button" width="50" height="15" className="link"/>
+            <Image src={displayStatusMedical==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
           <div className="toggle-information-flexbox" style={{display: displayStatusMedical}}>
               <SUDataValuePair data="NHS number" value={medical[0].nhs_number} />
@@ -191,7 +191,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickEmployment}>
             <span>Employment history</span>
-            <Image src="/arrowdown.png" alt="collapse headings button" width="50" height="15" className="link"/>
+            <Image src={displayStatusEmployment==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
           <div className="toggle-information-flexbox" style={{display: displayStatusEmployment}}>
               <SUDataValuePair data={"Job description"} value={employment_status[0].job_description}/>
@@ -203,7 +203,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickComments}>
             <span>Comments ({comments.length})</span>
-            <Image src="/arrowdown.png" alt="collapse headings button" width="50" height="15" className="link"/>
+            <Image src={displayStatusComments==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
           <div className="toggle-information-flexbox" style={{display: displayStatusComments}}>
                 {comments.map((commentrow) => (
@@ -222,7 +222,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickResidence}>
             <span>Residence</span>
-            <Image src="/arrowdown.png" alt="collapse headings button" width="50" height="15" className="link"/>
+            <Image src={displayStatusResidence==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
           <div className="toggle-information-flexbox" style={{display: displayStatusResidence}}>
             <SUDataValuePair data={"Entry date"} value={formatDate(residence[0].date_entry)}/>
