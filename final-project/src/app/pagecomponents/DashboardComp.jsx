@@ -10,35 +10,6 @@ const supabase = createClient(supabaseURL, supabaseKey);
 
 
 export default function DashboardComp({staffName}) {
-console.log(staffName, "hello")
-// const [staffName, setStaffName] = useState("Dave");
-
-
-  // useEffect(() => {
-  //   async function fetchStaffName(uuid) {
-  //     try {
-  //       const { data, error } = await supabase
-  //         .from("staff_profile")
-  //         .select("first_name")
-  //         .eq("user_id", userDetails);
-
-  //       if (error) {
-  //         console.error('Error fetching staff user:', error.message);
-  //         return null;
-  //       }
-
-  //       if (data && data.length > 0) {
-  //         setStaffName(data[0].first_name);
-  //       }
-  //     } catch (error) {
-  //       console.error('Unexpected error:', error.message);
-  //     }
-  //   }
-
-  //   // Fetch data only when userDetails changes (on mount and when userDetails changes)
-  //   fetchStaffName(userDetails);
-  // }, [userDetails]);
-
   
   return (
     <>

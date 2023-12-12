@@ -80,7 +80,8 @@ export default function AuthRouter({
   console.log(staffName);
 
   // redirector
-    switch (pageName) {
+  
+  switch (pageName) {
     case "dashboard":
       return <> 
       <Header staffName={staffName} />
@@ -92,25 +93,24 @@ export default function AuthRouter({
       <DisplayAllSUComp />;
       </>
     case "displayonesu":
-      return <>
+      return (<>
       <Header staffName={staffName} />
         <DisplayOneSUComp
           allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU}
-        /></> ;
+        /></>
+      );
     case "editsu":
       return <>
       <Header staffName={staffName} />
-      <EditSUComp />
+      <EditSUComp />;
       </>
     case "addsu":
-      return 
-      <>
+      return <>
       <Header staffName={staffName} />
       <AddSUComp />;
       </>
     case "referrallinks":
-      return 
-      <>
+      return <>
       <Header staffName={staffName} />
       <ReferralLinksComp />;
       </>
