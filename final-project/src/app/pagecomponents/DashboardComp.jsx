@@ -18,7 +18,7 @@ const [staffName, setStaffName] = useState(null);
       try {
         const { data, error } = await supabase
           .from("staff_profile")
-          .select("full_name")
+          .select("first_name")
           .eq("user_id", userDetails);
 
         if (error) {
@@ -43,7 +43,7 @@ const [staffName, setStaffName] = useState(null);
     <>
       <div className="page-container">
         <div className="flexbox-container-w">
-          <p className="flexbox-item-w">Welcome to your Dashboard {staffName}</p>
+          <p className="flexbox-item-w">Welcome {staffName} to your Dashboard</p>
         </div>
         <div className="flexbox-container-links">
           <Link href="/displayallsu" passHref legacyBehavior>
