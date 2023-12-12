@@ -27,7 +27,7 @@ const [staffName, setStaffName] = useState(null);
         }
 
         if (data && data.length > 0) {
-          setStaffName(data[0].full_name);
+          setStaffName(data[0].first_name);
         }
       } catch (error) {
         console.error('Unexpected error:', error.message);
