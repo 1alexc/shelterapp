@@ -16,10 +16,10 @@
         font-weight: bold;
         font-size: 18px;
         background-color: white;
-        width: 80%;
-        border-radius: 15%;
-        height: 2rem;
-        padding-top: 0.5rem;
+        width: 60%;
+        border-radius: 12px;
+        height: 2.5rem;
+        padding-top: 1rem;
     }
     
     .flexbox-item:hover {

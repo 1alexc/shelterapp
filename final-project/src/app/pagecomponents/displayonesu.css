@@ -1,6 +1,6 @@
-/* page master */
+/* ENTIRE PAGE */
   
-  .page-container {
+.page-container {
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
@@ -11,10 +11,9 @@
   }
 
 
-  /* Flex box for welcome  */
+  /* WELCOME BOX  */
 
 .flexbox-container-w{
-  /* border: 1px solid red; */
     display: flex;
     background-color: #D1E7FE;
     flex-direction: column;
@@ -26,8 +25,21 @@
     padding: 1rem;
   }
 
-  .flexbox-container-info{
-    /* border: 1px solid red; */
+.flexbox-item-image {
+    display:flex;
+    justify-content: center;
+}
+
+.SU-pic {
+    border-radius: 40%;
+} 
+
+
+
+  /* REUSABLE CONTAINER STRUCTURE ________________________________________*/
+  /* flexbox container info > flexbox item title + button >
+  ...hideable container > SUdata value pairs */
+  .toggle-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,27 +51,30 @@
     padding-block: 1rem;
   
 }
-.flexbox-item-title {
+.toggle-title {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
     font-weight: bold;
     font-size: 18px;
 }
 
-  .item-links-img {
-    width: 15%;
-    padding-left: 1rem;
-    padding-block: 0.5rem;
+.toggle-title:hover {
+  background-color: yellow;
+  cursor: pointer;
   }
 
-  .flexbox-item-image {
-    display:flex;
-    justify-content: center;
-  }
-
-  .SU-pic {
-    border-radius: 40%;
-  } 
+.toggle-information-flexbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+}
 
 
+  /* EDIT BUTTON ________________________________________*/
   .edit-button {
       /* border: 1px solid red; */
       display: flex;
