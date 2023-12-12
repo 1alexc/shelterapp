@@ -103,4 +103,23 @@
 .edit-button:hover {
   background-color: yellow;
   cursor: pointer;
+
 }     
+
+.flexbox-item-back-bttn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: flex-start;
+  width: 30%;
+}
+
+
+.item-back-bttn {
+  height: 1rem;
+}
+
+.item-back-bttn-text {
+  
+}
