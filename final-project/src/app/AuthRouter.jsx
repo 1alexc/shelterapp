@@ -5,6 +5,7 @@ import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { redirect } from "next/navigation";
+import Header from "./babycomponents/Header";
 
 // components
 import DashboardComp from "./pagecomponents/DashboardComp";
@@ -79,24 +80,40 @@ export default function AuthRouter({
   console.log(staffName);
 
   // redirector
-
-  switch (pageName) {
+    switch (pageName) {
     case "dashboard":
-      return <DashboardComp staffName={staffName} />;
+      return <> 
+      <Header staffName={staffName} />
+      <DashboardComp staffName={staffName} />;
+        </>
     case "displayallsu":
-      return <DisplayAllSUComp />;
+      return <>
+      <Header staffName={staffName} />
+      <DisplayAllSUComp />;
+      </>
     case "displayonesu":
-      return (
+      return <>
+      <Header staffName={staffName} />
         <DisplayOneSUComp
           allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU}
-        />
-      );
+        /></> ;
     case "editsu":
-      return <EditSUComp />;
+      return <>
+      <Header staffName={staffName} />
+      <EditSUComp />
+      </>
     case "addsu":
-      return <AddSUComp />;
+      return 
+      <>
+      <Header staffName={staffName} />
+      <AddSUComp />;
+      </>
     case "referrallinks":
-      return <ReferralLinksComp />;
+      return 
+      <>
+      <Header staffName={staffName} />
+      <ReferralLinksComp />;
+      </>
     default:
       return <div>page Name passed to login as a prop wasnt matched</div>;
   }
