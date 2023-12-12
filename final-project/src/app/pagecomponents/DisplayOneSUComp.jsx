@@ -31,7 +31,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           <div className="flexbox-item-image">
             <Image
               className="SU-pic"
-              src="/William_Brown.png"
+              src="/william_brown.png"
               alt="William Brown"
               width="100"
               height="100"
