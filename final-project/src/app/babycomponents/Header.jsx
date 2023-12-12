@@ -11,7 +11,7 @@ const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supaurl, supakey);
 
 
-export default function Header() {
+export default function Header({ staffName }) {
   return (
       <div className="flexbox-container">
         <div className="flexbox-item-home">
@@ -21,7 +21,7 @@ export default function Header() {
           <h1 >Home Horizon</h1>
         </div>
         <div className="flexbox-item-status">
-          <p>Username</p>
+          <p>{staffName ? `${staffName}` : "Loading username..."}</p>
         </div>
       </div>
   );
