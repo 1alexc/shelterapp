@@ -28,6 +28,12 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       <div className="page-container">
         {/* WELCOME BOX */}
         <div className="flexbox-container-w">
+          <Link href="/displayallsu">
+            <div className="flexbox-item-back-bttn">
+              <img className="item-back-bttn" src="/backarrow.png" alt="back button icon" />
+              <p className="item-back-bttn-text">back</p>
+            </div>
+          </Link>
           <div className="flexbox-item-image">
             <Image
               className="SU-pic"
