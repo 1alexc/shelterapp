@@ -15,11 +15,11 @@ const supabase = createClient(supaurl, supakey);
 
 export default function AddSUComp() {
     // post array that will handle the post return from the superbase api
-    const [fetchedData, setFetchedData] = useState([])
+    const [retrievedData, setRetrievedData] = useState(["hi", "hi"])
     //singular post variable to store the user input in coloumn
-    const [input, setInput] = useState({user_id:"", first_name:""})
+    const [text, setText] = useState({user_id:"", first_name:""})
     //destructure the coloum from the table
-    const {user_id, first_name} = input
+    const {user_id, first_name} = text
     
     useEffect(()=>{
         fetchData()
@@ -29,7 +29,12 @@ export default function AddSUComp() {
         const {data} = await supabase
             .from("dummy")
             .select()
-        setFetchedData(data)
+        setRetrievedData(data);
+        console.log("hi");
+        console.log(typeof retrievedData);
+        console.log(retrievedData);
+
+        
     }
     
     async function createPost(){
@@ -39,7 +44,7 @@ export default function AddSUComp() {
                 {user_id, first_name}
             ])
             .single()
-            setFetchedData({user_id:"", first_name:""})
+            setRetrievedData([{user_id:"", first_name:""}])
             fetchData()
     }
 
@@ -48,22 +53,20 @@ export default function AddSUComp() {
             <input
                 placeholder="User_id"
                 value={user_id}
-                onChange={e => setInput({...input, user_id: e.target.value})}
+                onChange={e => setText({...text, user_id: e.target.value})}
                 />
             <input
                 placeholder="First_name"
                 value={first_name}
-                onChange={e => setInput({...input, first_name: e.target.value})}
+                onChange={e => setText({...text, first_name: e.target.value})}
                 />
             <button onClick={createPost}>Create Post</button>
-            {
-                fetchedData.map(input =>(
-                    <div key= {input.id}>
-                        <h3>{input.user_id}</h3>
-                        <p>{input.first_name}</p>
-                    </div>
-                 ))
-            }
+            {retrievedData.map((placeholder) => (
+                    <div key={placeholder.id}>
+                        <h3>{placeholder.user_id}</h3>
+                        <p>{placeholder.first_name}</p>
+                    </div>   
+            ))}
             
            
         </div>

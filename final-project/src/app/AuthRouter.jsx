@@ -52,7 +52,6 @@ export default function AuthRouter({
           if (data && data.length > 0) {
             const staffName = data[0].first_name;
             setStaffName(staffName);
-            console.log(staffName); // Log the fetched name
           }
         } catch (error) {
           console.error("Unexpected error:", error.message);
@@ -77,7 +76,6 @@ export default function AuthRouter({
     return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
   }
 
-  console.log(staffName);
 
   // redirector
   
@@ -95,7 +93,7 @@ export default function AuthRouter({
     case "displayonesu":
       return (<>
       <Header staffName={staffName} />
-        <DisplayOneSUComp
+      <DisplayOneSUComp
           allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU}
         /></>
       );
