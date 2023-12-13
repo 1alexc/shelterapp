@@ -66,9 +66,6 @@ async function fetchSpecificSUDataFromSupabase(id) {
     .select("*")
     .eq("user_id", id);
 
-  const photoResponse = await supabase
-    .from("")
-    .sel
 
   const profile = profileResponse.data;
   const strengths = strengthsResponse.data;
