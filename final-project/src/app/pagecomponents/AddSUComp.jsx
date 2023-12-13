@@ -15,21 +15,21 @@ const supabase = createClient(supaurl, supakey);
 
 export default function AddSUComp() {
     // post array that will handle the post return from the superbase api
-    const [posts, setPosts] = useState([])
+    const [fetchedData, setFetchedData] = useState([])
     //singular post variable to store the user input in coloumn
-    const [post, setPost] = useState({user_id:"", first_name:""})
+    const [input, setInput] = useState({user_id:"", first_name:""})
     //destructure the coloum from the table
-    const {user_id, first_name} = post
+    const {user_id, first_name} = input
     
     useEffect(()=>{
-        fetchPosts()
+        fetchData()
     }, [])
 
-    async function fetchPosts(){
+    async function fetchData(){
         const {data} = await supabase
             .from("dummy")
             .select()
-        setPosts(data)
+        setFetchedData(data)
     }
     
     async function createPost(){
@@ -39,8 +39,8 @@ export default function AddSUComp() {
                 {user_id, first_name}
             ])
             .single()
-            setPost({user_id:"", first_name:""})
-            fetchPosts()
+            setFetchedData({user_id:"", first_name:""})
+            fetchData()
     }
 
     return (
@@ -48,19 +48,19 @@ export default function AddSUComp() {
             <input
                 placeholder="User_id"
                 value={user_id}
-                onChange={e => setPost({...post, user_id: e.target.value})}
+                onChange={e => setInput({...input, user_id: e.target.value})}
                 />
             <input
                 placeholder="First_name"
                 value={first_name}
-                onChange={e => setPost({...post, first_name: e.target.value})}
+                onChange={e => setInput({...input, first_name: e.target.value})}
                 />
             <button onClick={createPost}>Create Post</button>
             {
-                posts.map(post =>(
-                    <div key= {post.id}>
-                        <h3>{post.user_id}</h3>
-                        <p>{post.first_name}</p>
+                fetchedData.map(input =>(
+                    <div key= {input.id}>
+                        <h3>{input.user_id}</h3>
+                        <p>{input.first_name}</p>
                     </div>
                  ))
             }
