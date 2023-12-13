@@ -44,16 +44,16 @@ export default function AddSUComp() {
     }
 
     return (
-        <div className="App">
+        <div className="AddSUComp">
             <input
-                placeholder="Title"
-                value={title}
-                onChange={e => setPost({...post, title: e.target.value})}
+                placeholder="User_id"
+                value={user_id}
+                onChange={e => setPost({...post, user_id: e.target.value})}
                 />
             <input
-                placeholder="Content"
-                value={content}
-                onChange={e => setPost({...post, content: e.target.value})}
+                placeholder="First_name"
+                value={first_name}
+                onChange={e => setPost({...post, first_name: e.target.value})}
                 />
             <button onClick={createPost}>Create Post</button>
             {
