@@ -28,6 +28,17 @@ export default function AddSUComp() {
         setPosts(data)
     }
     
+    async function createPost(){
+        await supabase
+            .from("tablename")
+            .insert([
+                {user_id, first_name, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone}
+            ])
+            .single()
+            setPost({user_id:"", first_name:"", last_name:"", age:"", gender:"", dob:"", ni_number:"", phone:"", emergency_contact_name:"", emergency_contact_relationship:"", email:"", emergency_contact_phone:""})
+            fetchPosts()
+    }
+
     return (
         <div>
             <h1 className="add-title">hi from the add su component</h1>
