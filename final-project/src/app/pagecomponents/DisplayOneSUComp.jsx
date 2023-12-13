@@ -16,6 +16,7 @@ import Link from "next/link";
 import Image from "next/image.js";
 import SUDataValuePair from "../babycomponents/SUDataValuePair";
 import { useState } from "react";
+import { formatDate } from "../displayallsu/helper";
 
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
@@ -87,25 +88,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       setDisplayStatusEmployment('none');
     }
   };
-  // DATE CONVERTER _________________________________________________________________
-  function formatDate(dateString) {
-    // day
-    const arrayDate = dateString.split('-')
-    const dayWithZeros = arrayDate[2];
-    const parsedDay = parseInt(dayWithZeros);
-    const dayWithoutZeros = parsedDay.toString()
-    // month
-    const monthsTextArray = [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July',
-      'August', 'September', 'October', 'November', 'December'
-    ];
-    const monthIndex = arrayDate[1]-1;
-    const monthText = monthsTextArray[monthIndex]
-    // year
-    const year = arrayDate[0];
-
-    return `${dayWithoutZeros} ${monthText} ${year}`;
-  }
+ 
 // RETURN
   return (
     <>
