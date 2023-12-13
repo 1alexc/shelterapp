@@ -200,7 +200,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                     <hr></hr>
                     <SUDataValuePair data="Comment" value={commentrow.comment_text}/>
                     <SUDataValuePair data="Date" value={formatDate(commentrow.comment_date)} />
-                    <SUDataValuePair data="Staff member" value={commentrow.staff_id} />
+                    <SUDataValuePair data="Staff member" value={commentrow.staff_name} />
                   </div>
                 ))}
           </div>
