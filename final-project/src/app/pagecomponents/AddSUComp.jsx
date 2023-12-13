@@ -27,14 +27,14 @@ export default function AddSUComp() {
 
     async function fetchPosts(){
         const {data} = await supabase
-            .from("tablename")
+            .from("dummy")
             .select()
         setPosts(data)
     }
     
     async function createPost(){
         await supabase
-            .from("tablename")
+            .from("dummy")
             .insert([
                 {user_id, first_name}
             ])
@@ -59,8 +59,8 @@ export default function AddSUComp() {
             {
                 posts.map(post =>(
                     <div key= {post.id}>
-                        <h3>{post.title}</h3>
-                        <p>{post.content}</p>
+                        <h3>{post.user_id}</h3>
+                        <p>{post.first_name}</p>
                     </div>
                  ))
             }
