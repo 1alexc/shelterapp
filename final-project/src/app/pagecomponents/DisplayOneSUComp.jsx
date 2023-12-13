@@ -129,7 +129,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
               <SUDataValuePair data={"DOB"} value={formatDate(profile[0].dob)} />
               <SUDataValuePair data={"NI Number"} value={profile[0].ni_number} />
               <SUDataValuePair data={"Phone Number"} value={profile[0].phone} />
-              <SUDataValuePair data={"Email"} value={"william.b@example.com"} />
+              <SUDataValuePair data={"Email"} value={profile[0].email} />
           </div>
         </div>
 
