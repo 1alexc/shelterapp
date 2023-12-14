@@ -15,37 +15,35 @@ const supabase = createClient(supaurl, supakey);
 
 export default function AddSUComp() {
     // post array that will handle the post return from the superbase api
-    const [retrievedData, setRetrievedData] = useState(["hi", "hi"])
+    const [retrievedDataProfile, setRetrievedDataProfile] = useState(["hi", "hi"])
     //singular post variable to store the user input in coloumn
-    const [text, setText] = useState({user_id:"", first_name:""})
+    const [textProfile, setTextProfile] = useState({user_id:"", first_name:""})
     //destructure the coloum from the table
-    const {user_id, first_name} = text
+    const {user_id, first_name} = textProfile
     
     useEffect(()=>{
-        fetchData()
+        fetchDataProfile()
     }, [])
 
-    async function fetchData(){
-        const {data} = await supabase
+    async function fetchDataProfile(){
+        const {dataProfile} = await supabase
             .from("dummy")
             .select()
-        setRetrievedData(data);
-        console.log("hi");
-        console.log(typeof retrievedData);
-        console.log(retrievedData);
+        setRetrievedDataProfile(dataProfile);
+        
 
         
     }
     
-    async function createPost(){
+    async function createPostProfile(){
         await supabase
             .from("dummy")
             .insert([
                 {user_id, first_name}
             ])
             .single()
-            setRetrievedData([{user_id:"", first_name:""}])
-            fetchData()
+            setRetrievedDataProfile([{user_id:"", first_name:""}])
+            fetchDataProfile()
     }
 
     return (
@@ -53,15 +51,15 @@ export default function AddSUComp() {
             <input
                 placeholder="User_id"
                 value={user_id}
-                onChange={e => setText({...text, user_id: e.target.value})}
+                onChange={e => setTextProfile({...textProfile, user_id: e.target.value})}
                 />
             <input
                 placeholder="First_name"
                 value={first_name}
-                onChange={e => setText({...text, first_name: e.target.value})}
+                onChange={e => setTextProfile({...textProfile, first_name: e.target.value})}
                 />
-            <button onClick={createPost}>Create Post</button>
-            {retrievedData.map((placeholder) => (
+            <button onClick={createPostProfile}>Create Post</button>
+            {retrievedDataProfile.map((placeholder) => (
                     <div key={placeholder.id}>
                         <h3>{placeholder.user_id}</h3>
                         <p>{placeholder.first_name}</p>
