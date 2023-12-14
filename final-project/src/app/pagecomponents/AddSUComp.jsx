@@ -45,7 +45,7 @@ export default function AddSUComp({staffId, staffName}) {
     // 2 input state
     const [inputStrengths, setInputStrengths] = useState(strengthsColumnsBlank)
     // 3 destructuring input state
-    const {strengths_id, user_id, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths
+    const {strengths_id, user_id:{userIDForAdding}, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths
     // 4 destructuring columns
     const strengthsColumns = {strengths_id, user_id:{userIDForAdding}, strengths_text_one, strengths_text_two, strengths_text_three};
 
