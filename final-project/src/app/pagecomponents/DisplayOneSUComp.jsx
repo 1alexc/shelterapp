@@ -16,6 +16,7 @@ import Link from "next/link";
 import Image from "next/image.js";
 import SUDataValuePair from "../babycomponents/SUDataValuePair";
 import { useState } from "react";
+import { formatDate } from "../displayallsu/helper";
 
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
@@ -87,25 +88,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       setDisplayStatusEmployment('none');
     }
   };
-  // DATE CONVERTER _________________________________________________________________
-  function formatDate(dateString) {
-    // day
-    const arrayDate = dateString.split('-')
-    const dayWithZeros = arrayDate[2];
-    const parsedDay = parseInt(dayWithZeros);
-    const dayWithoutZeros = parsedDay.toString()
-    // month
-    const monthsTextArray = [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July',
-      'August', 'September', 'October', 'November', 'December'
-    ];
-    const monthIndex = arrayDate[1]-1;
-    const monthText = monthsTextArray[monthIndex]
-    // year
-    const year = arrayDate[0];
-
-    return `${dayWithoutZeros} ${monthText} ${year}`;
-  }
+ 
 // RETURN
   return (
     <>
@@ -146,7 +129,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
               <SUDataValuePair data={"DOB"} value={formatDate(profile[0].dob)} />
               <SUDataValuePair data={"NI Number"} value={profile[0].ni_number} />
               <SUDataValuePair data={"Phone Number"} value={profile[0].phone} />
-              <SUDataValuePair data={"Email"} value={"william.b@example.com"} />
+              <SUDataValuePair data={"Email"} value={profile[0].email} />
           </div>
         </div>
 
@@ -217,7 +200,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                     <hr></hr>
                     <SUDataValuePair data="Comment" value={commentrow.comment_text}/>
                     <SUDataValuePair data="Date" value={formatDate(commentrow.comment_date)} />
-                    <SUDataValuePair data="Staff member" value={commentrow.staff_id} />
+                    <SUDataValuePair data="Staff member" value={commentrow.staff_name} />
                   </div>
                 ))}
           </div>
