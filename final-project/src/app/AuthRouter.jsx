@@ -27,6 +27,7 @@ export default function AuthRouter({
   
   const [session, setSession] = useState(null);
   const [staffName, setStaffName] = useState(null);
+  let staffId="";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,13 +37,13 @@ export default function AuthRouter({
         } = await supabase.auth.getSession();
         setSession(session);
 
-        const userDetails = session.user.id;
+        staffId = session.user.id;
 
         try {
           const { data, error } = await supabase
             .from("staff_profile")
             .select("first_name")
-            .eq("user_id", userDetails);
+            .eq("user_id", staffId);
 
           if (error) {
             console.error("Error fetching staff user:", error.message);
@@ -52,7 +53,6 @@ export default function AuthRouter({
           if (data && data.length > 0) {
             const staffName = data[0].first_name;
             setStaffName(staffName);
-            console.log(staffName); // Log the fetched name
           }
         } catch (error) {
           console.error("Unexpected error:", error.message);
@@ -77,7 +77,6 @@ export default function AuthRouter({
     return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
   }
 
-  console.log(staffName);
 
   // redirector
   
@@ -95,7 +94,7 @@ export default function AuthRouter({
     case "displayonesu":
       return (<>
       <Header staffName={staffName} />
-        <DisplayOneSUComp
+      <DisplayOneSUComp
           allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU}
         /></>
       );
@@ -107,7 +106,7 @@ export default function AuthRouter({
     case "addsu":
       return <>
       <Header staffName={staffName} />
-      <AddSUComp />;
+      <AddSUComp staffId={staffId} staffName={staffName}/>;
       </>
     case "referrallinks":
       return <>
