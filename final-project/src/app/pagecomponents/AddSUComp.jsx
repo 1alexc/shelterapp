@@ -12,7 +12,7 @@ const supabase = createClient(supaurl, supakey);
 
 
 
-export default function AddSUComp() {
+export default function AddSUComp({staffId, staffName}) {
     // FETCH 
     const [fetchedDataProfile, setFetchedDataProfile] = useState([])
     async function fetchDataProfile(){
@@ -27,6 +27,7 @@ export default function AddSUComp() {
     
     
     // INPUT SETUP ________________________________________________________________
+    let userIDForAdding = ""
 
     // input- profile _____________________
     // 1 blank columns
@@ -34,28 +35,129 @@ export default function AddSUComp() {
     // 2 input state
     const [inputProfile, setInputProfile] = useState(profileColumnsBlank)
     // 3 destructuring input state
-    const {user_id, first_name, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone, su_image} = inputProfile
+    const {first_name, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone, su_image} = inputProfile
     // 4 destructuring columns
     const profileColumns = {first_name, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone, su_image};
 
     // input- strengths _____________________
     // 1 blank columns
-    const strengthsColumnsBlank = {strengths_id:"", strengths_text_one:"", strengths_text_two:"", strengths_text_three:""};
+    const strengthsColumnsBlank = {strengths_id:"", user_id:"", strengths_text_one:"", strengths_text_two:"", strengths_text_three:""};
     // 2 input state
     const [inputStrengths, setInputStrengths] = useState(strengthsColumnsBlank)
     // 3 destructuring input state
-    const {strengths_id, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths
+    const {strengths_id, user_id, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths
     // 4 destructuring columns
-    const strengthsColumns = {strengths_id, strengths_text_one, strengths_text_two, strengths_text_three};
+    const strengthsColumns = {strengths_id, user_id:{userIDForAdding}, strengths_text_one, strengths_text_two, strengths_text_three};
+
+ // input- medical _____________________
+  // 1 blank columns
+  const medicalColumnsBlank = {
+    medical_id: "",
+    nhs_number: "",
+    mental_health_disclosures: "",
+    physical_health_disclosures: "",
+    substance_abuse_disclosures: "",
+    registered_medical_practice: "",
+    blood_type: "",
+    allergies: "",
+    medication: "",
+  };
+  // 2 input state
+  const [inputMedical, setInputMedical] = useState(medicalColumnsBlank);
+  // 3 destructuring input state
+  const {
+    medical_id,
+    nhs_number,
+    mental_health_disclosures,
+    physical_health_disclosures,
+    substance_abuse_disclosures,
+    registered_medical_practice,
+    blood_type,
+    allergies,
+    medication,
+  } = inputMedical;
+  // 4 destructuring columns
+  const medicalColumns = {
+    medical_id,
+    nhs_number,
+    mental_health_disclosures,
+    physical_health_disclosures,
+    substance_abuse_disclosures,
+    registered_medical_practice,
+    blood_type,
+    allergies,
+    medication,
+  };
+  // input-employment history _____________________
+  // 1 blank columns
+  const employmentStatusColumnsBlank = {
+    employment_id: "",
+    job_description: "",
+    start_date: "",
+    end_date: "",
+  };
+  // 2 input state
+  const [inputEmploymentStatus, setInputEmploymentStatus] = useState(
+    employmentStatusColumnsBlank
+  );
+  // 3 destructuring input state
+  const { employment_id, job_description, start_date, end_date } =
+    inputEmploymentStatus;
+  // 4 destructuring columns
+  const employmentStatusColumns = {
+    employment_id,
+    job_description,
+    start_date,
+    end_date,
+  };
+  // input-comments history _____________________
+  // 1 blank columns
+  const commentsColumnsBlank = {
+    comment_id: "",
+    comment_text: "",
+    comment_date: "",
+    staff_id: staffId,
+    staff_name: staffName,
+  };
+  // 2 input state
+  const [inputComments, setInputComments] = useState(commentsColumnsBlank);
+  // 3 destructuring input state
+  const { comment_id, comment_text, comment_date } = inputComments;
+  // 4 destructuring columns
+  const commentsColumn = {
+    comment_id,
+    comment_text,
+  };
+  // input-residence history _____________________
+  // 1 blank columns
+  const residenceColumnsBlank = {
+    date_entry: "",
+    current_status: "",
+    previous_stays: "",
+  };
+  // 2 input state
+  const [inputResidence, setInputResidence] = useState(residenceColumnsBlank);
+  // 3 destructuring input state
+  const { date_entry, current_status, previous_stays } = inputResidence;
+  // 4 destructuring columns
+  const residenceColumn = {
+    date_entry,
+    current_status,
+    previous_stays,
+  };
+
 
     // SUBMIT POST FUNCTION
-    async function submitPost(tableName, columns, columnsBlank){
-        await supabase
+    async function submitPost(tableName, columns, columnsBlank, isProfile){
+        const { data, error } = await supabase
             .from(tableName) 
-            .insert(columns)
+            .upsert(columns)
             .single()
+            .select()
+        if(isProfile) {userIDForAdding = data.user_id};
+        console.log(userIDForAdding)
             setFetchedDataProfile(columnsBlank)
-            fetchDataProfile()
+            fetchDataProfile();
     }
 
     return (
@@ -133,7 +235,7 @@ export default function AddSUComp() {
                 onChange={e => setInputProfile({...inputProfile, su_image: e.target.value})}
                 />
             {/* PROFILE - submit button  */}
-            <button onClick={function () {submitPost("service_users", [profileColumns], [profileColumnsBlank])}}>Post Profile</button>
+            <button onClick={function () {submitPost("service_users", [profileColumns], [profileColumnsBlank], true)}}>Post Profile</button>
         {/* NEXT SECTION ||||| */}
         {/* STRENGTHS INPUTS _________________________________________________________________________________________ */}
         {/* const strengthsColumns = {strengths_id, strengths_text_one, strengths_text_two, strengths_text_three}; */}
@@ -170,7 +272,7 @@ export default function AddSUComp() {
                 onChange={e => setInputStrengths({...inputStrengths, strengths_text_three: e.target.value})}
                 />
             {/* PROFILE - submit button  */}
-            <button onClick={function () {submitPost("strengths", [strengthsColumns], [strengthsColumnsBlank])}}>Post Strengths</button>
+            <button onClick={function () {submitPost("strengths", [strengthsColumns], [strengthsColumnsBlank], false)}}>Post Strengths</button>
 
         </div>
     )

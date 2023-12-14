@@ -27,6 +27,7 @@ export default function AuthRouter({
   
   const [session, setSession] = useState(null);
   const [staffName, setStaffName] = useState(null);
+  let staffId="";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,13 +37,13 @@ export default function AuthRouter({
         } = await supabase.auth.getSession();
         setSession(session);
 
-        const userDetails = session.user.id;
+        staffId = session.user.id;
 
         try {
           const { data, error } = await supabase
             .from("staff_profile")
             .select("first_name")
-            .eq("user_id", userDetails);
+            .eq("user_id", staffId);
 
           if (error) {
             console.error("Error fetching staff user:", error.message);
@@ -105,7 +106,7 @@ export default function AuthRouter({
     case "addsu":
       return <>
       <Header staffName={staffName} />
-      <AddSUComp />;
+      <AddSUComp staffId={staffId} staffName={staffName}/>;
       </>
     case "referrallinks":
       return <>
