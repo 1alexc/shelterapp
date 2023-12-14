@@ -10,8 +10,6 @@ const supabase = createClient(supaurl, supakey);
 //, last_name:"", age:"", gender:"", dob:"", ni_number:"", phone:"", emergency_contact_name:"", emergency_contact_relationship:"", email:"", emergency_contact_phone:""
 //, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone
 
-
-
 export default function AddSUComp({staffId, staffName}) {
     // FETCH 
     const [fetchedDataProfile, setFetchedDataProfile] = useState([])
@@ -24,10 +22,8 @@ export default function AddSUComp({staffId, staffName}) {
     useEffect(()=>{
         fetchDataProfile("service-users")
     }, []);
-    
-    
     // INPUT SETUP ________________________________________________________________
-    let userIDForAdding = ""
+    // let userIDForAdding = ""
 
     // input- profile _____________________
     // 1 blank columns
@@ -41,13 +37,13 @@ export default function AddSUComp({staffId, staffName}) {
 
     // input- strengths _____________________
     // 1 blank columns
-    const strengthsColumnsBlank = {strengths_id:"", user_id:"", strengths_text_one:"", strengths_text_two:"", strengths_text_three:""};
+    // const strengthsColumnsBlank = {strengths_id:"", user_id:"", strengths_text_one:"", strengths_text_two:"", strengths_text_three:""};
     // 2 input state
-    const [inputStrengths, setInputStrengths] = useState(strengthsColumnsBlank)
+    // const [inputStrengths, setInputStrengths] = useState(strengthsColumnsBlank)
     // 3 destructuring input state
-    const {strengths_id, user_id:{userIDForAdding}, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths
+    // const {strengths_id, user_id, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths
     // 4 destructuring columns
-    const strengthsColumns = {strengths_id, user_id:{userIDForAdding}, strengths_text_one, strengths_text_two, strengths_text_three};
+    // const strengthsColumns = {strengths_id, user_id:{userIDForAdding}, strengths_text_one, strengths_text_two, strengths_text_three};
 
  // input- medical _____________________
   // 1 blank columns
@@ -146,16 +142,15 @@ export default function AddSUComp({staffId, staffName}) {
     previous_stays,
   };
 
-
     // SUBMIT POST FUNCTION
     async function submitPost(tableName, columns, columnsBlank, isProfile){
         const { data, error } = await supabase
             .from(tableName) 
-            .upsert(columns)
+            .insert(columns)
             .single()
             .select()
-        if(isProfile) {userIDForAdding = data.user_id};
-        console.log(userIDForAdding)
+        // if(isProfile) {userIDForAdding = data.user_id};
+        // console.log(userIDForAdding)
             setFetchedDataProfile(columnsBlank)
             fetchDataProfile();
     }
@@ -246,34 +241,33 @@ export default function AddSUComp({staffId, staffName}) {
                 onChange={e => setInputStrengths({...inputStrengths, user_id: e.target.value})}
                 /> */}
             {/* STRENGTHS - strengths_id */}
-            <input
+            {/* <input
                 placeholder="strengths_id"
                 value={strengths_id}
                 onChange={e => setInputStrengths({...inputStrengths, strengths_id: e.target.value})}
-                />
+                /> */}
             
             {/* STRENGTHS - strengths_text_one */}
-            <input
+            {/* <input
                 placeholder="strengths_text_one"
                 value={strengths_text_one}
                 onChange={e => setInputStrengths({...inputStrengths, strengths_text_one: e.target.value})}
-                />
+                /> */}
             
             {/* STRENGTHS - strengths_text_two */}
-            <input
+            {/* <input
                 placeholder="strengths_text_two"
                 value={strengths_text_two}
                 onChange={e => setInputStrengths({...inputStrengths, strengths_text_two: e.target.value})}
-                />
+                /> */}
             {/* STRENGTHS - strengths_text_three */}
-            <input
+            {/* <input
                 placeholder="strengths_text_three"
                 value={strengths_text_three}
                 onChange={e => setInputStrengths({...inputStrengths, strengths_text_three: e.target.value})}
-                />
+                /> */}
             {/* PROFILE - submit button  */}
-            <button onClick={function () {submitPost("strengths", [strengthsColumns], [strengthsColumnsBlank], false)}}>Post Strengths</button>
-
+            {/* <button onClick={function () {submitPost("strengths", [strengthsColumns], [strengthsColumnsBlank], false)}}>Post Strengths</button> */}
         </div>
     )
 }
