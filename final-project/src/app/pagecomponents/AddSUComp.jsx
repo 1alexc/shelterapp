@@ -2,7 +2,6 @@ import compStyles from "./addsu.css"
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -14,58 +13,165 @@ const supabase = createClient(supaurl, supakey);
 
 
 export default function AddSUComp() {
-    // post array that will handle the post return from the superbase api
-    const [fetchedData, setFetchedData] = useState([])
-    //singular post variable to store the user input in coloumn
-    const [input, setInput] = useState({user_id:"", first_name:""})
-    //destructure the coloum from the table
-    const {user_id, first_name} = input
-    
-    useEffect(()=>{
-        fetchData()
-    }, [])
-
-    async function fetchData(){
+    // FETCH 
+    const [fetchedDataProfile, setFetchedDataProfile] = useState([])
+    async function fetchDataProfile(){
         const {data} = await supabase
-            .from("dummy")
+            .from("service_users")
             .select()
-        setFetchedData(data)
+            setFetchedDataProfile(data)
     }
+    useEffect(()=>{
+        fetchDataProfile("service-users")
+    }, []);
     
-    async function createPost(){
+    
+    // INPUT SETUP ________________________________________________________________
+
+    // input- profile _____________________
+    // 1 blank columns
+    const profileColumnsBlank= {first_name:"", last_name:"", age:"", gender:"", dob:"", ni_number:"", phone:"", emergency_contact_name:"", emergency_contact_relationship:"", email:"", emergency_contact_phone:"", su_image:""};
+    // 2 input state
+    const [inputProfile, setInputProfile] = useState(profileColumnsBlank)
+    // 3 destructuring input state
+    const {user_id, first_name, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone, su_image} = inputProfile
+    // 4 destructuring columns
+    const profileColumns = {first_name, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone, su_image};
+
+    // input- strengths _____________________
+    // 1 blank columns
+    const strengthsColumnsBlank = {strengths_id:"", strengths_text_one:"", strengths_text_two:"", strengths_text_three:""};
+    // 2 input state
+    const [inputStrengths, setInputStrengths] = useState(strengthsColumnsBlank)
+    // 3 destructuring input state
+    const {strengths_id, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths
+    // 4 destructuring columns
+    const strengthsColumns = {strengths_id, strengths_text_one, strengths_text_two, strengths_text_three};
+
+    // SUBMIT POST FUNCTION
+    async function submitPost(tableName, columns, columnsBlank){
         await supabase
-            .from("dummy")
-            .insert([
-                {user_id, first_name}
-            ])
+            .from(tableName) 
+            .insert(columns)
             .single()
-            setFetchedData([{user_id:"", first_name:""}])
-            fetchData()
+            setFetchedDataProfile(columnsBlank)
+            fetchDataProfile()
     }
 
     return (
-        <div className="AddSUComp">
-            <input
-                placeholder="User_id"
-                value={user_id}
-                onChange={e => setInput({...input, user_id: e.target.value})}
-                />
-            <input
-                placeholder="First_name"
-                value={first_name}
-                onChange={e => setInput({...input, first_name: e.target.value})}
-                />
-            <button onClick={createPost}>Create Post</button>
+        <div className="page-container">
+        {/* USERS IN THE DATABASE */}
+        <h1>Users currently in database:</h1>
             {
-                fetchedData.map(input =>(
+                fetchedDataProfile.map(input =>(
                     <div key= {input.id}>
-                        <h3>{input.user_id}</h3>
-                        <p>{input.first_name}</p>
+                        <hr></hr>
+                        <span><strong>UserID: </strong>{input.user_id} </span>
+                        <span><strong>Name: </strong> {input.first_name} {input.last_name}</span>
                     </div>
                  ))
             }
+        {/* PROFILE INPUTS _________________________________________________________________________________________ */}    
+            {/* PROFILE - first name */}
+            <input
+                placeholder="First_name"
+                value={first_name}
+                onChange={e => setInputProfile({...inputProfile, first_name: e.target.value})}
+                />
+            {/* PROFILE - last_name */}
+            <input
+                placeholder="last_name"
+                value={last_name}
+                onChange={e => setInputProfile({...inputProfile, last_name: e.target.value})}
+                />
+            {/* PROFILE - age */}
+            <input
+                placeholder="age"
+                value={age}
+                onChange={e => setInputProfile({...inputProfile, age: e.target.value})}
+                />
+                        {/* PROFILE - gender */}
+                        <input
+                placeholder="gender"
+                value={gender}
+                onChange={e => setInputProfile({...inputProfile, gender: e.target.value})}
+                />
+            {/* PROFILE - dob */}
+            <input
+                placeholder="dob"
+                value={dob}
+                onChange={e => setInputProfile({...inputProfile, dob: e.target.value})}
+                />
+            {/* PROFILE - ni_number */}
+            <input
+                placeholder="ni_number"
+                value={ni_number}
+                onChange={e => setInputProfile({...inputProfile, ni_number: e.target.value})}
+                />
+            {/* PROFILE - phone */}
+            <input
+                placeholder="phone"
+                value={phone}
+                onChange={e => setInputProfile({...inputProfile, phone: e.target.value})}
+                />
+            {/* PROFILE - emergency_contact_name */}
+            <input
+                placeholder="emergency_contact_name"
+                value={emergency_contact_name}
+                onChange={e => setInputProfile({...inputProfile, emergency_contact_name: e.target.value})}
+                />
+            {/* PROFILE - emergency_contact_relationship  */}
+            <input
+                placeholder="emergency_contact_relationship"
+                value={emergency_contact_relationship}
+                onChange={e => setInputProfile({...inputProfile, emergency_contact_relationship: e.target.value})}
+                />
+                        {/* PROFILE - su_image */}
+                        <input
+                placeholder="su_image"
+                value={su_image}
+                onChange={e => setInputProfile({...inputProfile, su_image: e.target.value})}
+                />
+            {/* PROFILE - submit button  */}
+            <button onClick={function () {submitPost("service_users", [profileColumns], [profileColumnsBlank])}}>Post Profile</button>
+        {/* NEXT SECTION ||||| */}
+        {/* STRENGTHS INPUTS _________________________________________________________________________________________ */}
+        {/* const strengthsColumns = {strengths_id, strengths_text_one, strengths_text_two, strengths_text_three}; */}
+            {/* STRENGTHS - user_id */}
+            {/* <input
+                placeholder="user_id"
+                value={user_id}
+                onChange={e => setInputStrengths({...inputStrengths, user_id: e.target.value})}
+                /> */}
+            {/* STRENGTHS - strengths_id */}
+            <input
+                placeholder="strengths_id"
+                value={strengths_id}
+                onChange={e => setInputStrengths({...inputStrengths, strengths_id: e.target.value})}
+                />
             
-           
+            {/* STRENGTHS - strengths_text_one */}
+            <input
+                placeholder="strengths_text_one"
+                value={strengths_text_one}
+                onChange={e => setInputStrengths({...inputStrengths, strengths_text_one: e.target.value})}
+                />
+            
+            {/* STRENGTHS - strengths_text_two */}
+            <input
+                placeholder="strengths_text_two"
+                value={strengths_text_two}
+                onChange={e => setInputStrengths({...inputStrengths, strengths_text_two: e.target.value})}
+                />
+            {/* STRENGTHS - strengths_text_three */}
+            <input
+                placeholder="strengths_text_three"
+                value={strengths_text_three}
+                onChange={e => setInputStrengths({...inputStrengths, strengths_text_three: e.target.value})}
+                />
+            {/* PROFILE - submit button  */}
+            <button onClick={function () {submitPost("strengths", [strengthsColumns], [strengthsColumnsBlank])}}>Post Strengths</button>
+
         </div>
     )
 }
