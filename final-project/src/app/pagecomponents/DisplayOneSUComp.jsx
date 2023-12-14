@@ -104,7 +104,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           <div className="flexbox-item-image">
             <Image
               className="SU-pic"
-              src={`/${profile[0].su_image}`}
+              src={`/${profile[0]?.su_image || ""}`}
               alt={profile[0].first_name}
               width="70"
               height="80"
