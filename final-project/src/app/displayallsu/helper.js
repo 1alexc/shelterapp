@@ -7,33 +7,28 @@ const supabase = createClient(supaurl, supakey);
 
 // DATE CONVERTER _________________________________________________________________
 export function formatDate(dateString) {
-  // day
+  // If dateString is undefined or null, return an empty string
+  if (!dateString) {
+    return "";
+  }
+
   const arrayDate = dateString.split("-");
   const dayWithZeros = arrayDate[2];
   const parsedDay = parseInt(dayWithZeros);
   const dayWithoutZeros = parsedDay.toString();
-  // month
+
   const monthsTextArray = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
   ];
   const monthIndex = arrayDate[1] - 1;
   const monthText = monthsTextArray[monthIndex];
-  // year
+
   const year = arrayDate[0];
 
   return `${dayWithoutZeros} ${monthText} ${year}`;
 }
+
 
 // FETCH SPECIFIC SU DATA FROM SUPABASE --------------------------------------
 export async function fetchSpecificSUDataFromSupabase(id) {
@@ -69,12 +64,12 @@ export async function fetchSpecificSUDataFromSupabase(id) {
 
   const photoResponse = await supabase.from("").sel;
 
-  const profile = profileResponse.data;
-  const strengths = strengthsResponse.data;
-  const medical = medicalResponse.data;
-  const employment_status = employment_statusResponse.data;
-  const residence = residenceResponse.data;
-  const comments = commentsResponse.data;
+  const profile = profileResponse?.data;
+  const strengths = strengthsResponse?.data;
+  const medical = medicalResponse?.data;
+  const employment_status = employment_statusResponse?.data;
+  const residence = residenceResponse?.data;
+  const comments = commentsResponse?.data;
 
   let fetchedData = {
     profile,
