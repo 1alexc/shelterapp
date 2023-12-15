@@ -74,7 +74,10 @@ export default function AuthRouter({
   }, []);
 
   if (!session) {
-    return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} showLinks={false}/>;
+    return <>
+    <Header staffName={"User"} />
+    <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} showLinks={false}/>;
+  </>
   }
 
 
