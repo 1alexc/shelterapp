@@ -1,0 +1,38 @@
+
+.flexbox-item-editpair {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    /* border: 1px solid blue; */
+    flex-direction: row;
+    border-radius: 10px;
+    width:97%;
+    gap: 1rem;
+    padding-inline: 0.5rem;
+    justify-content: space-between;
+    padding-block: 0.3rem;
+    /* display: none */
+    color: red;
+    border: 1px solid black;
+  }
+
+  .data {
+    font-weight: bold;
+  }
+
+  .value {
+    text-align: right;
+  }
+
+  .valueAndUpdater {
+    display:flex;
+  }
+
+  .update-button {
+    font-size: 25px;
+
+    }
+
+    .update-button:hover {
+background-color: yellow;
+cursor: pointer;  
+      }

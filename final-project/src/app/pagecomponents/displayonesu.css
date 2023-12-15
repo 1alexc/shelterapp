@@ -46,11 +46,17 @@
     width: 90%;
     border-radius: 10px;
     background-color: #D1E7FE;
-    align-items: center;
     gap: 1rem;
-    padding-block: 1rem;
-  
+    padding-block: 2rem;
 }
+
+.toggle-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 2rem;
+}
+
 .toggle-title {
     font-weight: bold;
     font-size: 18px;
@@ -61,18 +67,31 @@
     font-size: 18px;
 }
 
-.toggle-title:hover {
+
+
+.toggle-title:hover, .toggle-edit:hover {
   background-color: yellow;
   cursor: pointer;
-  }
+}
 
 .toggle-information-flexbox {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 90%;
+      padding-inline: 3rem;
+
 }
 
+.toggle-edit {
+  font-weight: bold;
+  font-size: 18px;
+  background-color: red;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
 
   /* EDIT BUTTON ________________________________________*/
   .edit-button {

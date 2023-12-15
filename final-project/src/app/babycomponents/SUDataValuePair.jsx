@@ -1,7 +1,7 @@
 import BackButton from "./BackButton";
 import babyCompStyles from "./sudatavaluepair.css";
 
-export default function SUDataValuePair({data, value, isComment}) {
+export default function SUDataValuePair({data, value}) {
   return (
     <div className="flexbox-item-keyvaluepair">
         <div className="data">{data}

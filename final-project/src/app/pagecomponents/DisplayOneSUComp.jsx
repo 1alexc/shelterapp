@@ -17,7 +17,7 @@ import Image from "next/image.js";
 import SUDataValuePair from "../babycomponents/SUDataValuePair";
 import { useState } from "react";
 import { formatDate } from "../displayallsu/helper";
-
+import EditablePair from "../babycomponents/EditablePair";
 export const dynamic = 'force-dynamic' //forces next js to revaluate data preventing caching
 export const revalidate = 0    //tells supabase to not use caching
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
@@ -90,6 +90,16 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       setDisplayStatusEmployment('none');
     }
   };
+// Edit mode toggles
+  const [editStatusStrengths, setEditStatusStrengths] = useState(false);
+  function handleEditStrengths() {
+    setDisplayStatusStrengths('inline');
+    if (editStatusStrengths == false) {
+      setEditStatusStrengths(true);
+    } else {
+      setEditStatusStrengths(false);
+    }
+  };
  
 // RETURN
   return (
@@ -97,23 +107,6 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       <div className="page-container">
         {/* WELCOME BOX */}
         <div className="flexbox-container-w">
-          
-          {/* <div className="flexbox-item-image">
-            <Image
-              className="SU-pic"
-              src={`/${profile[0]?.su_image || ""}`}
-              alt={profile[0].first_name}
-              width="70"
-              height="80"
-            />
-            {/* <Image
-              className="SU-pic"
-              src="/su3.png"
-              alt={profile[0].first_name}
-              width="70"
-              height="80"
-            /> */}
-          {/* </div> */}
           <Link href="/displayallsu">
             <div className="flexbox-item-serviceusername">
             <img className="item-back-bttn" src="/backarrow.png" alt="back button icon" />
@@ -121,12 +114,82 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
             </div>
           </Link>
           <div className="flexbox-item-serviceusername">
-            Welcome to {profile[0].first_name}'s profile
+            Welcome to {profile[0].first_name}'s profile 
           </div>
         </div>
 
-        {/* PROFILE BOX */}
+
+        {/* STRENGTHS/INTERESTS BOX */}
         <div className="toggle-container">
+          <div className="toggle-header">
+
+          <div className="toggle-title" onClick={handleClickStrengths}>
+            <span>Strengths & Interests</span>
+            <Image src={displayStatusStrengths==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
+          </div>
+          <div className="toggle-edit" onClick={handleEditStrengths}>Edit</div>
+          </div>
+          <div className="toggle-information-flexbox" style={{display: displayStatusStrengths}}>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <EditablePair data={"1"} value={strengths[0]?.strengths_text_one || ""} editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}
+            
+          />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <EditablePair/>
+          <EditablePair/>
+          <EditablePair/>
+          <SUDataValuePair data={"1"} value={strengths[0]?.strengths_text_one || ""} />
+          <SUDataValuePair data={"2"} value={strengths[0]?.strengths_text_two || ""} />
+          <SUDataValuePair data={"3"} value={strengths[0]?.strengths_text_three || ""} />
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {/* PROFILE BOX */}
+        {/* <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickProfile}>
             <span>Basic Info </span>
             <Image src={displayStatusProfile==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
@@ -142,21 +205,42 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           <SUDataValuePair data={"Email"} value={profile[0]?.email || ""} />
 
           </div>
-        </div>
+        </div> */}
 
-        {/* STRENGTHS/INTERESTS BOX */}
-        <div className="toggle-container">
-          <div className="toggle-title" onClick={handleClickStrengths}>
-            <span>Strengths & Interests</span>
-            <Image src={displayStatusStrengths==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
-          </div>
-          <div className="toggle-information-flexbox" style={{display: displayStatusStrengths}}>
-          <SUDataValuePair data={"1"} value={strengths[0]?.strengths_text_one || ""} />
-          <SUDataValuePair data={"2"} value={strengths[0]?.strengths_text_two || ""} />
-          <SUDataValuePair data={"3"} value={strengths[0]?.strengths_text_three || ""} />
 
-          </div>
-        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         {/* EMERGENCY CONTACT BOX */}
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickEmergencyContact}>

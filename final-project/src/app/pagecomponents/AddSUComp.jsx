@@ -42,6 +42,15 @@ export default function AddSUComp({staffId, staffName}) {
             .select()
             setFetchedDataProfile(columnsBlank)
             fetchDataProfile();
+    }
+    async function submitPost(tableName, columns, columnsBlank, isProfile){
+        const { data, error } = await supabase
+            .from(tableName) 
+            .insert(columns)
+            .single()
+            .select()
+            setFetchedDataProfile(columnsBlank)
+            fetchDataProfile();
 
     }
 
