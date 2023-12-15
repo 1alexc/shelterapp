@@ -27,7 +27,6 @@ export default function AuthRouter({
   
   const [session, setSession] = useState(null);
   const [staffName, setStaffName] = useState(null);
-  let staffId="";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,13 +36,13 @@ export default function AuthRouter({
         } = await supabase.auth.getSession();
         setSession(session);
 
-        staffId = session.user.id;
+        const userDetails = session.user.id;
 
         try {
           const { data, error } = await supabase
             .from("staff_profile")
             .select("first_name")
-            .eq("user_id", staffId);
+            .eq("user_id", userDetails);
 
           if (error) {
             console.error("Error fetching staff user:", error.message);
@@ -53,6 +52,7 @@ export default function AuthRouter({
           if (data && data.length > 0) {
             const staffName = data[0].first_name;
             setStaffName(staffName);
+            console.log(staffName); // Log the fetched name
           }
         } catch (error) {
           console.error("Unexpected error:", error.message);
@@ -75,11 +75,12 @@ export default function AuthRouter({
 
   if (!session) {
     return <>
-    <Header staffName={"User"} />
-    <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} showLinks={false}/>;
-  </>
+      <Header staffName={"User"} />
+      <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} showLinks={false}/>;
+    </>
   }
 
+  console.log(staffName);
 
   // redirector
   
@@ -87,36 +88,36 @@ export default function AuthRouter({
     case "dashboard":
       return <> 
       <Header staffName={staffName} />
-      <DashboardComp staffName={staffName} />;
+      <DashboardComp staffName={staffName} />
         </>
     case "displayallsu":
       return <>
       <Header staffName={staffName} />
-      <DisplayAllSUComp />;
+      <DisplayAllSUComp />
       </>
     case "displayonesu":
       return (<>
       <Header staffName={staffName} />
-      <DisplayOneSUComp
+        <DisplayOneSUComp
           allFetchedDataAboutSpecificSU={allFetchedDataAboutSpecificSU}
         /></>
-      );
+      )
     case "editsu":
       return <>
       <Header staffName={staffName} />
-      <EditSUComp />;
+      <EditSUComp />
       </>
     case "addsu":
       return <>
       <Header staffName={staffName} />
-      <AddSUComp staffId={staffId} staffName={staffName}/>;
+      <AddSUComp />
       </>
     case "referrallinks":
       return <>
       <Header staffName={staffName} />
-      <ReferralLinksComp />;
+      <ReferralLinksComp />
       </>
     default:
-      return <div>page Name passed to login as a prop wasnt matched</div>;
+      return <div>page Name passed to login as a prop wasnt matched</div>
   }
 }

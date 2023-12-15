@@ -18,8 +18,8 @@ import SUDataValuePair from "../babycomponents/SUDataValuePair";
 import { useState } from "react";
 import { formatDate } from "../displayallsu/helper";
 
-// export const dynamic = 'force-dynamic' //forces next js to revaluate data preventing caching
-// export const revalidate = 0    //tells supabase to not use caching
+export const dynamic = 'force-dynamic' //forces next js to revaluate data preventing caching
+export const revalidate = 0    //tells supabase to not use caching
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const {
