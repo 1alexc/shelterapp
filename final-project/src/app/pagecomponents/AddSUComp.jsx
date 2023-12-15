@@ -12,16 +12,16 @@ const supabase = createClient(supaurl, supakey);
 
 export default function AddSUComp({staffId, staffName}) {
     // FETCH 
-    // const [fetchedDataProfile, setFetchedDataProfile] = useState([])
-    // async function fetchDataProfile(){
-    //     const {data} = await supabase
-    //         .from("service_users")
-    //         .select()
-    //         setFetchedDataProfile(data)
-    // }
-    // useEffect(()=>{
-    //     fetchDataProfile("service-users")
-    // }, []);
+    const [fetchedDataProfile, setFetchedDataProfile] = useState([])
+    async function fetchDataProfile(){
+        const {data} = await supabase
+            .from("service_users")
+            .select()
+            setFetchedDataProfile(data)
+    }
+    useEffect(()=>{
+        fetchDataProfile("service-users")
+    }, []);
     // INPUT SETUP ________________________________________________________________
     // input- profile _____________________
     // 1 blank columns
@@ -42,12 +42,14 @@ export default function AddSUComp({staffId, staffName}) {
             .select()
             setFetchedDataProfile(columnsBlank)
             fetchDataProfile();
+
     }
 
     return (
         <div className="page-container">
         {/* USERS IN THE DATABASE */}
-            {/* {
+        <h1>Users currently in database:</h1>
+            {
                 fetchedDataProfile.map(input =>(
                     <div key= {input.id}>
                         <hr></hr>
@@ -55,7 +57,11 @@ export default function AddSUComp({staffId, staffName}) {
                         <span><strong>Name: </strong> {input.first_name} {input.last_name}</span>
                     </div>
                  ))
-            } */}
+
+            }
+            {
+
+            }
         {/* PROFILE INPUTS _________________________________________________________________________________________ */}    
             {/* PROFILE - first name */}
             <input
@@ -119,6 +125,10 @@ export default function AddSUComp({staffId, staffName}) {
                 />
             {/* PROFILE - submit button  */}
             <button onClick={function () {submitPost("service_users", [profileColumns], [profileColumnsBlank], true)}}>Post Profile</button>
+            {/* ADDED NOTIFICATION */}
+            {<div><h3>Most recently added user: </h3>
+                {fetchedDataProfile[fetchedDataProfile.length - 0]?.first_name || "none"}
+            </div>}
         </div>
     )
 }
