@@ -9,8 +9,10 @@ ________________________________________________________________________________
 
 // IMPORTS ------------------------------------------------------------------
 import AuthRouter from "../../AuthRouter.jsx";
-import { createClient } from "@supabase/supabase-js";
+import { fetchSpecificSUDataFromSupabase } from "../helper.js";
+import { generateStaticParams } from "../helper.js";
 
+<<<<<<< HEAD
 // SUPABASE KEY, URL AND CLIENT ---------------------------------------------
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -84,6 +86,9 @@ async function fetchSpecificSUDataFromSupabase(id) {
   };
   return fetchedData;
 }
+=======
+generateStaticParams();
+>>>>>>> main
 
 // AUTHROUTER WITH PROPS -----------------------------------------------------
 export default async function DisplayOneSU({ params }) {
