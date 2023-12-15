@@ -33,8 +33,8 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
 
   // TOGGLE FUNCTIONS AND STATE
-  const [displayStatusProfile, setDisplayStatusProfile] = useState('inline');
-  const [displayStatusStrengths, setDisplayStatusStrengths] = useState('inline');
+  const [displayStatusProfile, setDisplayStatusProfile] = useState('none');
+  const [displayStatusStrengths, setDisplayStatusStrengths] = useState('none');
   const [displayStatusEmergencyContact, setDisplayStatusEmergencyContact] = useState('none');
   const [displayStatusMedical, setDisplayStatusMedical] = useState('none');
   const [displayStatusEmployment, setDisplayStatusEmployment] = useState('none');
@@ -90,7 +90,8 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       setDisplayStatusEmployment('none');
     }
   };
-// Edit mode toggles
+// EDIT FUNCTION CODE
+// edit_strengths
   const [editStatusStrengths, setEditStatusStrengths] = useState(false);
   function handleEditStrengths() {
     setDisplayStatusStrengths('inline');
@@ -132,6 +133,8 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           <div className="toggle-information-flexbox" style={{display: displayStatusStrengths}}>
           
           
+          <h4>Editable key value pairs: </h4>
+
           
           
           
@@ -140,35 +143,20 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           
           
           
-          
-          <EditablePair data={"1"} value={strengths[0]?.strengths_text_one || ""} editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}
-            
-          />
+          <EditablePair data={"Strength/Interest 1"} value={strengths[0]?.strengths_text_one || ""}
+          columnName="strengths_text_one"
+          editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}/>
+
+          <EditablePair data={"Strength/Interest 2"} value={strengths[0]?.strengths_text_two || ""}
+          columnName="strengths_text_two"
+          editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}/>
+
+          <EditablePair data={"Strength/Interest 3"} value={strengths[0]?.strengths_text_three || ""}
+          columnName="strengths_text_three"
+          editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}/>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <EditablePair/>
-          <EditablePair/>
-          <EditablePair/>
+          <h4>Original key value pairs: </h4>
           <SUDataValuePair data={"1"} value={strengths[0]?.strengths_text_one || ""} />
           <SUDataValuePair data={"2"} value={strengths[0]?.strengths_text_two || ""} />
           <SUDataValuePair data={"3"} value={strengths[0]?.strengths_text_three || ""} />
@@ -189,7 +177,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
 
         {/* PROFILE BOX */}
-        {/* <div className="toggle-container">
+        <div className="toggle-container">
           <div className="toggle-title" onClick={handleClickProfile}>
             <span>Basic Info </span>
             <Image src={displayStatusProfile==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
@@ -205,7 +193,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           <SUDataValuePair data={"Email"} value={profile[0]?.email || ""} />
 
           </div>
-        </div> */}
+        </div>
 
 
 
