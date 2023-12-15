@@ -118,7 +118,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
               width="70"
               height="80"
             /> */}
-          </div>
+          {/* </div> */}
           <div className="flexbox-item-serviceusername">
             Welcome to {profile[0].first_name}'s profile
           </div>
@@ -215,7 +215,6 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                     <SUDataValuePair data="Comment" value={commentrow?.comment_text || ""} />
                     <SUDataValuePair data="Date" value={formatDate(commentrow?.comment_date) || ""} />
                     <SUDataValuePair data="Staff member" value={commentrow?.staff_name || ""} />
-
                   </div>
                 ))}
           </div>
