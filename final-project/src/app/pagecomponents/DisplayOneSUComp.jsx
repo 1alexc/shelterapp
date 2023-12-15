@@ -17,6 +17,8 @@ import Image from "next/image.js";
 import SUDataValuePair from "../babycomponents/SUDataValuePair";
 import { useState } from "react";
 
+// export const dynamic = 'force-dynamic' //forces next js to revaluate data preventing caching
+// export const revalidate = 0    //tells supabase to not use caching
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const {
@@ -120,14 +122,15 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
               <p className="item-back-bttn-text">back</p>
             </div>
           </Link>
-          <div className="flexbox-item-image">
+          {/* <div className="flexbox-item-image">
             <Image
               className="SU-pic"
-              src={`/${profile[0].su_image}`}
+              src="/su3.png"
+              // src={`/${profile[0].su_image}`}
               alt={profile[0].first_name}
               width="70"
               height="80"
-            />
+            /> */}
             {/* <Image
               className="SU-pic"
               src="/su3.png"
@@ -135,7 +138,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
               width="70"
               height="80"
             /> */}
-          </div>
+          {/* </div> */}
           <div className="flexbox-item-serviceusername">
             Welcome to {profile[0].first_name}'s profile
           </div>

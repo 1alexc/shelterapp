@@ -74,7 +74,7 @@ export default function AuthRouter({
   }, []);
 
   if (!session) {
-    return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />;
+    return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} showLinks={false}/>;
   }
 
   console.log(staffName);
