@@ -18,6 +18,8 @@ import SUDataValuePair from "../babycomponents/SUDataValuePair";
 import { useState } from "react";
 import { formatDate } from "../displayallsu/helper";
 
+// export const dynamic = 'force-dynamic' //forces next js to revaluate data preventing caching
+// export const revalidate = 0    //tells supabase to not use caching
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const {
@@ -101,7 +103,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
               <p className="item-back-bttn-text">back</p>
             </div>
           </Link>
-          <div className="flexbox-item-image">
+          {/* <div className="flexbox-item-image">
             <Image
               className="SU-pic"
               src={`/${profile[0]?.su_image || ""}`}
