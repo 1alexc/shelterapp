@@ -2,6 +2,8 @@ import compStyles from "./addsu.css";
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
+
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -13,7 +15,7 @@ const supabase = createClient(supaurl, supakey);
 export default function AddSUComp({ staffId, staffName }) {
   // FETCH
   const [fetchedDataProfile, setFetchedDataProfile] = useState([]);
-  const[ShowMessage, setShowMessage] = useState("false")
+  const [ShowMessage, setShowMessage] = useState("false");
   async function fetchDataProfile() {
     const { data } = await supabase.from("service_users").select();
     setFetchedDataProfile(data);
@@ -193,14 +195,9 @@ export default function AddSUComp({ staffId, staffName }) {
     fetchDataProfile();
   }
 
-  function displaymessage(){
-    const messageContainer = document.getElementById("message_container");
-            messageContainer.innerText="Service User Added Successfully"
-  }
-
   return (
     <div className="page-container">
-        <div className="message_container" id="message_container"></div>
+      <div className="message_container" id="message_container"></div>
       {/* USERS IN THE DATABASE */}
       {/* <h1>Users currently in database:</h1>
       {fetchedDataProfile.map((input) => (
@@ -467,27 +464,46 @@ export default function AddSUComp({ staffId, staffName }) {
           Post Profile
         </button> */}
 
-<button
-  className="submit_button"
-  onClick={async function (e) {
-    // e.preventDefault();
+        <button
+          className="submit_button"
+          onClick={async function (e) {
+            e.preventDefault();
 
-    const form = e.target.form;
+            const form = e.target.form;
 
-    try {
-      await submitPost("service_users", [profileColumns], [profileColumnsBlank], true);
-      form.reset();
-      alert("Service User Successfully Added");
-      // displaymessage();
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      // Handle errors if needed
-    }
-  }}
->
-  Post Profile
-</button>
+            try {
+              await submitPost(
+                "service_users",
+                [profileColumns],
+                [profileColumnsBlank],
+                true
+              );
+              form.reset();
+              toast("Success", {
+                className: "submit-toast",
+                description: "Service User Successfully Added",
+                duration: 3000,
+                position: "top-left",
+              });
+              
 
+              setTimeout(function() {
+                // Refresh the page
+                window.location.reload();
+              }, 4000); // Adjust the delay time
+            
+
+
+              //   alert("Service User Successfully Added");
+              // displaymessage();
+            } catch (error) {
+              console.error("Error submitting form:", error);
+              // Handle errors if needed
+            }
+          }}
+        >
+          Post Profile
+        </button>
       </form>
 
       {/* NEXT SECTION ||||| */}
