@@ -1,11 +1,11 @@
 .home {
-    background-color: white;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 4rem;
     /* border: 1px white solid; */
     border-radius: 10px;
 }
 
 .home:hover{
-    background-color: yellow
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+
 }

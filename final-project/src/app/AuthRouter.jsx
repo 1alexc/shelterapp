@@ -14,6 +14,7 @@ import DisplayOneSUComp from "./pagecomponents/DisplayOneSUComp";
 import AddSUComp from "./pagecomponents/AddSUComp";
 import EditSUComp from "./pagecomponents/EditSUComp";
 import ReferralLinksComp from "./pagecomponents/ReferralLinksComp";
+import LogoForLogin from "./babycomponents/LogoForLogin";
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -75,7 +76,7 @@ export default function AuthRouter({
 
   if (!session) {
     return <>
-      <Header staffName={"User"} />
+      <LogoForLogin></LogoForLogin>
       <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} showLinks={false}/>;
     </>
   }
