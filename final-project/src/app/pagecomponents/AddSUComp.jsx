@@ -2,6 +2,7 @@ import compStyles from "./addsu.css";
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+// Make sure to npm i to install Toast package
 import { toast } from "sonner";
 
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -227,11 +228,11 @@ export default function AddSUComp({ staffId, staffName }) {
             type="text"
             className="inputfield"
             name="first_name"
-            id="first_name_input"
-            placeholder="First_name"
+            id="first_name"
+            placeholder="First Name"
             value={first_name}
-            autoCapitalize="words"
             required
+            // This event handler updates the inputProfile state with the value of the 'first_name' field when it changes
             onChange={(e) =>
               setInputProfile({ ...inputProfile, first_name: e.target.value })
             }
@@ -245,12 +246,11 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="text"
-            placeholder="last_name"
-            id="last_name_input"
+            placeholder="Last Name"
+            id="last_name"
             className="inputfield"
             name="last_name"
             value={last_name}
-            autoCapitalize="words"
             required
             onChange={(e) =>
               setInputProfile({ ...inputProfile, last_name: e.target.value })
@@ -265,7 +265,7 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="number"
-            id="age_input"
+            id="age"
             className="inputfield"
             name="age"
             min={18}
@@ -283,12 +283,11 @@ export default function AddSUComp({ staffId, staffName }) {
             Gender{" "}
           </label>
           <input
-            placeholder="gender"
+            placeholder="Gender"
             name="gender"
-            id="gender_input"
+            id="gender"
             className="inputfield"
             value={gender}
-            autoCapitalize="sentences"
             onChange={(e) =>
               setInputProfile({ ...inputProfile, gender: e.target.value })
             }
@@ -303,6 +302,7 @@ export default function AddSUComp({ staffId, staffName }) {
           <input
             type="date"
             name="dob"
+            // Min max dates are set to prevent users from entering dates that are too far in the past or future
             min={"1900-01-01"}
             max={"2040-12-18"}
             className="inputfield"
@@ -320,14 +320,16 @@ export default function AddSUComp({ staffId, staffName }) {
             NI Number{" "}
           </label>
           <input
-            placeholder="ni_number"
+            placeholder="NI Number"
             value={ni_number}
             type="text"
             className="inputfield"
-            id="ni_number_input"
+            id="ni_number"
+            //Pattern means NI number must be in the format of 2 letters, 6 numbers, 1 letter (captial letters)
+            pattern = "[A-Za-z]+\d{6}[A-Za-z]+"
             minLength={9}
             maxLength={9}
-            autoCapitalize="characters"
+            // autoCapitalize="characters"
             onChange={(e) =>
               setInputProfile({ ...inputProfile, ni_number: e.target.value })
             }
@@ -340,10 +342,13 @@ export default function AddSUComp({ staffId, staffName }) {
             Phone{" "}
           </label>
           <input
+            // the type being tel means that the input will display a number pad on mobile devices
             type="tel"
             maxLength={11}
-            placeholder="phone"
-            id="phone_input"
+            // pattern to ensure only 11 numbers are entered
+            pattern="[0-9]{11}"
+            placeholder="Phone Number"
+            id="phone"
             className="inputfield"
             value={phone}
             onChange={(e) =>
@@ -358,9 +363,10 @@ export default function AddSUComp({ staffId, staffName }) {
             Email{" "}
           </label>
           <input
+            // the type being email means that the input will be validated to ensure it is a valid email address (use of @ symbol)
             type="email"
-            placeholder="email"
-            id="email_input"
+            placeholder="Email"
+            id="email"
             className="inputfield"
             value={email}
             onChange={(e) =>
@@ -380,10 +386,9 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="text"
-            placeholder="emergency_contact_name"
-            id="emergency_contact_name_input"
+            placeholder="Emergency Contact Name"
+            id="emergency_contact_name"
             className="inputfield"
-            autoCapitalize="words"
             value={emergency_contact_name}
             onChange={(e) =>
               setInputProfile({
@@ -405,8 +410,8 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="text"
-            placeholder="emergency_contact_relationship"
-            id="emergency_contact_relationship_input"
+            placeholder="Emergency Contact Relationship"
+            id="emergency_contact_relationship"
             className="inputfield"
             value={emergency_contact_relationship}
             onChange={(e) =>
@@ -429,10 +434,11 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="tel"
-            placeholder="emergency_contact_phone"
-            id="emergency_contact_phone_input"
+            placeholder="Emergency Contact Phone"
+            id="emergency_contact_phone"
             className="inputfield"
             maxLength={11}
+            pattern="[0-9]{11}"
             value={emergency_contact_phone}
             onChange={(e) =>
               setInputProfile({
@@ -444,32 +450,12 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - submit button  */}
-        {/* <button
-        className="submit_button"
-          onClick={function (e) {
-            e.preventDefault()
-            const form = e.target.form;
-            submitPost(
-              "service_users",
-              [profileColumns],
-              [profileColumnsBlank],
-              true
-            );
-            
-            form.reset();
-           alert("Service User Successfully Added")
-        //    displaymessage()
-          }}
-        >
-          Post Profile
-        </button> */}
-
+          
         <button
           className="submit_button"
           onClick={async function (e) {
+            // the e.preventDefault() prevents the page from refreshing when the button is clicked
             e.preventDefault();
-
-            const form = e.target.form;
 
             try {
               await submitPost(
@@ -478,7 +464,10 @@ export default function AddSUComp({ staffId, staffName }) {
                 [profileColumnsBlank],
                 true
               );
-              form.reset();
+              //  We are using a package called Toast which has been imported (remember to npm i)
+              // The toast title is "Success" and the description is "Service User Successfully Added"
+              // The notification will remain on screen for 3 seconds
+              // The position is top-left
               toast("Success", {
                 className: "submit-toast",
                 description: "Service User Successfully Added",
@@ -486,7 +475,7 @@ export default function AddSUComp({ staffId, staffName }) {
                 position: "top-left",
               });
               
-
+              // This function will refresh the page after 4 seconds, clearing the input fields
               setTimeout(function() {
                 // Refresh the page
                 window.location.reload();
