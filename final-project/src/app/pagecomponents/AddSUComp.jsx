@@ -198,7 +198,7 @@ export default function AddSUComp({ staffId, staffName }) {
 
   return (
     <div className="page-container">
-      <div className="message_container" id="message_container"></div>
+      
       {/* USERS IN THE DATABASE */}
       {/* <h1>Users currently in database:</h1>
       {fetchedDataProfile.map((input) => (
@@ -213,6 +213,7 @@ export default function AddSUComp({ staffId, staffName }) {
           </span>
         </div>
       ))} */}
+
       {/* PROFILE INPUTS _________________________________________________________________________________________ */}
       {/* PROFILE - first name */}
       <form className="addsu_form" id="myform">
@@ -456,6 +457,7 @@ export default function AddSUComp({ staffId, staffName }) {
           onClick={async function (e) {
             // the e.preventDefault() prevents the page from refreshing when the button is clicked
             e.preventDefault();
+            e.target.disabled=true;
 
             try {
               await submitPost(
@@ -467,19 +469,22 @@ export default function AddSUComp({ staffId, staffName }) {
               //  We are using a package called Toast which has been imported (remember to npm i)
               // The toast title is "Success" and the description is "Service User Successfully Added"
               // The notification will remain on screen for 3 seconds
-              // The position is top-left
+              // The position is top-left, can style in the style attribute
               toast("Success", {
                 className: "submit-toast",
                 description: "Service User Successfully Added",
-                duration: 3000,
+                duration: 3000, 
                 position: "top-left",
+                onAutoClose: window.location.reload(), //will reload page(after toast disappears)
+                style: { background: "lightcyan", color:"black",
+                }
               });
               
               // This function will refresh the page after 4 seconds, clearing the input fields
-              setTimeout(function() {
+            //   setTimeout(function() {
                 // Refresh the page
-                window.location.reload();
-              }, 4000); // Adjust the delay time
+            //     window.location.reload();
+            //   }, 4000); // Adjust the delay time
             
 
 
