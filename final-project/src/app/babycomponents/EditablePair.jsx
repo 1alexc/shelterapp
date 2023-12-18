@@ -11,15 +11,12 @@ const supabase = createClient(supaurl, supakey);
 
 
 // COMPONENT
-export default function EditablePair({data, value, columnName, editMode, userID }) {
+export default function EditablePair({data, score, columnName, editMode, userID }) {
   // STATE MANAGEMENT FOR INPUTS, UPDATES AND INSERTION
   const strengthsColumnsBlank = {user_id: userID, strengths_text_one:"", strengths_text_two:"", strengths_text_three:""}; 
   const [inputStrengths, setInputStrengths] = useState(strengthsColumnsBlank) 
   const {user_id, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths 
   const strengthsColumns = {user_id, strengths_text_one, strengths_text_two, strengths_text_three};
-
-
-
 
   // ONCLICK FUNCTION TO UPDATE/INSERT DATA,
   async function updateOrInsertData(allColumnValues, newValue){
@@ -76,7 +73,7 @@ export default function EditablePair({data, value, columnName, editMode, userID 
           <div className="flexbox-item-editpair">
             <div className="data">{data}<span>:  </span>
             </div>
-            <div className="value">{value || "No value provided."}
+            <div className="value">{score || "No value provided."}
             </div>
           </div>
         </>
