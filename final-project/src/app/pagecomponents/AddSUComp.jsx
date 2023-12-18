@@ -13,6 +13,7 @@ const supabase = createClient(supaurl, supakey);
 export default function AddSUComp({ staffId, staffName }) {
   // FETCH
   const [fetchedDataProfile, setFetchedDataProfile] = useState([]);
+  const[ShowMessage, setShowMessage] = useState("false")
   async function fetchDataProfile() {
     const { data } = await supabase.from("service_users").select();
     setFetchedDataProfile(data);
@@ -192,8 +193,14 @@ export default function AddSUComp({ staffId, staffName }) {
     fetchDataProfile();
   }
 
+  function displaymessage(){
+    const messageContainer = document.getElementById("message_container");
+            messageContainer.innerText="Service User Added Successfully"
+  }
+
   return (
     <div className="page-container">
+        <div className="message_container" id="message_container"></div>
       {/* USERS IN THE DATABASE */}
       {/* <h1>Users currently in database:</h1>
       {fetchedDataProfile.map((input) => (
@@ -210,7 +217,7 @@ export default function AddSUComp({ staffId, staffName }) {
       ))} */}
       {/* PROFILE INPUTS _________________________________________________________________________________________ */}
       {/* PROFILE - first name */}
-      <form className="addsu_form_container">
+      <form className="addsu_form" id="myform">
         <div className="inputcontainer">
           <label
             htmlFor="first_name"
@@ -321,7 +328,6 @@ export default function AddSUComp({ staffId, staffName }) {
             id="ni_number_input"
             minLength={9}
             maxLength={9}
-            pattern="[A-CEGHJ-PR-TW-Z]{2}\d{6}[A-CEGHJ-PR-TW-Z]"
             autoCapitalize="characters"
             onChange={(e) =>
               setInputProfile({ ...inputProfile, ni_number: e.target.value })
@@ -337,8 +343,7 @@ export default function AddSUComp({ staffId, staffName }) {
           <input
             type="tel"
             maxLength={11}
-            pattern="^[0-9]+$"
-            placeholder="Phone Number"
+            placeholder="phone"
             id="phone_input"
             className="inputfield"
             value={phone}
@@ -425,11 +430,10 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="tel"
-            placeholder="Phone Number"
+            placeholder="emergency_contact_phone"
             id="emergency_contact_phone_input"
             className="inputfield"
             maxLength={11}
-            pattern="^[0-9]+$"
             value={emergency_contact_phone}
             onChange={(e) =>
               setInputProfile({
@@ -441,25 +445,48 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - submit button  */}
-        <button
+        {/* <button
         className="submit_button"
-          onClick={function () {
+          onClick={function (e) {
+            e.preventDefault()
+            const form = e.target.form;
             submitPost(
               "service_users",
               [profileColumns],
               [profileColumnsBlank],
               true
             );
+            
+            form.reset();
+           alert("Service User Successfully Added")
+        //    displaymessage()
           }}
-        popovertarget="my-popover"
         >
           Post Profile
-        </button>
-      </form>
+        </button> */}
 
-        <div popover id="my-popover">
-        Service User Added Successfully
-        </div>
+<button
+  className="submit_button"
+  onClick={async function (e) {
+    // e.preventDefault();
+
+    const form = e.target.form;
+
+    try {
+      await submitPost("service_users", [profileColumns], [profileColumnsBlank], true);
+      form.reset();
+      alert("Service User Successfully Added");
+      // displaymessage();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Handle errors if needed
+    }
+  }}
+>
+  Post Profile
+</button>
+
+      </form>
 
       {/* NEXT SECTION ||||| */}
       {/* STRENGTHS INPUTS _________________________________________________________________________________________ */}
