@@ -335,7 +335,7 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="tel"
-            maxLength={16}
+            maxLength={11}
             placeholder="phone"
             id="phone_input"
             className="inputfield"
@@ -426,7 +426,7 @@ export default function AddSUComp({ staffId, staffName }) {
             placeholder="emergency_contact_phone"
             id="emergency_contact_phone_input"
             className="inputfield"
-            maxLength={16}
+            maxLength={11}
             value={emergency_contact_phone}
             onChange={(e) =>
               setInputProfile({
