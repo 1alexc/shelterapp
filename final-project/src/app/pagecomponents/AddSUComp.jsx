@@ -195,7 +195,7 @@ export default function AddSUComp({ staffId, staffName }) {
   return (
     <div className="page-container">
       {/* USERS IN THE DATABASE */}
-      <h1>Users currently in database:</h1>
+      {/* <h1>Users currently in database:</h1>
       {fetchedDataProfile.map((input) => (
         <div key={input.id}>
           <hr></hr>
@@ -207,7 +207,7 @@ export default function AddSUComp({ staffId, staffName }) {
             <strong>Name: </strong> {input.first_name} {input.last_name}
           </span>
         </div>
-      ))}
+      ))} */}
       {/* PROFILE INPUTS _________________________________________________________________________________________ */}
       {/* PROFILE - first name */}
       <form className="addsu_form_container">
@@ -321,6 +321,7 @@ export default function AddSUComp({ staffId, staffName }) {
             id="ni_number_input"
             minLength={9}
             maxLength={9}
+            pattern="[A-CEGHJ-PR-TW-Z]{2}\d{6}[A-CEGHJ-PR-TW-Z]"
             autoCapitalize="characters"
             onChange={(e) =>
               setInputProfile({ ...inputProfile, ni_number: e.target.value })
@@ -336,7 +337,8 @@ export default function AddSUComp({ staffId, staffName }) {
           <input
             type="tel"
             maxLength={11}
-            placeholder="phone"
+            pattern="^[0-9]+$"
+            placeholder="Phone Number"
             id="phone_input"
             className="inputfield"
             value={phone}
@@ -423,10 +425,11 @@ export default function AddSUComp({ staffId, staffName }) {
           </label>
           <input
             type="tel"
-            placeholder="emergency_contact_phone"
+            placeholder="Phone Number"
             id="emergency_contact_phone_input"
             className="inputfield"
             maxLength={11}
+            pattern="^[0-9]+$"
             value={emergency_contact_phone}
             onChange={(e) =>
               setInputProfile({
@@ -448,10 +451,15 @@ export default function AddSUComp({ staffId, staffName }) {
               true
             );
           }}
+        popovertarget="my-popover"
         >
           Post Profile
         </button>
       </form>
+
+        <div popover id="my-popover">
+        Service User Added Successfully
+        </div>
 
       {/* NEXT SECTION ||||| */}
       {/* STRENGTHS INPUTS _________________________________________________________________________________________ */}

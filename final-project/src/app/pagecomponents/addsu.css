@@ -32,3 +32,7 @@ button {
     margin-left: 40%;
     padding: 0.3rem;
 }
+
+#my-popover { 
+    display: block;
+}
