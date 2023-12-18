@@ -24,8 +24,8 @@ export default function PairStrengths({data, value, editMode, updater}) {
     const strengthsColumns = {user_id, strengths_text_one, strengths_text_two, strengths_text_three};
 
     const handleChange= (event) => {
-        setInputStrengths(inputStrengths.strengths_text_one= event.target.value);
-        // updater("strengths", "strengths_text_one", event.target.value)
+        updater("strengths", "strengths_text_one", event.target.value)
+        setInputStrengths(strengthsColumns.strengths_text_one=event.target.value);
     }
 
 
@@ -40,7 +40,7 @@ export default function PairStrengths({data, value, editMode, updater}) {
         </div> 
         <div className="valueAndUpdater">
             <input 
-              placeholder={value} 
+              placeholder={"original"} 
               value={inputStrengths.strengths_text_one} 
               onChange={e => handleChange(e)}
             >
