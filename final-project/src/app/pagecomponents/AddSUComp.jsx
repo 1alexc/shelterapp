@@ -306,6 +306,8 @@ export default function AddSUComp({ staffId, staffName }) {
           <input
             type="date"
             name="dob"
+            min={"1900-01-01"}
+            max={"2040-12-18"}
             className="inputfield"
             id="dob_input"
             value={dob}
