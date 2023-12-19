@@ -39,7 +39,7 @@ export default function DisplayAllSUComp() {
     return (
         <>
             <div className="all-explanation">
-              <h2>View All Service Users</h2>
+              <h1><strong>View All Service Users</strong></h1>
               <p>Click the person below to view their data.</p>
               <br></br>
             </div>

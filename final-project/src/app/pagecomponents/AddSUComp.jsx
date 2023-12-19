@@ -195,10 +195,11 @@ export default function AddSUComp({ staffId, staffName }) {
     setFetchedDataProfile(columnsBlank);
     fetchDataProfile();
   }
+ 
 
   return (
     <div className="page-container">
-      
+    
       {/* USERS IN THE DATABASE */}
       {/* <h1>Users currently in database:</h1>
       {fetchedDataProfile.map((input) => (
@@ -327,7 +328,7 @@ export default function AddSUComp({ staffId, staffName }) {
             className="inputfield"
             id="ni_number"
             //Pattern means NI number must be in the format of 2 letters, 6 numbers, 1 letter (captial letters)
-            pattern = "[A-Za-z]+\d{6}[A-Za-z]+"
+            pattern="[A-Za-z]+\d{6}[A-Za-z]+"
             minLength={9}
             maxLength={9}
             // autoCapitalize="characters"
@@ -452,13 +453,13 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - submit button  */}
-          
+
         <button
           className="submit_button"
           onClick={async function (e) {
             // the e.preventDefault() prevents the page from refreshing when the button is clicked
             e.preventDefault();
-            e.target.disabled=true;
+            e.target.disabled = true;
 
             try {
               await submitPost(
@@ -474,20 +475,21 @@ export default function AddSUComp({ staffId, staffName }) {
               toast("Success", {
                 className: "submit-toast",
                 description: "Service User Successfully Added",
-                duration: 3000, 
+                duration: 3000,
                 position: "top-left",
                 // onAutoClose: window.location.reload(), //will reload page(after toast disappears)
-                style: { background: "#B3F5A3", color:"black", border:"3px solid white"
-                }
+                style: {
+                  background: "#B3F5A3",
+                  color: "black",
+                  border: "3px solid white",
+                },
               });
-              
+
               // This function will refresh the page after 4 seconds, clearing the input fields
-              setTimeout(function() {
+              setTimeout(function () {
                 // Refresh the page
                 window.location.reload();
               }, 4000); // Adjust the delay time
-            
-
 
               //   alert("Service User Successfully Added");
               // displaymessage();
