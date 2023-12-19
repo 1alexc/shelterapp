@@ -223,7 +223,7 @@ export default function AddSUComp({ staffId, staffName }) {
             className="labeltext"
             id="first_name_label"
           >
-            First Name{" "}
+            First Name:{" "}
           </label>
           <input
             type="text"
@@ -243,7 +243,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - last_name */}
         <div className="inputcontainer">
           <label htmlFor="last_name" id="last_name_label" className="labeltext">
-            Last Name{" "}
+            Last Name:{" "}
           </label>
           <input
             type="text"
@@ -262,7 +262,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - age */}
         <div className="inputcontainer">
           <label htmlFor="age" id="age_label" className="labeltext">
-            Age{" "}
+            Age:{" "}
           </label>
           <input
             type="number"
@@ -281,7 +281,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - gender */}
         <div className="inputcontainer">
           <label htmlFor="gender" id="gender_label" className="labeltext">
-            Gender{" "}
+            Gender:{" "}
           </label>
           <input
             placeholder="Gender"
@@ -298,7 +298,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - dob */}
         <div className="inputcontainer">
           <label htmlFor="dob" className="labeltext" id="dob_label">
-            DOB{" "}
+            DOB:{" "}
           </label>
           <input
             type="date"
@@ -318,7 +318,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - ni_number */}
         <div className="inputcontainer">
           <label htmlFor="ni_number" id="ni_number_label" className="labeltext">
-            NI Number{" "}
+            NI Number:{" "}
           </label>
           <input
             placeholder="NI Number"
@@ -340,7 +340,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - phone */}
         <div className="inputcontainer">
           <label htmlFor="phone" id="phone_label" className="labeltext">
-            Phone{" "}
+            Phone:{" "}
           </label>
           <input
             // the type being tel means that the input will display a number pad on mobile devices
@@ -361,7 +361,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - email */}
         <div className="inputcontainer">
           <label htmlFor="email" id="email_label" className="labeltext">
-            Email{" "}
+            Email:{" "}
           </label>
           <input
             // the type being email means that the input will be validated to ensure it is a valid email address (use of @ symbol)
@@ -383,7 +383,7 @@ export default function AddSUComp({ staffId, staffName }) {
             id="emergency_contact_name_label"
             className="labeltext"
           >
-            Emergency Contact Name{" "}
+            Emergency Contact Name:{" "}
           </label>
           <input
             type="text"
@@ -407,7 +407,7 @@ export default function AddSUComp({ staffId, staffName }) {
             id="emergency_contact_relationship_label"
             className="labeltext"
           >
-            Emergency Contact Relationship{" "}
+            Emergency Contact Relationship:{" "}
           </label>
           <input
             type="text"
@@ -431,7 +431,7 @@ export default function AddSUComp({ staffId, staffName }) {
             id="emergency_contact_phone_label"
             className="labeltext"
           >
-            Emergency Contact Phone{" "}
+            Emergency Contact Phone:{" "}
           </label>
           <input
             type="tel"
@@ -476,7 +476,7 @@ export default function AddSUComp({ staffId, staffName }) {
                 duration: 3000, 
                 position: "top-left",
                 // onAutoClose: window.location.reload(), //will reload page(after toast disappears)
-                style: { background: "lightcyan", color:"black",
+                style: { background: "#B3F5A3", color:"black", border:"3px solid white"
                 }
               });
               
@@ -496,7 +496,7 @@ export default function AddSUComp({ staffId, staffName }) {
             }
           }}
         >
-          Post Profile
+          + Add Service User
         </button>
       </form>
 
