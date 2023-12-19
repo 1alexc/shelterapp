@@ -7,7 +7,7 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 6rem;
     row-gap: 0.5rem;
-    background-color: #2e3ca1;
+    /* background-color: #2e3ca1; */
     /* border: 1px solid white; */
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
     border-radius: 20px;
