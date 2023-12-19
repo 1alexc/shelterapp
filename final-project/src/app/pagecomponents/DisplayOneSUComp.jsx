@@ -367,7 +367,6 @@ const [editStatusComments, setEditStatusComments] = useState(false);
           </div>
           <div className="onesu-toggle-information-flexbox" style={{display: displayStatusComments}}>
               <ServiceUserContext.Provider value={suData}>
-                <EditablePair dataLabel="User Id" table={"comments"} column={"user_id"} updateContext={updateContext} editMode={editStatusComments}></EditablePair>
                 <EditablePair dataLabel="Comment Text" table={"comments"} column={"comment_text"} updateContext={updateContext} editMode={editStatusComments}></EditablePair>
                 <EditablePair dataLabel="Comment Date" table={"comments"} column={"comment_date"} updateContext={updateContext} editMode={editStatusComments}></EditablePair>
                 <EditablePair dataLabel="Staff Name" table={"comments"} column={"staff_name"} updateContext={updateContext} editMode={editStatusComments}></EditablePair>
@@ -403,7 +402,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
         {/* EDIT SERVICE USER */}
         <div className="edit-button">
           <Link href="/editsu" passHref legacyBehavior>
-             <p>Edit Service User</p>
+            <p>Edit Service User</p>
           </Link>
         </div>
       </div>
