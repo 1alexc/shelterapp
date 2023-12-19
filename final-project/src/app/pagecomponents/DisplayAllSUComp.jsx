@@ -3,7 +3,6 @@ import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-
 const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -39,22 +38,23 @@ export default function DisplayAllSUComp() {
     console.log(data);
     return (
         <>
-            <h1>View All Service Users</h1>
-            <p>Click the person below to view their data.</p>
-
-            <div className="displayall">
-                      <div className="flexbox-container-w">
-                {data.map((profiles) => (
-                    <div className="flexbox-item">
-                        <Link passHref legacyBehavior key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
-                            <div>
-                              {profiles.last_name}, {profiles.first_name}
-                            </div>
-                        </Link>
-                        </div>
-                      ))}
-                      </div>
-                
+            <div className="all-explanation">
+              <h2>View All Service Users</h2>
+              <p>Click the person below to view their data.</p>
+              <br></br>
             </div>
+            <div className="all-grid-content-box"> 
+            {data.map((profiles) => (
+                  <div className="su-cards">
+                  <Link passHref legacyBehavior key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
+                      <div className="su-card-fb-container">
+                      <div className="su-card-name">
+                                        {profiles.last_name}, {profiles.first_name}
+                                    </div>
+                                </div>
+                    </Link>
+                  </div>
+                 ))}
+            </div>                 
         </>
     )}
