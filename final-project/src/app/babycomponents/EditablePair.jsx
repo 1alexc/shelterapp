@@ -200,7 +200,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
         </div> 
         <div className="onesu-valueAndUpdater">
             <input 
-              placeholder={allData[table][0][column] || "No value provided."}
+              placeholder={allData[table]?.[0]?.[column] || "No value provided."}
               value={inputValue} 
               onChange={e => handleChange(e)}
             >
@@ -216,7 +216,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
         <div className="onesu-flexbox-item-editpair">
           <div className="onesu-data">{dataLabel}<span>:  </span>
           </div>
-          <div className="onesu-value">{allData[table][0][column] || "No value provided."}
+          <div className="onesu-value">{allData[table]?.[0]?.[column] || "No value provided."}
           </div>
         </div>
       </>
