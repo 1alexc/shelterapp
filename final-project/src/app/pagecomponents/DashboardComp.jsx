@@ -36,11 +36,16 @@ export default function DashboardComp({staffName}) {
 
   
   return (
-    <> <div className="dash-master">
+    <> 
+    
+    <div className="dash-master">
         {/* Welcome message */}
-        <div className="dash-welcome"><strong>Welcome to your Dashboard, {staffName}</strong>!
+        <div className="global-welcome"><strong>Welcome to your Dashboard, {staffName}</strong>.
           <p>Today's date is {formattedDate}</p>
         </div>
+
+
+
         {/* Content section */}
         <div className="dash-grid-content-box">
           <div className="dash-grid-row-1-top-bar">

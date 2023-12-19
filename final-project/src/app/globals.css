@@ -10,3 +10,14 @@ body{
     background: rgb(156,156,198);
     background: linear-gradient(0deg, rgba(156,156,198,1) 0%, rgba(17,23,105,1) 100%);
 }
+
+
+.global-welcome{
+    color: white;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;  
+  }
+  

@@ -6,8 +6,8 @@
     justify-content: center;
     margin-top: 0.2rem;
     bottom: 0;
-    background: rgb(197,199,227);
-    background: linear-gradient(180deg, rgba(197,199,227,0.01) 0%, rgba(17,23,105,1) 100%);
+    /* background: rgb(197,199,227); */
+    /* background: linear-gradient(180deg, rgba(197,199,227,0.01) 0%, rgba(17,23,105,1) 100%); */
 }
 
 .copyright {

@@ -15,7 +15,7 @@ export default function Header({ staffName }) {
         <div className="flexbox-item-status">
             <Image
               className="SU-pic"
-              src="/su7.png"
+              src="/placeholderperson.png"
               alt="profile image"
               width="55"
               height="60"

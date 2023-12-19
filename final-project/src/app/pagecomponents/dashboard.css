@@ -3,14 +3,6 @@
 .dash-master {
   color: white;
 }
-.dash-welcome{
-  color: white;
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 24px;  
-}
 
 /* GRID */
 .dash-grid-content-box{
@@ -45,9 +37,10 @@
 /* row 3 */
 .dash-grid-row-3-button{
   font-size: 14px;
-  background-color: transparent;
+  background-color: rgb(81, 86, 150);
   border: white 1px solid;
   box-shadow: 0.2rem 0.2rem white;
+  
   border-radius: 10px;
   padding-top: 2rem; 
   margin-inline: 10%;
@@ -56,7 +49,7 @@
 }
 
 .dash-grid-row-3-button:hover{
-  background-color: #b3b9e4;
+  background-color: #a0a8ea;
   transition: 1s;
   color: black;
 }

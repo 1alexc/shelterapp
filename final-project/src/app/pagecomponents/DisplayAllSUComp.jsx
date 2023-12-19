@@ -38,11 +38,15 @@ export default function DisplayAllSUComp() {
     console.log(data);
     return (
         <>
-            <div className="all-explanation">
-              <h1><strong>View All Service Users</strong></h1>
-              <p>Click the person below to view their data.</p>
+            {/* Welcome message */}
+            <div className="global-welcome"><strong>
+              View All Service Users
+            </strong>
+              <p>Click the person below to view their data</p>
               <br></br>
+
             </div>
+
             <div className="all-grid-content-box"> 
             {data.map((profiles) => (
                   <div className="su-cards">
@@ -54,7 +58,7 @@ export default function DisplayAllSUComp() {
                                 </div>
                     </Link>
                   </div>
-                 ))}
+                ))}
             </div>                 
         </>
     )}

@@ -94,9 +94,6 @@ export default function AuthRouter({
           }} providers={[]} showLinks={false}/>
     </>
   }
-
-  console.log(staffName);
-
   // redirector
   
   switch (pageName) {
