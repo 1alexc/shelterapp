@@ -54,55 +54,56 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const [displayStatusResidence, setDisplayStatusResidence] = useState('none');
   const [displayStatusComments, setDisplayStatusComments] = useState('none');
 
-  function handleClickProfile() {
+  function handleDisplayClickProfile() {
     if (displayStatusProfile == 'none') {
       setDisplayStatusProfile('inline');
     } else {
       setDisplayStatusProfile('none');
     }
   };
-  function handleClickMedical() {
+  function handleDisplayClickMedical() {
     if (displayStatusMedical == 'none') {
       setDisplayStatusMedical('inline');
     } else {
       setDisplayStatusMedical('none');
     }
   };
-  function handleClickResidence() {
+  function handleDisplayClickResidence() {
     if (displayStatusResidence == 'none') {
       setDisplayStatusResidence('inline');
     } else {
       setDisplayStatusResidence('none');
     }
   };
-  function handleClickStrengths() {
+  function handleDisplayClickStrengths() {
     if (displayStatusStrengths == 'none') {
       setDisplayStatusStrengths('inline');
     } else {
       setDisplayStatusStrengths('none');
     }
   };
-  function handleClickComments() {
+  function handleDisplayClickComments() {
     if (displayStatusComments == 'none') {
       setDisplayStatusComments('inline');
     } else {
       setDisplayStatusComments('none');
     }
   };
-  function handleClickEmergencyContact() {
+  function handleDisplayClickEmergencyContact() {
     if (displayStatusEmergencyContact == 'none') {
       setDisplayStatusEmergencyContact('inline');
     } else {
       setDisplayStatusEmergencyContact('none');
     }
   };
-  function handleClickEmployment() {
+  function handleDisplayClickEmployment() {
     if (displayStatusEmployment == 'none') {
       setDisplayStatusEmployment('inline');
     } else {
       setDisplayStatusEmployment('none');
     }
   };
+
 // EDIT FUNCTION CODE
 // edit_strengths
   const [editStatusStrengths, setEditStatusStrengths] = useState(false);
@@ -114,13 +115,79 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       setEditStatusStrengths(false);
     }
   };
+  // edit_profile
+  const [editStatusProfile, setEditStatusProfile] = useState(false);
+  function handleEditProfile() {
+    setDisplayStatusProfile('inline');
+    if (editStatusProfile == false) {
+      setEditStatusProfile(true);
+    } else {
+      setEditStatusProfile(false);
+    }
+  };
+    // edit_history
+
+  const [editStatusHistory, setEditStatusHistory] = useState(false);
+  function handleEditHistory() {
+    setDisplayStatusHistory('inline');
+    if (editStatusHistory == false) {
+      setEditStatusHistory(true);
+    } else {
+      setEditStatusHistory(false);
+    }
+  };
+    // edit_comments
+
+const [editStatusComments, setEditStatusComments] = useState(false);
+  function handleEditComments() {
+    setDisplayStatusComments('inline');
+    if (editStatusComments == false) {
+      setEditStatusComments(true);
+    } else {
+      setEditStatusComments(false);
+    }
+  };
+  // edit_medical
+  const [editStatusMedical, setEditStatusMedical] = useState(false);
+  function handleEditMedical() {
+    setDisplayStatusMedical('inline');
+    if (editStatusMedical == false) {
+      setEditStatusMedical(true);
+    } else {
+      setEditStatusMedical(false);
+    }
+  };
+
+  // edit_emergency
+
+  const [editStatusEmergencyContact, setEditStatusEmergencyContact] = useState(false);
+  function handleEditEmergencyContact() {
+    setDisplayStatusEmergencyContact('inline');
+    if (editStatusEmergencyContact == false) {
+      setEditStatusEmergencyContact(true);
+    } else {
+      setEditStatusEmergencyContact(false);
+    }
+  };
+
+
+  // edit_residence
+  const [editStatusResidence, setEditStatusResidence] = useState(false);
+  function handleEditResidence() {
+    setDisplayStatusResidence('inline');
+    if (editStatusResidence == false) {
+      setEditStatusResidence(true);
+    } else {
+      setEditStatusResidence(false);
+    }
+  };
 
   // STATE FOR EDITING DATA
   const [suData, setSuData] = useState(allFetchedDataAboutSpecificSU);
 
 
   // FUNCTION FOR UPDATING CONTEXT BEFORE PUSH
-  function updater (table, column, newInputValue) {
+  function updateContext (table, column, newInputValue) {
     allFetchedDataAboutSpecificSU[table][0][column] = newInputValue
     let updatedData = allFetchedDataAboutSpecificSU
     setSuData(updatedData)
@@ -152,7 +219,6 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           }
 
     }
-// <input onChange=()=> {updater(strengths, strengthscolumn1, e.target.value)}> 
 
 // RETURN
   return (
@@ -175,7 +241,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         {/* STRENGTHS/INTERESTS BOX */}
         <div className="onesu-toggle-container">
           <div className="onesu-toggle-header">
-            <div className="onesu-toggle-title" onClick={handleClickStrengths}>
+            <div className="onesu-toggle-title" onClick={handleDisplayClickStrengths}>
               <span>Strengths & Interests</span>
             <Image src={displayStatusStrengths==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
@@ -183,9 +249,9 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           </div>
           <div className="onesu-toggle-information-flexbox" style={{display: displayStatusStrengths}}>
               <ServiceUserContext.Provider value={suData}>
-                <EditablePair data="1" table={"strengths"} column={"strengths_text_one"} updater={updater} editMode={editStatusStrengths}></EditablePair>
-                <EditablePair data="2" table={"strengths"} column={"strengths_text_two"} updater={updater} editMode={editStatusStrengths}></EditablePair>
-                <EditablePair data="3" table={"strengths"} column={"strengths_text_three"} updater={updater} editMode={editStatusStrengths}></EditablePair>
+                <EditablePair dataLabel="1" table={"strengths"} column={"strengths_text_one"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
+                <EditablePair dataLabel="2" table={"strengths"} column={"strengths_text_two"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
+                <EditablePair dataLabel="3" table={"strengths"} column={"strengths_text_three"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
                 <br></br>
                 <div className="onesu-update-container">
                   <div className="onesu-update-btn" style={{display: editStatusStrengths? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
@@ -210,26 +276,30 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
 
 
-
-
-
-
-        {/* PROFILE BOX */}
-        <div className="toggle-container">
-          <div className="toggle-title" onClick={handleClickProfile}>
-            <span>Basic Info </span>
+        {/* PROFILE/INTERESTS BOX */}
+        <div className="onesu-toggle-container">
+          <div className="onesu-toggle-header">
+            <div className="onesu-toggle-title" onClick={handleDisplayClickProfile}>
+              <span>Basic Info</span>
             <Image src={displayStatusProfile==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
-          <div className="toggle-information-flexbox" style={{display: displayStatusProfile}}>
-          {/* <SUDataValuePair data={"First name"} value={profile[0]?.first_name || ""} />
-          <SUDataValuePair data={"Last name"} value={profile[0]?.last_name || ""} />
-          <SUDataValuePair data={"Age"} value={profile[0]?.age || ""} />
-          <SUDataValuePair data={"Gender"} value={profile[0]?.gender || ""} />
-          <SUDataValuePair data={"DOB"} value={formatDate(profile[0]?.dob) || ""} />
-          <SUDataValuePair data={"NI Number"} value={profile[0]?.ni_number || ""} />
-          <SUDataValuePair data={"Phone Number"} value={profile[0]?.phone || ""} />
-          <SUDataValuePair data={"Email"} value={profile[0]?.email || ""} /> */}
-
+          <div className="onesu-toggle-edit" onClick={handleEditProfile}>Edit</div>
+          </div>
+          <div className="onesu-toggle-information-flexbox" style={{display: displayStatusProfile}}>
+              <ServiceUserContext.Provider value={suData}>
+                {/* <EditablePair dataLabel="First name" table={"service_users"} column={"first_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
+                {/* <EditablePair dataLabel="Last name" table={"service_users"} column={"last_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Age" table={"service_users"} column={"age"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Gender" table={"service_users"} column={"gender"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="DOB" table={"service_users"} column={"dob"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="NI Number" table={"service_users"} column={"ni_number"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Phone" table={"service_users"} column={"phone"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Email" table={"service_users"} column={"email"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
+                <br></br>
+                <div className="onesu-update-container">
+                  <div className="onesu-update-btn" style={{display: editStatusEmergencyContact? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
+                </div>
+              </ServiceUserContext.Provider>
           </div>
         </div>
 
@@ -239,52 +309,32 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* EMERGENCY CONTACT BOX */}
-        <div className="toggle-container">
-          <div className="toggle-title" onClick={handleClickEmergencyContact}>
-            <span>Emergency Contact</span>
+        {/* EMERGENCY BOX */}
+        <div className="onesu-toggle-container">
+          <div className="onesu-toggle-header">
+            <div className="onesu-toggle-title" onClick={handleDisplayClickEmergencyContact}>
+              <span>Emergency Contact</span>
             <Image src={displayStatusEmergencyContact==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
-          <div className="toggle-information-flexbox" style={{display: displayStatusEmergencyContact}}>
-          {/* <SUDataValuePair data={"EC Name"} value={profile[0]?.emergency_contact_name || ""} />
-          <SUDataValuePair data={"EC Relationship"} value={profile[0]?.emergency_contact_relationship || ""} />
-          <SUDataValuePair data={"EC Phone Number"} value={profile[0]?.emergency_contact_phone || ""} /> */}
-
+          <div className="onesu-toggle-edit" onClick={handleEditEmergencyContact}>Edit</div>
+          </div>
+          <div className="onesu-toggle-information-flexbox" style={{display: displayStatusEmergencyContact}}>
+              <ServiceUserContext.Provider value={suData}>
+                {/* <EditablePair dataLabel="Name" table={"service_users"} column={"emergency_contact_name"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
+                {/* <EditablePair dataLabel="Relationship to user" table={"service_users"} column={"emergency_contact_relationship"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
+                {/* <EditablePair dataLabel="Phone" table={"service_users"} column={"emergency_contact_phone"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
+                <br></br>
+                <div className="onesu-update-container">
+                  <div className="onesu-update-btn" style={{display: editStatusEmergencyContact? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
+                </div>
+              </ServiceUserContext.Provider>
           </div>
         </div>
 
 
         {/* MEDICAL BOX */}
         <div className="toggle-container">
-          <div className="toggle-title" onClick={handleClickMedical}>
+          <div className="toggle-title" onClick={handleDisplayClickMedical}>
             <span>Medical</span>
             <Image src={displayStatusMedical==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
@@ -297,12 +347,11 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           <SUDataValuePair data="Blood Type" value={medical[0]?.blood_type || ""} />
           <SUDataValuePair data="Allergies" value={medical[0]?.allergies || ""} />
           <SUDataValuePair data="Medications" value={medical[0]?.medications || ""} /> */}
-
           </div>
         </div>
         {/* EMPLOYMENT BOX */}
         <div className="toggle-container">
-          <div className="toggle-title" onClick={handleClickEmployment}>
+          <div className="toggle-title" onClick={handleDisplayClickEmployment}>
             <span>Employment history</span>
             <Image src={displayStatusEmployment==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
@@ -315,7 +364,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         </div>
         {/* COMMENTS BOX */}
         <div className="toggle-container">
-          <div className="toggle-title" onClick={handleClickComments}>
+          <div className="toggle-title" onClick={handleDisplayClickComments}>
             <span>Comments ({comments.length})</span>
             <Image src={displayStatusComments==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
@@ -334,7 +383,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         {/* RESIDENCE BOX */}
 
         <div className="toggle-container">
-          <div className="toggle-title" onClick={handleClickResidence}>
+          <div className="toggle-title" onClick={handleDisplayClickResidence}>
             <span>Residence</span>
             <Image src={displayStatusResidence==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
