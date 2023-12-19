@@ -146,7 +146,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
       case "strengths":
         inputValue=inputStrengths[column]
         break;
-      case "service_users": //profile
+      case "profile": //profile
         inputValue=inputProfile[column]
         break;
       case "residence":

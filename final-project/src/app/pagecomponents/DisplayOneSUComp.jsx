@@ -35,7 +35,7 @@ const supabase = createClient(supaurl, supakey);
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const {
-    profile,
+    service_users,
     strengths,
     medical,
     employment_status,
@@ -233,7 +233,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
             </div>
           </Link>
           <div className="onesu-flexbox-item-serviceusername">
-            Welcome to {profile[0].first_name}'s profile 
+            Welcome to {service_users[0].first_name}'s profile 
           </div>
         </div>
 
@@ -287,17 +287,17 @@ const [editStatusComments, setEditStatusComments] = useState(false);
           </div>
           <div className="onesu-toggle-information-flexbox" style={{display: displayStatusProfile}}>
               <ServiceUserContext.Provider value={suData}>
-                {/* <EditablePair dataLabel="First name" table={"service_users"} column={"first_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
-                {/* <EditablePair dataLabel="Last name" table={"service_users"} column={"last_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
-                <EditablePair dataLabel="Age" table={"service_users"} column={"age"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
-                <EditablePair dataLabel="Gender" table={"service_users"} column={"gender"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
-                <EditablePair dataLabel="DOB" table={"service_users"} column={"dob"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
-                <EditablePair dataLabel="NI Number" table={"service_users"} column={"ni_number"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
-                <EditablePair dataLabel="Phone" table={"service_users"} column={"phone"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
-                <EditablePair dataLabel="Email" table={"service_users"} column={"email"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
+                <EditablePair dataLabel="First name" table={"service_users"} column={"first_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                {/* <EditablePair dataLabel="Last name" table={"profile"} column={"last_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Age" table={"profile"} column={"age"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Gender" table={"profile"} column={"gender"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="DOB" table={"profile"} column={"dob"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="NI Number" table={"profile"} column={"ni_number"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Phone" table={"profile"} column={"phone"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                <EditablePair dataLabel="Email" table={"profile"} column={"email"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
                 <br></br>
                 <div className="onesu-update-container">
-                  <div className="onesu-update-btn" style={{display: editStatusEmergencyContact? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
+                  <div className="onesu-update-btn" style={{display: editStatusProfile? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
                 </div>
               </ServiceUserContext.Provider>
           </div>
