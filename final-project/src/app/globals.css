@@ -1,7 +1,8 @@
 body{
     /* Size of webpage */
-    width: 100%;
+    width: 95%;
     max-width: 700px;
+    min-height: 100%;
 
     /* Background */
     /* background-image: url('/bluebackground.jpg'); */

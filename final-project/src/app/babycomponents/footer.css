@@ -5,6 +5,12 @@
     padding-top: 0.5em;
     justify-content: center;
     margin-top: 0.2rem;
-    color: white
-    /* border: 1px white solid; */
+    border: 1px white solid; 
+    position: absolute;
+    bottom: 0;
+    background-color: green;
+}
+
+.copyright {
+    color: white;
 }

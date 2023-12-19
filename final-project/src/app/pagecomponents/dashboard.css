@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap');
+
 .dash-master {
   color: white;
 }
 .dash-welcome{
   color: white;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-family: 'AR One Sans', sans-serif;
 }
 
 
@@ -13,7 +17,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   row-gap: 3rem;
-  background-color: #161636;
+  background-color: #5353bf;
   /* border: 1px solid white; */
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
   border-radius: 20px;
