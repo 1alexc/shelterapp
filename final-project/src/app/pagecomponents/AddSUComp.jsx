@@ -475,16 +475,16 @@ export default function AddSUComp({ staffId, staffName }) {
                 description: "Service User Successfully Added",
                 duration: 3000, 
                 position: "top-left",
-                onAutoClose: window.location.reload(), //will reload page(after toast disappears)
+                // onAutoClose: window.location.reload(), //will reload page(after toast disappears)
                 style: { background: "lightcyan", color:"black",
                 }
               });
               
               // This function will refresh the page after 4 seconds, clearing the input fields
-            //   setTimeout(function() {
+              setTimeout(function() {
                 // Refresh the page
-            //     window.location.reload();
-            //   }, 4000); // Adjust the delay time
+                window.location.reload();
+              }, 4000); // Adjust the delay time
             
 
 
