@@ -496,7 +496,7 @@ export default function AddSUComp({ staffId, staffName }) {
             }
           }}
         >
-          Post Profile
+          Add Service User
         </button>
       </form>
 
