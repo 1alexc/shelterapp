@@ -51,23 +51,23 @@ export default function DashboardComp({staffName}) {
           <div className="dash-grid-row-3-button dash-grid-row-3-button1">
             <Link href="/displayallsu" passHref legacyBehavior>
                 <div className="dash-button">
-                  <Image src="/icons8-referral-24.png" className="dash-button-image" alt="View or edit database" width="64" height="64" />
-                  <h5 className="dash-button-text">View or Edit database</h5>
+                  <Image src="/dashboard4.png" className="dash-button-image" alt="View or edit database" width="64" height="64" />
+                  <h5 className="dash-button-text">View or Edit Database</h5>
                 </div>           
               </Link>
           </div>
           <div className="dash-grid-row-3-button dash-grid-row-3-button2">
             <Link href="/addsu" passHref legacyBehavior>
                 <div className="dash-button">
-                  <Image src="/icons8-referral-24.png" className="dash-button-image" alt="Add new user" width="64" height="64" />
-                  <h5 className="dash-button-text">Add new user</h5>
+                  <Image src="/dashboard3.png" className="dash-button-image" alt="Add new user" width="64" height="64" />
+                  <h5 className="dash-button-text">Add New User</h5>
                 </div>           
               </Link>
           </div>
           <div className="dash-grid-row-3-button dash-grid-row-3-button3">
             <Link href="/referrallinks" passHref legacyBehavior>
               <div className="dash-button">
-                <Image src="/icons8-referral-24.png" className="dash-button-image" alt="Referral links" width="64" height="64" />
+                <Image src="/dashboard2.png" className="dash-button-image" alt="Referral links" width="64" height="64" />
                 <h5 className="dash-button-text">Referral Links</h5>
               </div>           
             </Link>
@@ -75,8 +75,8 @@ export default function DashboardComp({staffName}) {
           <div onClick={signOut} className="dash-grid-row-3-button dash-grid-row-3-button4">
             <Link href="/" passHref legacyBehavior>
               <div className="dash-button">
-                <Image src="/icons8-referral-24.png" className="dash-button-image" alt="Referral links" width="64" height="64" />
-                <h5 className="dash-button-text">Sign out</h5>
+                <Image src="/dashboard1.png" className="dash-button-image" alt="Referral links" width="64" height="64" />
+                <h5 className="dash-button-text">Sign Out</h5>
               </div>           
             </Link>
           </div>

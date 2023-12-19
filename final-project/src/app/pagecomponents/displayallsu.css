@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap');
+
 .all-explanation {
-    color: white;
-    text-align: center;
+color: white;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .all-grid-content-box{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -11,8 +18,10 @@
     /* border: 1px solid white; */
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
     border-radius: 20px;
-    padding: 2rem
+    padding: 2rem;
+    border: 1px solid white;
   }
+  
 .su-cards {
     font-weight: bold;
     font-size: 18px;
