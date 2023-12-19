@@ -8,7 +8,7 @@ import { useContext } from "react";
 export default function EditablePair({dataLabel, table, column, editMode, updateContext}) {
     const allData = useContext(serviceUserContext)
     const {
-        profile,
+        service_users,
         strengths,
         medical,
         employment_status,
@@ -97,7 +97,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
   // 3 destructuring input state
   const { comment_id, comment_text, comment_date } = inputComments;
   // 4 destructuring columns
-  const commentsColumn = {
+  const commentsColumns = {
     comment_id,
     comment_text,
   };
@@ -113,7 +113,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
   // 3 destructuring input state
   const { date_entry, current_status, previous_stays } = inputResidence;
   // 4 destructuring columns
-  const residenceColumn = {
+  const residenceColumns = {
     date_entry,
     current_status,
     previous_stays,
@@ -136,7 +136,28 @@ export default function EditablePair({dataLabel, table, column, editMode, update
     // HANDLE CHANGE ON INPUT: (1) UPDATE TEXT (2) UPDATE CONTEXT
     const handleChange= (event) => {
         updateContext(table, column, event.target.value)
-        setInputStrengths(strengthsColumns.strengths_text_one=event.target.value);
+        switch (table) {
+          case "strengths":
+            setInputStrengths(strengthsColumns[column]=event.target.value);
+            break;
+          case "service_users": //profile
+            setInputProfile(profileColumns[column]=event.target.value);
+            break;
+          case "residence":
+            setInputResidence(residenceColumns[column]=event.target.value);
+            break;
+          case "medical":
+            setInputMedical(medicalColumns[column]=event.target.value);
+            break;
+          case "employment_status":
+            setInputEmploymentStatus(employmentStatusColumns[column]=event.target.value);
+            break;
+          case "comments":
+            setInputComments(commentsColumns[column]=event.target.value);
+            break;
+          default:
+            break;
+        }
     };
 
     let inputValue=""; // blank initial input value to ensure global scope
@@ -146,7 +167,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
       case "strengths":
         inputValue=inputStrengths[column]
         break;
-      case "profile": //profile
+      case "service_users": //profile
         inputValue=inputProfile[column]
         break;
       case "residence":

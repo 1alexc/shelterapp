@@ -35,14 +35,14 @@ const supabase = createClient(supaurl, supakey);
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const {
-    profile,
+    service_users,
     strengths,
     medical,
     employment_status,
     residence,
     comments,
   } = allFetchedDataAboutSpecificSU;
-  let userID=allFetchedDataAboutSpecificSU.profile[0].user_id
+  let userID=allFetchedDataAboutSpecificSU.service_users[0].user_id
 
 
   // TOGGLE FUNCTIONS AND STATE
@@ -197,6 +197,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
 
     // FUNCTION TO UPDATE/INSERT DATA,
     async function updateOrInsertData(table){
+      console.log(table)
       // part 1: checking to see if data exists
         const {data, error} =  await supabase
           .from(table)
@@ -210,6 +211,8 @@ const [editStatusComments, setEditStatusComments] = useState(false);
                     .eq('user_id', userID)
                     console.log(`Data already existed, so data will be updated for user no. "${userID}""`)
           }
+
+
         // if there is no data, -> INSERT
         else {await supabase
                     .from("strengths") 
@@ -233,7 +236,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
             </div>
           </Link>
           <div className="onesu-flexbox-item-serviceusername">
-            Welcome to {profile[0].first_name}'s profile 
+            Welcome to {service_users[0].first_name}'s profile 
           </div>
         </div>
 
@@ -287,7 +290,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
           </div>
           <div className="onesu-toggle-information-flexbox" style={{display: displayStatusProfile}}>
               <ServiceUserContext.Provider value={suData}>
-                {/* <EditablePair dataLabel="First name" table={"service_users"} column={"first_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
+                <EditablePair dataLabel="First name" table={"service_users"} column={"first_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
                 {/* <EditablePair dataLabel="Last name" table={"profile"} column={"last_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
                 <EditablePair dataLabel="Age" table={"profile"} column={"age"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
                 <EditablePair dataLabel="Gender" table={"profile"} column={"gender"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
@@ -297,7 +300,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
                 <EditablePair dataLabel="Email" table={"profile"} column={"email"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
                 <br></br>
                 <div className="onesu-update-container">
-                  <div className="onesu-update-btn" style={{display: editStatusProfile? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
+                  <div className="onesu-update-btn" style={{display: editStatusProfile? 'inline':'none'}} onClick={function () {updateOrInsertData("service_users")}} >UPDATE</div>
                 </div>
               </ServiceUserContext.Provider>
           </div>
@@ -320,7 +323,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
           </div>
           <div className="onesu-toggle-information-flexbox" style={{display: displayStatusEmergencyContact}}>
               <ServiceUserContext.Provider value={suData}>
-                {/* <EditablePair dataLabel="Name" table={"service_users"} column={"emergency_contact_name"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
+                {/* <EditablePair dataLabel="Name" table={"profile"} column={"emergency_contact_name"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
                 {/* <EditablePair dataLabel="Relationship to user" table={"service_users"} column={"emergency_contact_relationship"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
                 {/* <EditablePair dataLabel="Phone" table={"service_users"} column={"emergency_contact_phone"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
                 <br></br>
@@ -361,7 +364,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
           </div>
           <div className="onesu-toggle-information-flexbox" style={{display: displayStatusMedical}}>
               <ServiceUserContext.Provider value={suData}>
-                <EditablePair dataLabel="M" table={"medical"} column={"nhs_number"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair>
+                <EditablePair dataLabel="NHS number" table={"medical"} column={"nhs_number"} updateContext={updateContext} editMode={editStatusMedical}></EditablePair>
                 {/* <EditablePair dataLabel="Relationship to user" table={"service_users"} column={"emergency_contact_relationship"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
                 {/* <EditablePair dataLabel="Phone" table={"service_users"} column={"emergency_contact_phone"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
                 <br></br>
