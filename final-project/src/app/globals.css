@@ -5,5 +5,7 @@ body{
 
     /* Background */
     /* background-image: url('/bluebackground.jpg'); */
-    background-color: #09105e;
+    /* background-color: #09105e; */
+    background: rgb(156,156,198);
+    background: linear-gradient(0deg, rgba(156,156,198,1) 0%, rgba(17,23,105,1) 100%);
 }
