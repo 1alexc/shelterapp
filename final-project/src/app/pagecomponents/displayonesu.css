@@ -20,8 +20,8 @@
   border-radius: 10px;
   align-items: center;
   width: 84%;
-  gap: 20px;
-  padding: 1rem;
+  /* gap: 20px; */
+  /* padding: 1rem; */
 }
 
 .onesu-flexbox-item-image {
@@ -38,7 +38,7 @@
   justify-content: center;
   width: 90%;
   border-radius: 10px;
-  background-color: #d1e7fe;
+  background-color: rgba(156,156,198,1);
   gap: 1rem;
   padding-block: 2rem;
 }
@@ -58,26 +58,32 @@
   border-radius: 10px;
   font-weight: bold;
   font-size: 18px;
+  box-shadow: gray 2px 2px;
 }
 
 .onesu-update-container {
   text-align: center;
 }
 .onesu-update-btn {
-  background-color: #505050;
+  
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 90%;
   font-weight: bold;
   border-radius: 10px;
-  padding-block: 1rem;
+  padding-block: 0.5rem;
+  padding-inline: 2rem ;
   justify-self: right;
+  cursor: pointer;
+  box-shadow: gray 2px 2px;
 }
 
 .onesu-toggle-title:hover,
-.onesu-toggle-edit:hover {
-  background-color: yellow;
+.onesu-toggle-edit:hover,
+.onesu-update-btn:hover {
+  background-color: #37991F;
   cursor: pointer;
 }
 
@@ -87,6 +93,7 @@
   justify-content: center;
   width: 90%;
   padding-inline: 3rem;
+
   
 }
 
@@ -94,8 +101,8 @@
   font-weight: bold;
   font-size: 18px;
   /* background-color: #505050; */
-  background-color: #7b76c4;
-  
+  background-color: white;
+  box-shadow: gray 2px 2px;
   padding: 0.5rem;
   border-radius: 10px;
   font-weight: bold;
@@ -117,17 +124,7 @@
   padding-block: 1rem;
 }
 
-.onesu-edit-button {
-  /* border: 1px solid red; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 90%;
-  font-weight: bold;
-  border-radius: 10px;
-  background-color: white;
-  padding-block: 1rem;
-}
+
 .onesu-edit-button:hover {
   background-color: yellow;
   cursor: pointer;
@@ -153,5 +150,9 @@
 
 .onesu-flexbox-item-serviceusername {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+.onesu-avatar {
+  display: flex;
 }

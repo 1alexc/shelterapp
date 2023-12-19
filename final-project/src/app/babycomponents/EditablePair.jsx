@@ -5,7 +5,8 @@ import { useState } from "react";
 import { useContext } from "react";
 
 
-export default function EditablePair({dataLabel, table, column, editMode, updateContext}) {
+
+export default function EditablePair({dataLabel, table, column, editMode, updateContext, type}) {
     const allData = useContext(serviceUserContext)
     const {
         service_users,
@@ -202,7 +203,9 @@ export default function EditablePair({dataLabel, table, column, editMode, update
             <input 
               placeholder={allData[table]?.[0]?.[column] || "No value provided."}
               value={inputValue} 
+              type={type !== undefined ? type : "text"}
               onChange={e => handleChange(e)}
+              className="onesu-update-input"
             >
             </input>
         </div>
