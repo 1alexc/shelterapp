@@ -77,7 +77,21 @@ export default function AuthRouter({
   if (!session) {
     return <>
       <LogoForLogin></LogoForLogin>
-      <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} showLinks={false}/>;
+      <Auth supabaseClient={supabase} appearance={{
+            theme: ThemeSupa,
+            variables: {
+              default: {
+                colors: {
+                  brand: "#7b76c4",
+                  brandAccent: "darkblue",
+                },
+              },
+            },
+            style: {
+              label: {color: 'white', fontWeight:'bold'},
+              button: {boxShadow: '2px 2px white'}
+            }
+          }} providers={[]} showLinks={false}/>;
     </>
   }
 
