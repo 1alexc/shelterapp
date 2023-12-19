@@ -91,7 +91,7 @@ export default function AuthRouter({
               label: {color: 'white', fontWeight:'bold'},
               button: {boxShadow: '2px 2px white'}
             }
-          }} providers={[]} showLinks={false}/>;
+          }} providers={[]} showLinks={false}/>
     </>
   }
 

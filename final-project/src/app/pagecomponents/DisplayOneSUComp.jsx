@@ -251,27 +251,6 @@ const [editStatusComments, setEditStatusComments] = useState(false);
         </div>
 
 
-        {/* STRENGTHS/INTERESTS BOX */}
-        <div className="onesu-toggle-container">
-          <div className="onesu-toggle-header">
-            <div className="onesu-toggle-title" onClick={handleDisplayClickStrengths}>
-              <span>Strengths & Interests</span>
-            <Image src={displayStatusStrengths==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
-          </div>
-          <div className="onesu-toggle-edit" onClick={handleEditStrengths}>Edit</div>
-          </div>
-          <div className="onesu-toggle-information-flexbox" style={{display: displayStatusStrengths}}>
-              <ServiceUserContext.Provider value={suData}>
-                <EditablePair dataLabel="1" table={"strengths"} column={"strengths_text_one"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
-                <EditablePair dataLabel="2" table={"strengths"} column={"strengths_text_two"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
-                <EditablePair dataLabel="3" table={"strengths"} column={"strengths_text_three"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
-                <br></br>
-                <div className="onesu-update-container">
-                  <div className="onesu-update-btn" style={{display: editStatusStrengths? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
-                </div>
-              </ServiceUserContext.Provider>
-          </div>
-        </div>
         {/* PROFILE/INTERESTS BOX */}
         <div className="onesu-toggle-container">
           <div className="onesu-toggle-header">
@@ -294,6 +273,28 @@ const [editStatusComments, setEditStatusComments] = useState(false);
                 <br></br>
                 <div className="onesu-update-container">
                   <div className="onesu-update-btn" style={{display: editStatusProfile? 'inline':'none'}} onClick={function () {updateOrInsertData("service_users")}} >UPDATE</div>
+                </div>
+              </ServiceUserContext.Provider>
+          </div>
+        </div>
+        
+        {/* STRENGTHS/INTERESTS BOX */}
+        <div className="onesu-toggle-container">
+          <div className="onesu-toggle-header">
+            <div className="onesu-toggle-title" onClick={handleDisplayClickStrengths}>
+              <span>Strengths & Interests</span>
+            <Image src={displayStatusStrengths==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
+          </div>
+          <div className="onesu-toggle-edit" onClick={handleEditStrengths}>Edit</div>
+          </div>
+          <div className="onesu-toggle-information-flexbox" style={{display: displayStatusStrengths}}>
+              <ServiceUserContext.Provider value={suData}>
+                <EditablePair dataLabel="1" table={"strengths"} column={"strengths_text_one"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
+                <EditablePair dataLabel="2" table={"strengths"} column={"strengths_text_two"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
+                <EditablePair dataLabel="3" table={"strengths"} column={"strengths_text_three"} updateContext={updateContext} editMode={editStatusStrengths}></EditablePair>
+                <br></br>
+                <div className="onesu-update-container">
+                  <div className="onesu-update-btn" style={{display: editStatusStrengths? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
                 </div>
               </ServiceUserContext.Provider>
           </div>

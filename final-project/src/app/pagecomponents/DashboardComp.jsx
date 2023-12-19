@@ -73,7 +73,7 @@ export default function DashboardComp({staffName}) {
             </Link>
           </div>
           <div onClick={signOut} className="dash-grid-row-3-button dash-grid-row-3-button4">
-            <Link href="/referrallinks" passHref legacyBehavior>
+            <Link href="/" passHref legacyBehavior>
               <div className="dash-button">
                 <Image src="/icons8-referral-24.png" className="dash-button-image" alt="Referral links" width="64" height="64" />
                 <h5 className="dash-button-text">Sign out</h5>
