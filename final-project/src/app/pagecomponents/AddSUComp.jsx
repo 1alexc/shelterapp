@@ -335,6 +335,7 @@ export default function AddSUComp({ staffId, staffName }) {
               setInputProfile({ ...inputProfile, ni_number: e.target.value })
             }
           />
+
         </div>
 
         {/* PROFILE - phone */}

@@ -1,0 +1,38 @@
+
+.onesu-flexbox-item-editpair {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    gap: 1rem;
+    justify-content: space-between;
+    padding-block: 0.3rem;
+    width: 80%;
+  }
+
+  .onesu-data {
+    font-weight: bold;
+  }
+
+  .onesu-value {
+    text-align: right;
+  }
+
+
+  .onesu-update-button {
+    font-size: 20px;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 10%;
+    margin-left: 10px
+
+
+    }
+
+    .onesu-update-button:hover {
+      background-color: yellow;
+  cursor: pointer;  
+      }
+
+
+  

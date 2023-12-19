@@ -64,7 +64,7 @@ export async function fetchSpecificSUDataFromSupabase(id) {
 
   const photoResponse = await supabase.from("").sel;
 
-  const profile = profileResponse?.data;
+  const service_users = profileResponse?.data;
   const strengths = strengthsResponse?.data;
   const medical = medicalResponse?.data;
   const employment_status = employment_statusResponse?.data;
@@ -72,7 +72,7 @@ export async function fetchSpecificSUDataFromSupabase(id) {
   const comments = commentsResponse?.data;
 
   let fetchedData = {
-    profile,
+    service_users,
     strengths,
     medical,
     employment_status,
