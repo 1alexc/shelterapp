@@ -1,6 +1,6 @@
 /* ENTIRE PAGE */
   
-.page-container {
+.onesu-page-container {
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
 
   /* WELCOME BOX  */
 
-.flexbox-container-w{
+.onesu-flexbox-container-w{
     display: flex;
     background-color: #D1E7FE;
     flex-direction: column;
@@ -25,21 +25,19 @@
     padding: 1rem;
   }
 
-.flexbox-item-image {
+.onesu-flexbox-item-image {
     display:flex;
     justify-content: center;
 }
 
-.SU-pic {
-    border-radius: 40%;
-} 
+
 
 
 
   /* REUSABLE CONTAINER STRUCTURE ________________________________________*/
   /* flexbox container info > flexbox item title + button >
   ...hideable container > SUdata value pairs */
-  .toggle-container{
+  .onesu-toggle-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,14 +48,14 @@
     padding-block: 2rem;
 }
 
-.toggle-header{
+.onesu-toggle-header{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-inline: 2rem;
 }
 
-.toggle-title {
+.onesu-toggle-title {
     font-weight: bold;
     font-size: 18px;
     background-color: white;
@@ -68,13 +66,29 @@
 }
 
 
+.onesu-update-container{
+  text-align: center;
+}
+.onesu-update-btn{
+  background-color: #505050;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  font-weight: bold;
+  border-radius: 10px;
+  padding-block: 1rem;
+  justify-self: right;
+}
 
-.toggle-title:hover, .toggle-edit:hover {
+
+
+.onesu-toggle-title:hover, .onesu-toggle-edit:hover {
   background-color: yellow;
   cursor: pointer;
 }
 
-.toggle-information-flexbox {
+.onesu-toggle-information-flexbox {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,10 +97,10 @@
 
 }
 
-.toggle-edit {
+.onesu-toggle-edit {
   font-weight: bold;
   font-size: 18px;
-  background-color: red;
+  background-color: #505050;
   padding: 0.5rem;
   border-radius: 10px;
   font-weight: bold;
@@ -94,7 +108,7 @@
 }
 
   /* EDIT BUTTON ________________________________________*/
-  .edit-button {
+  .onesu-edit-button {
       /* border: 1px solid red; */
       display: flex;
       flex-direction: column;
@@ -108,7 +122,7 @@
     
   }   
 
-  .edit-button {
+  .onesu-edit-button {
     /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
@@ -119,13 +133,13 @@
     background-color: white;
     padding-block: 1rem;
 }   
-.edit-button:hover {
+.onesu-edit-button:hover {
   background-color: yellow;
   cursor: pointer;
 
 }     
 
-.flexbox-item-back-bttn {
+.onesu-flexbox-item-back-bttn {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -135,7 +149,7 @@
 }
 
 
-.item-back-bttn {
+.onesu-item-back-bttn {
   height: 1rem;
 }
 

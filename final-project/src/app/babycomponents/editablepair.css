@@ -1,33 +1,25 @@
 
-.flexbox-item-editpair {
+.onesu-flexbox-item-editpair {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
-    /* border: 1px solid blue; */
     flex-direction: row;
     border-radius: 10px;
-    width:97%;
     gap: 1rem;
-    padding-inline: 0.5rem;
     justify-content: space-between;
     padding-block: 0.3rem;
-    /* display: none */
-    color: red;
-    border: 1px solid black;
+    width: 80%;
   }
 
-  .data {
+  .onesu-data {
     font-weight: bold;
   }
 
-  .value {
+  .onesu-value {
     text-align: right;
   }
 
-  .valueAndUpdater {
-    display:flex;
-  }
 
-  .update-button {
+  .onesu-update-button {
     font-size: 20px;
     background-color: white;
     padding: 0.5rem;
@@ -37,7 +29,10 @@
 
     }
 
-    .update-button:hover {
-background-color: yellow;
-cursor: pointer;  
+    .onesu-update-button:hover {
+      background-color: yellow;
+  cursor: pointer;  
       }
+
+
+  

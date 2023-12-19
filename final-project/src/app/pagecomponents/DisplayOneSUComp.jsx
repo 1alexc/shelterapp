@@ -20,9 +20,17 @@ import { formatDate } from "../displayallsu/helper";
 import EditablePair from "../babycomponents/EditablePair";
 import React from "react";
 import ServiceUserContext from "../babycomponents/serviceUserContext";
-import PairStrengths from "../babycomponents/PairStrengths";
+import PairStrengths from "../babycomponents/EditablePair";
 export const dynamic = 'force-dynamic' //forces next js to revaluate data preventing caching
 export const revalidate = 0    //tells supabase to not use caching
+
+
+// SUPABASE
+import { createClient } from "@supabase/supabase-js";
+const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supaurl, supakey);
+
 
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
@@ -34,6 +42,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
     residence,
     comments,
   } = allFetchedDataAboutSpecificSU;
+  let userID=allFetchedDataAboutSpecificSU.profile[0].user_id
 
 
   // TOGGLE FUNCTIONS AND STATE
@@ -109,85 +118,88 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   // STATE FOR EDITING DATA
   const [suData, setSuData] = useState(allFetchedDataAboutSpecificSU);
 
-  function updater (section, column, newInputValue) {
-    allFetchedDataAboutSpecificSU[section][column] = newInputValue
+
+  // FUNCTION FOR UPDATING CONTEXT BEFORE PUSH
+  function updater (table, column, newInputValue) {
+    allFetchedDataAboutSpecificSU[table][0][column] = newInputValue
     let updatedData = allFetchedDataAboutSpecificSU
     setSuData(updatedData)
     console.log(suData);
   }
-  function sendStrengthsToDatabase (){
-    // await supabase insert suData
-  }
+
+
+    // FUNCTION TO UPDATE/INSERT DATA,
+    async function updateOrInsertData(table){
+      // part 1: checking to see if data exists
+        const {data, error} =  await supabase
+          .from(table)
+          .select("*")
+          .eq('user_id', userID)
+      
+      // part 2: if there is data, run an UPDATE query for a specific input value
+          if(data.length >= 1) {await supabase
+                    .from(table) 
+                    .update(suData[table][0])
+                    .eq('user_id', userID)
+                    console.log(`Data already existed, so data will be updated for user no. "${userID}""`)
+          }
+        // if there is no data, -> INSERT
+        else {await supabase
+                    .from("strengths") 
+                    .insert(suData[table][0])
+                    .eq('user_id', userID)
+                    console.log(`Data did not exist , so data will be inserted for user no. "${userID}".`)
+          }
+
+    }
 // <input onChange=()=> {updater(strengths, strengthscolumn1, e.target.value)}> 
 
 // RETURN
   return (
     <>
-      <div className="page-container">
-      <ServiceUserContext.Provider value={suData}>
-        <PairStrengths data="1" value={strengths[0].strengths_text_one} updater={updater} editMode={editStatusStrengths}></PairStrengths>
-       {/* <EditablePair data={"Strength/Interest 1"} score={strengths[0]?.strengths_text_one || ""}
-          columnName="strengths_text_one"
-          editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}/> */}
-          {/* <EditablePair data={"Strength/Interest 2"} score={strengths[0]?.strengths_text_two || ""}
-          columnName="strengths_text_two"
-          editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}/>
-          <EditablePair data={"Strength/Interest 3"} score={strengths[0]?.strengths_text_three || ""}
-          columnName="strengths_text_three"
-          editMode={editStatusStrengths} userID={profile[0].user_id} dataset={strengths}/> */}
-      </ServiceUserContext.Provider>
-
-
-
-
-
+    <div className="onesu-page-container">
         {/* WELCOME BOX */}
-        <div className="flexbox-container-w">
+        <div className="onesu-flexbox-container-w">
           <Link href="/displayallsu">
-            <div className="flexbox-item-serviceusername">
-            <img className="item-back-bttn" src="/backarrow.png" alt="back button icon" />
-              <p className="item-back-serviceusername"></p>
+            <div className="onesu-flexbox-item-serviceusername">
+            <img className="onesu-item-back-bttn" src="/backarrow.png" alt="back button icon" />
+              <p className="onesu-item-back-serviceusername"></p>
             </div>
           </Link>
-          <div className="flexbox-item-serviceusername">
+          <div className="onesu-flexbox-item-serviceusername">
             Welcome to {profile[0].first_name}'s profile 
           </div>
         </div>
 
 
-        
-
-
         {/* STRENGTHS/INTERESTS BOX */}
-        <div className="toggle-container">
-          <div className="toggle-header">
-
-          <div className="toggle-title" onClick={handleClickStrengths}>
-            <span>Strengths & Interests</span>
+        <div className="onesu-toggle-container">
+          <div className="onesu-toggle-header">
+            <div className="onesu-toggle-title" onClick={handleClickStrengths}>
+              <span>Strengths & Interests</span>
             <Image src={displayStatusStrengths==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
           </div>
-          <div className="toggle-edit" onClick={handleEditStrengths}>Edit</div>
+          <div className="onesu-toggle-edit" onClick={handleEditStrengths}>Edit</div>
           </div>
-          <div className="toggle-information-flexbox" style={{display: displayStatusStrengths}}>
-          
-          
-          <h4>Editable key value pairs: </h4>
-
-          
-          
-          
-          
-          
-          
-          
-
-
-          <h4>Original key value pairs: </h4>
-          {/* <SUDataValuePair data={"1"} value={strengths[0]?.strengths_text_one || ""} />
-          <SUDataValuePair data={"2"} value={strengths[0]?.strengths_text_two || ""} />
-          <SUDataValuePair data={"3"} value={strengths[0]?.strengths_text_three || ""} /> */}
+          <div className="onesu-toggle-information-flexbox" style={{display: displayStatusStrengths}}>
+              <ServiceUserContext.Provider value={suData}>
+                <EditablePair data="1" table={"strengths"} column={"strengths_text_one"} updater={updater} editMode={editStatusStrengths}></EditablePair>
+                <EditablePair data="2" table={"strengths"} column={"strengths_text_two"} updater={updater} editMode={editStatusStrengths}></EditablePair>
+                <EditablePair data="3" table={"strengths"} column={"strengths_text_three"} updater={updater} editMode={editStatusStrengths}></EditablePair>
+                <br></br>
+                <div className="onesu-update-container">
+                  <div className="onesu-update-btn" style={{display: editStatusStrengths? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
+                </div>
+              </ServiceUserContext.Provider>
           </div>
         </div>
+
+
+
+
+
+
+
 
 
 
