@@ -35,7 +35,7 @@ const supabase = createClient(supaurl, supakey);
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const {
-    service_users,
+    profile,
     strengths,
     medical,
     employment_status,
@@ -233,7 +233,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
             </div>
           </Link>
           <div className="onesu-flexbox-item-serviceusername">
-            Welcome to {service_users[0].first_name}'s profile 
+            Welcome to {profile[0].first_name}'s profile 
           </div>
         </div>
 
@@ -287,7 +287,7 @@ const [editStatusComments, setEditStatusComments] = useState(false);
           </div>
           <div className="onesu-toggle-information-flexbox" style={{display: displayStatusProfile}}>
               <ServiceUserContext.Provider value={suData}>
-                <EditablePair dataLabel="First name" table={"service_users"} column={"first_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
+                {/* <EditablePair dataLabel="First name" table={"service_users"} column={"first_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair> */}
                 {/* <EditablePair dataLabel="Last name" table={"profile"} column={"last_name"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
                 <EditablePair dataLabel="Age" table={"profile"} column={"age"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
                 <EditablePair dataLabel="Gender" table={"profile"} column={"gender"} updateContext={updateContext} editMode={editStatusProfile}></EditablePair>
@@ -349,6 +349,42 @@ const [editStatusComments, setEditStatusComments] = useState(false);
           <SUDataValuePair data="Medications" value={medical[0]?.medications || ""} /> */}
           </div>
         </div>
+
+        {/* EMERGENCY BOX */}
+        <div className="onesu-toggle-container">
+          <div className="onesu-toggle-header">
+            <div className="onesu-toggle-title" onClick={handleDisplayClickMedical}>
+              <span>Medical</span>
+            <Image src={displayStatusMedical==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
+          </div>
+          <div className="onesu-toggle-edit" onClick={handleEditMedical}>Edit</div>
+          </div>
+          <div className="onesu-toggle-information-flexbox" style={{display: displayStatusMedical}}>
+              <ServiceUserContext.Provider value={suData}>
+                <EditablePair dataLabel="M" table={"medical"} column={"nhs_number"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair>
+                {/* <EditablePair dataLabel="Relationship to user" table={"service_users"} column={"emergency_contact_relationship"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
+                {/* <EditablePair dataLabel="Phone" table={"service_users"} column={"emergency_contact_phone"} updateContext={updateContext} editMode={editStatusEmergencyContact}></EditablePair> */}
+                <br></br>
+                <div className="onesu-update-container">
+                  <div className="onesu-update-btn" style={{display: editStatusMedical? 'inline':'none'}} onClick={function () {updateOrInsertData("strengths")}} >UPDATE</div>
+                </div>
+              </ServiceUserContext.Provider>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         {/* EMPLOYMENT BOX */}
         <div className="toggle-container">
           <div className="toggle-title" onClick={handleDisplayClickEmployment}>
