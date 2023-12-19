@@ -177,7 +177,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
         inputValue=inputMedical[column]
         break;
       case "employment_status":
-        inputValue=inputEmployment_Status[column] 
+        inputValue=inputEmploymentStatus[column] 
         break;
       case "comments":
         inputValue=inputComments[column]
