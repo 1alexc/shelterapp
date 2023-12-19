@@ -1,25 +1,42 @@
-.flexbox-container-w{
-    /* border: 1px solid red; */
-      display: flex;
-      background-color: #D1E7FE;
-      flex-direction: column;
-      justify-content: center;
-      border-radius: 10px;
-      align-items: center;
-      width: 84%;
-      gap: 20px;
-      padding: 1rem;
-      text-align: center;
-    }
+.all-explanation {
+    color: white;
+    text-align: center;
+}
+.all-grid-content-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6rem;
+    row-gap: 0.5rem;
+    /* background-color: #2e3ca1; */
+    /* border: 1px solid white; */
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem
+  }
+.su-cards {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: white;
+    border-radius: 12px;
+    padding-block: 1rem;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    transition: 1s
 
-    .flexbox-item {
-        font-weight: bold;
-        font-size: 18px;
-        background-color: white;
-        width: 60%;
-        border-radius: 12px;
-        height: 2.5rem;
-        padding-top: 1rem;
+}
+
+.su-cards:hover {
+
+    background-color: #b3b9e4;
+    transition: 1s
+
+}
+
+.su-card-name {
+    color: #19126a;
+}
+
+    /* .flexbox-item {
     }
     
     .flexbox-item:hover {
@@ -29,3 +46,15 @@
         cursor: pointer;
     }
     
+    .su-card-fb-container {
+        display:flex;
+        flex-direction: columns;
+
+    }
+    .su-card-name {
+        font-weight: bold;        
+    }
+    .su-card-age {
+        display:flex;
+        
+    } */

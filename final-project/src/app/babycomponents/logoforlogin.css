@@ -1,0 +1,10 @@
+.flexbox-container-logoforlogin{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.logoforlogin{
+
+}

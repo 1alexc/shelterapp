@@ -241,6 +241,24 @@ const [editStatusComments, setEditStatusComments] = useState(false);
         </div>
 
 
+        {/* PROFILE BOX */}
+        <div className="toggle-container">
+          <div className="toggle-title" onClick={handleClickProfile}>
+            <span>Basic Info </span>
+            <Image src={displayStatusProfile==="none"? "/arrowup.png":"/arrowdown.png"} alt="collapse headings button" width="50" height="15" className="link"/>
+          </div>
+          <div className="toggle-information-flexbox" style={{display: displayStatusProfile}}>
+          <SUDataValuePair data={"First name"} value={profile[0]?.first_name || ""} />
+          <SUDataValuePair data={"Last name"} value={profile[0]?.last_name || ""} />
+          <SUDataValuePair data={"Age"} value={profile[0]?.age || ""} />
+          <SUDataValuePair data={"Gender"} value={profile[0]?.gender || ""} />
+          <SUDataValuePair data={"DOB"} value={formatDate(profile[0]?.dob) || ""} />
+          <SUDataValuePair data={"NI Number"} value={profile[0]?.ni_number || ""} />
+          <SUDataValuePair data={"Phone Number"} value={profile[0]?.phone || ""} />
+          <SUDataValuePair data={"Email"} value={profile[0]?.email || ""} />
+          </div>
+        </div>
+
         {/* STRENGTHS/INTERESTS BOX */}
         <div className="onesu-toggle-container">
           <div className="onesu-toggle-header">

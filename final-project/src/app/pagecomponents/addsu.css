@@ -1,3 +1,40 @@
 button {
     margin-bottom: 3rem;
 }
+
+.labeltext {
+    margin-left: 5rem;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.inputfield {
+   margin-right: 5rem;
+   padding: 0.2rem;
+   align-self:center;
+   border-radius: 0.5rem;
+}
+
+.inputfield:focus {
+    border:solid 1px #4a453e;
+    }
+
+.inputfield:invalid {
+    color:red;
+}
+
+.inputcontainer {
+    padding-block: 0.5rem;
+    width: 100%;
+    display:flex;
+    justify-content:space-between;
+}
+
+.submit_button {
+    margin-left: 40%;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: #37991F;
+    color: white;
+}
+
