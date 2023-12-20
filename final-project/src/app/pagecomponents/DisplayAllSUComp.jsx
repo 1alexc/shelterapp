@@ -39,23 +39,24 @@ export default function DisplayAllSUComp() {
     console.log(data);
     return (
         <>
-            <div className="all-explanation">
-              <h1><strong>View All Service Users</strong></h1>
-              <p>Click the person below to view their data.</p>
-              <br></br>
-            </div>
-            <div className="all-grid-content-box"> 
+          {/* WELCOME BOX */}
+          <section className="global-welcome">
+              <h1 className="global-heading"> Service user Database
+              </h1>
+              <p className="global-description"> Click a person below to view or edit their info.</p>
+            </section>
+          {/* CONTENT BOX */}
+          <section className="global-content">
+            <div className="displayallsu-grid"> 
             {data.map((profiles) => (
-                  <div className="su-cards">
+                  <div className="displayallsu-cards">
                   <Link passHref legacyBehavior key={profiles.user_id} href={`/displayallsu/${profiles.user_id}`}>
-                      <div className="su-card-fb-container">
-                      <div className="su-card-name">
-                                        {profiles.last_name}, {profiles.first_name}
-                                    </div>
-                                </div>
+                      <div className="displayallsu-card-name">{profiles.last_name}, {profiles.first_name}
+                      </div>
                     </Link>
                   </div>
-                 ))}
-            </div>                 
+                ))}
+            </div>        
+          </section>
         </>
     )}

@@ -6,13 +6,6 @@ import Image from "next/image";
 import React from "react";
 import { supabase } from "../AuthRouter";
 
-
-// const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-// const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-// const supabase = createClient(supabaseURL, supabaseKey);
-
-
 export default function DashboardComp({staffName}) {
   const [currentImage, setCurrentImage] = useState(0);
   const images = ['slide1.jpg', 'slide2.jpg', 'slide3.jpg', 'slide4.jpg', 'slide5.jpg', 'slide6.jpg', 'slide7.jpg'];
@@ -32,18 +25,55 @@ export default function DashboardComp({staffName}) {
   }, []);
 
   const today = new Date();
-  const formattedDate = today.toLocaleDateString();
+  const todayDateString = today.toLocaleDateString();
+  function convertDDMMYYYY(dateString) {
+    const dateComponents = dateString.split("/");
+    const day = dateComponents[0];
+    const month = dateComponents[1];
+    const year = dateComponents[2];
+    
+    const ordinalSuffix = getOrdinalSuffix(day);
+    const monthName = getMonthName(month);
+    
+    return `${day}${ordinalSuffix} ${monthName} ${year}`;
+  }
+  
+  function getOrdinalSuffix(day) {
+    const suffixes = ["th", "st", "nd", "rd"];
+    const lastDigit = day % 10;
+    
+    if (lastDigit >= 1 && lastDigit <= 3 && day !== 11 && day !== 12 && day !== 13) {
+      return suffixes[lastDigit];
+    } else {
+      return suffixes[0];
+    }
+  }
+
+  function getMonthName(month) {
+    const months = [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+    
+    return months[parseInt(month) - 1];
+  }
+  
 
 
   
   return (
-    <> <div className="dash-master">
-        {/* Welcome message */}
-        <div className="dash-welcome"><strong>Welcome to your Dashboard, {staffName}</strong>!
-          <p>Today's date is {formattedDate}</p>
-        </div>
-        {/* Content section */}
-        <div className="dash-grid-content-box">
+    <> 
+    
+    <div className="white-font"> {/* <--- This div affects the whole page */}
+    {/* WELCOME BOX */}
+    <section className="global-welcome">
+        <h1 className="global-heading">Welcome to your Dashboard, {staffName}
+        </h1>
+        <p className="global-description">Today's date is {convertDDMMYYYY(todayDateString)}</p>
+      </section>
+    {/* CONTENT BOX */}
+    <section className="global-content">
+        <div className="dash-grid">
           <div className="dash-grid-row-1-top-bar">
           </div>
           <div className="dash-grid-row-2-text-section">Welcome to the Home Horizon Database App, providing Home Shelter staff with practical solutions! We are thrilled to have you on board, as your contribution makes a significant impact in providing support to those in need. This app is designed specifically for Home Horizon, a homeless shelter that relies on dedicated individuals like you to make this amazing service possible.
@@ -85,6 +115,8 @@ export default function DashboardComp({staffName}) {
             <img src={images[currentImage]} alt="Slideshow" className="slideshowimages"/>
           </div>
         </div>
+    </section>
+
     </div>
     </>
   );

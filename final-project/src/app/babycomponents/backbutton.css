@@ -1,8 +1,7 @@
 .home {
     width: 4rem;
     height: 4rem;
-    border: 1px solid black;
-    box-shadow: 2px 2px 5px WHITE;
+    box-shadow: 1px 1px 1px WHITE;
     border-radius: 10px;
 }
 
