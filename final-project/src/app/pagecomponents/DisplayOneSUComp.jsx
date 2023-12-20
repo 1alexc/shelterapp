@@ -265,34 +265,41 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   // RETURN
   return (
     <>
-      <div className="onesu-page-container">
-        {/* WELCOME BOX */}
-        <div className="onesu-flexbox-container-w">
+    {/* WELCOME BOX */}
+    <section className="global-welcome">
+        <h1 className="global-heading">Service user information
+        </h1>
+        <p className="global-description"> View and edit the information below</p>
+      </section>
+    {/* CONTENT BOX */}
+    <section className="global-content">
+      <div className="onesu-flexbox-top">
           <Link href="/displayallsu">
             <div className="onesu-flexbox-item-serviceusername">
               <img
-                className="onesu-item-back-bttn"
+                className="global-button-shadow"
                 src="/backarrow.png"
                 alt="back button icon"
               />
-              {/* <p className="onesu-item-back-serviceusername"></p> */}
             </div>
           </Link>
-          <div className="onesu-avatar">
+          <section className="global-welcome">
+            <h1 className="global-heading">{service_users[0]?.first_name}'s profile
+            </h1>
+            <p className="global-description">{service_users[0]?.first_name} loves... {strengths[0]?.interest_text_one.toLowerCase() || ""},  {strengths[0]?.interest_text_two.toLowerCase() || ""} and  {strengths[0]?.interest_text_three.toLowerCase() || "being at the shelter"}.</p>
+          </section>
+          <div className="onesu-avatar global-rounded-border">
             <Image
               src={"/avatar2.svg"}
               alt="su avatar"
-              width={150}
-              height={220}
+              width={120}
+              height={120}
               priority
-              className="onesu-avatar-pic"
+              className="onesu-avatar-pic global-rounded-border"
             />
           </div>
-          <div className="onesu-flexbox-item-serviceusername">
-            Welcome to {service_users[0]?.first_name}'s profile
-          </div>
         </div>
-
+      
         {/* PROFILE/INTERESTS BOX */}
         <div className="onesu-toggle-container">
           <div className="onesu-toggle-header">
@@ -318,7 +325,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
             </div>
           </div>
           <div
-            className="onesu-toggle-information-flexbox"
+            className="onesu-toggle-information-flexbox white-font"
             style={{ display: displayStatusProfile }}
           >
             <ServiceUserContext.Provider value={suData}>
@@ -429,23 +436,45 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           >
             <ServiceUserContext.Provider value={suData}>
               <EditablePair
-                dataLabel="1"
+                dataLabel="Strength 1"
                 table={"strengths"}
                 column={"strengths_text_one"}
                 updateContext={updateContext}
                 editMode={editStatusStrengths}
               ></EditablePair>
               <EditablePair
-                dataLabel="2"
+                dataLabel="Strength 2"
                 table={"strengths"}
                 column={"strengths_text_two"}
                 updateContext={updateContext}
                 editMode={editStatusStrengths}
               ></EditablePair>
               <EditablePair
-                dataLabel="3"
+                dataLabel="Strength 3"
                 table={"strengths"}
                 column={"strengths_text_three"}
+                updateContext={updateContext}
+                editMode={editStatusStrengths}
+              ></EditablePair>
+                            <hr></hr>
+              <EditablePair
+                dataLabel="Interest 1"
+                table={"strengths"}
+                column={"interest_text_one"}
+                updateContext={updateContext}
+                editMode={editStatusStrengths}
+              ></EditablePair>
+              <EditablePair
+                dataLabel="Interest 2"
+                table={"strengths"}
+                column={"interest_text_two"}
+                updateContext={updateContext}
+                editMode={editStatusStrengths}
+              ></EditablePair>
+              <EditablePair
+                dataLabel="Interest 3"
+                table={"strengths"}
+                column={"interest_text_three"}
                 updateContext={updateContext}
                 editMode={editStatusStrengths}
               ></EditablePair>
@@ -667,14 +696,14 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           >
             <ServiceUserContext.Provider value={suData}>
               <EditablePair
-                dataLabel="job title"
+                dataLabel="Job title"
                 table={"employment_status"}
                 column={"job_description"}
                 updateContext={updateContext}
                 editMode={editStatusHistory}
               ></EditablePair>
               <EditablePair
-                dataLabel="start date"
+                dataLabel="Start date"
                 table={"employment_status"}
                 column={"start_date"}
                 type={"date"}
@@ -682,7 +711,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 editMode={editStatusHistory}
               ></EditablePair>
               <EditablePair
-                dataLabel="end date"
+                dataLabel="End date"
                 table={"employment_status"}
                 column={"end_date"}
                 type={"date"}
@@ -801,21 +830,21 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           >
             <ServiceUserContext.Provider value={suData}>
               <EditablePair
-                dataLabel="date entry"
+                dataLabel="Date entry"
                 table={"residence"}
                 column={"date_entry"}
                 updateContext={updateContext}
                 editMode={editStatusResidence}
               ></EditablePair>
               <EditablePair
-                dataLabel="current status"
+                dataLabel="Current status"
                 table={"residence"}
                 column={"current_status"}
                 updateContext={updateContext}
                 editMode={editStatusResidence}
               ></EditablePair>
               <EditablePair
-                dataLabel="previous stays"
+                dataLabel="Previous stays"
                 table={"residence"}
                 column={"previous_stays"}
                 updateContext={updateContext}
@@ -837,14 +866,9 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
             </ServiceUserContext.Provider>
           </div>
         </div>
+    </section>
 
-        {/* EDIT SERVICE USER */}
-        <div className="edit-button">
-          <Link href="/editsu" passHref legacyBehavior>
-            <p>Edit Service User</p>
-          </Link>
-        </div>
-      </div>
+
     </>
   );
 }

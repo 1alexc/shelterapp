@@ -57,3 +57,31 @@ body{
     border: 1px solid white;
     font-size: 14px;
 }
+
+/* BUTTON SHADOW- home button, back button */
+.global-button-shadow {
+    width: 4rem;
+    height: 4rem;
+    box-shadow: 1px 1px 1px WHITE;
+    border-radius: 10px;
+}
+
+.global-button-shadow:hover{
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+
+}
+
+/* ROUNDED IMAGES */
+
+.global-rounded-border{
+  border-radius: 15%;  
+}
+
+/* FLEX */
+
+.flexbox-center {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}

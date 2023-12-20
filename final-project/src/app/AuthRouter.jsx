@@ -18,7 +18,6 @@ import LogoForLogin from "./babycomponents/LogoForLogin";
 
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
 export const supabase = createClient(supabaseURL, supabaseKey);
 
 export default function AuthRouter({
@@ -77,6 +76,8 @@ export default function AuthRouter({
   if (!session) {
     return <>
       <LogoForLogin></LogoForLogin>
+      <div className="flexbox-center"><h1 className="white-font">Home Horizon</h1>
+      </div>
       <Auth supabaseClient={supabase} appearance={{
             theme: ThemeSupa,
             variables: {

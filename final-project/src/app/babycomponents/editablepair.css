@@ -1,3 +1,9 @@
+.edit-master { /* This styling is to make up for other slightly messy styling*/
+  margin-left: 2rem;
+  padding-right: 2rem;
+  height: 2rem;
+}
+
 .onesu-flexbox-item-editpair {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -6,11 +12,13 @@
   gap: 1rem;
   justify-content: space-between;
   padding-block: 0.3rem;
-  width: 80%;
+
 }
 
 .onesu-data {
   font-weight: bold;
+  gap: 2rem;
+
 }
 
 .onesu-value {

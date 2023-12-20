@@ -73,14 +73,13 @@ export default function DashboardComp({staffName}) {
           </div>
           <div className="dash-grid-row-2-text-section">Welcome to the Home Horizon Database App, providing Home Shelter staff with practical solutions! We are thrilled to have you on board, as your contribution makes a significant impact in providing support to those in need. This app is designed specifically for Home Horizon, a homeless shelter that relies on dedicated individuals like you to make this amazing service possible.
           </div>
-
           <div className="dash-grid-row-3-button dash-grid-row-3-button1">
             <Link href="/displayallsu" passHref legacyBehavior>
                 <div className="dash-button">
                   <Image src="/dashboard4.png" className="dash-button-image" alt="View or edit database" width="64" height="64" />
                   <h5 className="dash-button-text">View or Edit Database</h5>
                 </div>           
-              </Link>
+            </Link>
           </div>
           <div className="dash-grid-row-3-button dash-grid-row-3-button2">
             <Link href="/addsu" passHref legacyBehavior>

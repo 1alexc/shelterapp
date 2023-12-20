@@ -12,15 +12,13 @@ export default function Header({ staffName }) {
         </div>
         <div className="flexbox-item-title">
         </div>
-        <div className="flexbox-item-status">
-            <Image
-              className="SU-pic"
+        <Image
+              className="global-button-shadow"
               src="/placeholderperson.png"
               alt="profile image"
               width="55"
               height="60"
-            />
-          </div>
+        />
       </div>
   );
 }

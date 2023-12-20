@@ -192,7 +192,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
 
 
   return (
-    <div>
+    <div className="edit-master">
     {/* part 1: checking if edit mode is on */}
     {editMode ? 
       (<>
