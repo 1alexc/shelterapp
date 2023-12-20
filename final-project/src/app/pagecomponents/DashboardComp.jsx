@@ -1,16 +1,10 @@
 import compStyles from "./dashboard.css";
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import React from "react";
-import { formatDate } from "../displayallsu/helper";
-
-const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-const supabase = createClient(supabaseURL, supabaseKey);
-
+import { supabase } from "../AuthRouter";
 
 export default function DashboardComp({staffName}) {
   const [currentImage, setCurrentImage] = useState(0);

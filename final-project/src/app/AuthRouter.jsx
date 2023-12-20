@@ -19,7 +19,7 @@ import LogoForLogin from "./babycomponents/LogoForLogin";
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-const supabase = createClient(supabaseURL, supabaseKey);
+export const supabase = createClient(supabaseURL, supabaseKey);
 
 export default function AuthRouter({
   pageName,
