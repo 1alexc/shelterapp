@@ -22,14 +22,15 @@ import React from "react";
 import ServiceUserContext from "../babycomponents/serviceUserContext";
 import PairStrengths from "../babycomponents/EditablePair";
 import { toast } from "sonner";
+import { supabase } from "../AuthRouter";
 export const dynamic = "force-dynamic"; //forces next js to revaluate data preventing caching
 export const revalidate = 0; //tells supabase to not use caching
 
 // SUPABASE
-import { createClient } from "@supabase/supabase-js";
-const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supaurl, supakey);
+// import { createClient } from "@supabase/supabase-js";
+// const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+// const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// const supabase = createClient(supaurl, supakey);
 
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {

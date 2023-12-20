@@ -1,10 +1,10 @@
-// import { createClient } from "@supabase/supabase-js";
-import { supabase } from "../AuthRouter";
+import { createClient } from "@supabase/supabase-js";
+// import { supabase } from "../AuthRouter";
 
 // SUPABASE KEY, URL AND CLIENT ---------------------------------------------
-// const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-// const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-// const supabase = createClient(supaurl, supakey);
+const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supaurl, supakey);
 
 // DATE CONVERTER _________________________________________________________________
 export function formatDate(dateString) {
