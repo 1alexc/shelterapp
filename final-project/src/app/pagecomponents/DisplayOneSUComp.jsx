@@ -216,7 +216,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
     // part 2: if there is data, run an UPDATE query for a specific input value
     if (data.length >= 1) {
-      await supabase.from(table).update(suData[table][0]).eq("user_id", userID); 
+      await supabase.from(table).update(suData[table][0]).eq("user_id", userID);
       console.log(
         `Data already existed, so data will be updated for user no. "${userID}""`
       );
@@ -232,6 +232,33 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
         `Data did not exist , so data will be inserted for user no. "${userID}".`
       );
     }
+
+    //upsert method to experiment with
+    //    const { data, error } = await supabase
+    //   .from(table)
+    //   .select("*")
+    //   .eq("user_id", userID);
+
+    // // Assuming suData[table][0] is the data you want to insert/update
+    // const dataToUpsert = suData[table][0];
+
+    // // Check if there's existing data
+    // if (data.length >= 1) {
+    //   // If there's existing data for this user, update it
+    //   await supabase
+    //     .from(table)
+    //     .upsert(dataToUpsert, { onConflict: ['user_id'] })  // Here, 'user_id' is the unique constraint
+    //     .eq("user_id", userID);
+
+    //   console.log(`Data already existed, so data will be updated for user no. "${userID}"`);
+    // } else {
+    //   // If no existing data for this user, insert the new data
+    //   await supabase
+    //     .from(table)
+    //     .insert(dataToUpsert);
+
+    //   console.log(`Data did not exist, so data will be inserted for user no. "${userID}".`);
+    // }
   }
 
   // RETURN
@@ -666,7 +693,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                   style={{ display: editStatusHistory ? "inline" : "none" }}
                   onClick={function () {
                     updateOrInsertData("employment_status");
-                     setEditStatusHistory(false);
+                    setEditStatusHistory(false);
                   }}
                 >
                   UPDATE
@@ -799,7 +826,6 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                   onClick={function () {
                     updateOrInsertData("residence");
                     setEditStatusResidence(false);
-                    
                   }}
                 >
                   UPDATE
