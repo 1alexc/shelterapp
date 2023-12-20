@@ -1,54 +1,50 @@
 /* ENTIRE PAGE */
-  
+
 .onesu-page-container {
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding-block: 1rem;
-  }
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+}
 
+/* WELCOME BOX  */
 
-  /* WELCOME BOX  */
-
-.onesu-flexbox-container-w{
-    display: flex;
-    background-color: #D1E7FE;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 10px;
-    align-items: center;
-    width: 84%;
-    gap: 20px;
-    padding: 1rem;
-  }
+.onesu-flexbox-container-w {
+  display: flex;
+  /* background-color: #D1E7FE; */
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  align-items: center;
+  width: 84%;
+  /* gap: 20px; */
+  /* padding: 1rem; */
+}
 
 .onesu-flexbox-item-image {
-    display:flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-
-
-
-
-  /* REUSABLE CONTAINER STRUCTURE ________________________________________*/
-  /* flexbox container info > flexbox item title + button >
+/* REUSABLE CONTAINER STRUCTURE ________________________________________*/
+/* flexbox container info > flexbox item title + button >
   ...hideable container > SUdata value pairs */
-  .onesu-toggle-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    border-radius: 10px;
-    background-color: #D1E7FE;
-    gap: 1rem;
-    padding-block: 2rem;
+.onesu-toggle-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  border-radius: 10px;
+  background-color: rgba(156,156,198,1);
+  /* background-color: #f5f5f5; */
+  gap: 1rem;
+  padding-block: 2rem;
 }
 
-.onesu-toggle-header{
+.onesu-toggle-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -56,35 +52,39 @@
 }
 
 .onesu-toggle-title {
-    font-weight: bold;
-    font-size: 18px;
-    background-color: white;
-    padding: 0.5rem;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 18px;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #f5f5f5;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: gray 2px 2px;
 }
 
-
-.onesu-update-container{
+.onesu-update-container {
   text-align: center;
 }
-.onesu-update-btn{
-  background-color: #505050;
+.onesu-update-btn {
+  
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 90%;
   font-weight: bold;
   border-radius: 10px;
-  padding-block: 1rem;
+  padding-block: 0.5rem;
+  padding-inline: 2rem ;
   justify-self: right;
+  cursor: pointer;
+  box-shadow: gray 2px 2px;
 }
 
-
-
-.onesu-toggle-title:hover, .onesu-toggle-edit:hover {
-  background-color: yellow;
+.onesu-toggle-title:hover,
+.onesu-toggle-edit:hover,
+.onesu-update-btn:hover {
+  background-color: #3D4187;
   cursor: pointer;
 }
 
@@ -93,51 +93,43 @@
   flex-direction: column;
   justify-content: center;
   width: 90%;
-      padding-inline: 3rem;
+  padding-inline: 3rem;
 
+  
 }
 
 .onesu-toggle-edit {
   font-weight: bold;
   font-size: 18px;
-  background-color: #505050;
+  /* background-color: #505050; */
+  background-color: #f5f5f5;
+  box-shadow: gray 2px 2px;
   padding: 0.5rem;
   border-radius: 10px;
   font-weight: bold;
   font-size: 18px;
+  
 }
 
-  /* EDIT BUTTON ________________________________________*/
-  .onesu-edit-button {
-      /* border: 1px solid red; */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 90%;
-      border-radius: 10px;
-      background-color: white;
-      align-items: center;
-      gap: 1rem;
-      padding-block: 1rem;
-    
-  }   
+/* EDIT BUTTON ________________________________________*/
+.onesu-edit-button {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+}
 
-  .onesu-edit-button {
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    font-weight: bold;
-    border-radius: 10px;
-    background-color: white;
-    padding-block: 1rem;
-}   
+
 .onesu-edit-button:hover {
   background-color: yellow;
   cursor: pointer;
-
-}     
+}
 
 .onesu-flexbox-item-back-bttn {
   display: flex;
@@ -148,11 +140,32 @@
   width: 30%;
 }
 
-
 .onesu-item-back-bttn {
-  height: 1rem;
+  height: 2rem;
+  box-shadow: #262035 2px 2px;
 }
 
 /* .item-back-bttn-text {
   
 } */
+
+.onesu-flexbox-item-serviceusername {
+  color: #f5f5f5;
+  font-size: 1.5rem;
+}
+
+.onesu-avatar {
+  display: flex;
+  /* border: green 1px solid; */
+
+}
+
+.onesu-avatar-pic {
+  display: flex;
+  /* border: red 1px solid; */
+}
+
+.onesu-update-input {
+  background-color: #f5f5f5;
+  padding: 0.2rem;
+}
