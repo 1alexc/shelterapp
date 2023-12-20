@@ -156,6 +156,13 @@
 
 .onesu-avatar {
   display: flex;
+  /* border: green 1px solid; */
+
+}
+
+.onesu-avatar-pic {
+  display: flex;
+  /* border: red 1px solid; */
 }
 
 .onesu-update-input {

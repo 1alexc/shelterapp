@@ -283,6 +283,8 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
               alt="su avatar"
               width={150}
               height={220}
+              priority
+              className="onesu-avatar-pic"
             />
           </div>
           <div className="onesu-flexbox-item-serviceusername">
