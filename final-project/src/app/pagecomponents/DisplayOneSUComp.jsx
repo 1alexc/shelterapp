@@ -175,11 +175,11 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const [editStatusResidence, setEditStatusResidence] = useState(false);
   function handleEditResidence() {
     setDisplayStatusResidence("inline");
-    // if (editStatusResidence == false) {
+    if (editStatusResidence == false) {
       setEditStatusResidence(true);
-    // } else {
-    //   setEditStatusResidence(false);
-    // }
+    } else {
+      setEditStatusResidence(false);
+    }
   }
 
   // STATE FOR EDITING DATA
@@ -203,9 +203,9 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       position: "top-left",
       // onAutoClose: window.location.reload(), //will reload page(after toast disappears)
       style: {
-        background: "#7b76c4",
-        color: "black",
-        border: "3px solid black",
+        background: "#f5f5f5",
+        color: "#111111",
+        border: "3px solid #111111",
       },
     });
     // part 1: checking to see if data exists
@@ -216,7 +216,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
     // part 2: if there is data, run an UPDATE query for a specific input value
     if (data.length >= 1) {
-      await supabase.from(table).update(suData[table][0]).eq("user_id", userID);
+      await supabase.from(table).update(suData[table][0]).eq("user_id", userID); 
       console.log(
         `Data already existed, so data will be updated for user no. "${userID}""`
       );
