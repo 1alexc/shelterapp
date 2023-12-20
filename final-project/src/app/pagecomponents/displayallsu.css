@@ -1,69 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap');
-
-.all-explanation {
+.displayallsu-explanation {
 color: white;
-  text-align: center;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  font-size: 24px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+text-align: center;
+margin-top: 3rem;
+margin-bottom: 2rem;
+font-size: 24px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.all-grid-content-box{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 6rem;
-    row-gap: 0.5rem;
-    /* background-color: #2e3ca1; */
-    /* border: 1px solid white; */
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid white;
-  }
-  
-.su-cards {
-    font-weight: bold;
-    font-size: 18px;
-    background-color: white;
-    border-radius: 12px;
-    padding-block: 1rem;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-    transition: 1s
-
+.displayallsu-grid{
+display: grid;
+grid-template-columns: 1fr 1fr;
+column-gap: 6rem;
+row-gap: 0.5rem;
 }
 
-.su-cards:hover {
+.displayallsu-cards {
+font-weight: bold;
+background-color: #d5d8ef;
+border-radius: 12px;
+padding-block: 1rem;
+padding-left: 2rem;
+margin-bottom: 1rem;
+transition: 1s;
+}
 
-    background-color: #b3b9e4;
-    transition: 1s
+.displayallsu-cards:hover {
+    background-color: #7d87d7;
+transition: 1s
 
 }
 
-.su-card-name {
-    color: #19126a;
+.displayallsu-card-name {
+color: #19126a;
 }
-
-    /* .flexbox-item {
-    }
-    
-    .flexbox-item:hover {
-        font-weight: bold;
-        font-size: 18px;
-        background-color: yellow;
-        cursor: pointer;
-    }
-    
-    .su-card-fb-container {
-        display:flex;
-        flex-direction: columns;
-
-    }
-    .su-card-name {
-        font-weight: bold;        
-    }
-    .su-card-age {
-        display:flex;
-        
-    } */

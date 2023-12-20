@@ -1,15 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
-
-h1,h2 {
-    color:white;
-    text-align: center;
-    font-family: 'Cedarville Cursive', cursive;
+.referrallinks-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
 }
 
-a{
-    color:white;
+.referrallinks-grid-card{
+
+}
+
+.referrallinks-grid-card {
+    font-weight: bold;
+    background-color: #d5d8ef;
+    border-radius: 12px;
+    padding-block: 1rem;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    transition: 1s;
+    }
     
+.referrallinks-grid-card:hover {
+    background-color: #7d87d7;
+    transition: 1s
+    }
+.referrallinks-section-example{
+    color: black;
 }
-p{
-    text-align: center;
+
+.referrallinks-section-example{
+    color:red;
+}
+.referrallinks-section-heading{
+
 }
