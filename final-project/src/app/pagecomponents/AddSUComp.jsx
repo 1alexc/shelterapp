@@ -198,37 +198,28 @@ export default function AddSUComp({ staffId, staffName }) {
  
 
   return (
-    <div className="page-container">
-    
-      {/* USERS IN THE DATABASE */}
-      {/* <h1>Users currently in database:</h1>
-      {fetchedDataProfile.map((input) => (
-        <div key={input.id}>
-          <hr></hr>
-          <span>
-            <strong>UserID: </strong>
-            {input.user_id}{" "}
-          </span>
-          <span>
-            <strong>Name: </strong> {input.first_name} {input.last_name}
-          </span>
-        </div>
-      ))} */}
-
-      {/* PROFILE INPUTS _________________________________________________________________________________________ */}
+    <>
+      {/* WELCOME BOX */}
+      <section className="global-welcome">
+          <h1 className="global-heading">Add a new service user</h1>
+          <p className="global-description">You can then edit their full profile in the database.</p>
+        </section>
+      {/* CONTENT BOX */}
+      <section className="global-content">
+              {/* PROFILE INPUTS _________________________________________________________________________________________ */}
       {/* PROFILE - first name */}
-      <form className="addsu_form" id="myform">
-        <div className="inputcontainer">
+      <form className="addsu-form" id="myform">
+        <div className="addsu-inputcontainer">
           <label
             htmlFor="first_name"
-            className="labeltext"
+            className="addsu-labeltext"
             id="first_name_label"
           >
             First Name:{" "}
           </label>
           <input
             type="text"
-            className="inputfield"
+            className="addsu-inputfield"
             name="first_name"
             id="first_name"
             placeholder="First Name"
@@ -242,15 +233,15 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - last_name */}
-        <div className="inputcontainer">
-          <label htmlFor="last_name" id="last_name_label" className="labeltext">
+        <div className="addsu-inputcontainer">
+          <label htmlFor="last_name" id="last_name_label" className="addsu-labeltext">
             Last Name:{" "}
           </label>
           <input
             type="text"
             placeholder="Last Name"
             id="last_name"
-            className="inputfield"
+            className="addsu-inputfield"
             name="last_name"
             value={last_name}
             required
@@ -261,14 +252,14 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - age */}
-        <div className="inputcontainer">
-          <label htmlFor="age" id="age_label" className="labeltext">
+        <div className="addsu-inputcontainer">
+          <label htmlFor="age" id="age_label" className="addsu-labeltext">
             Age:{" "}
           </label>
           <input
             type="number"
             id="age"
-            className="inputfield"
+            className="addsu-inputfield"
             name="age"
             min={18}
             max={120}
@@ -280,15 +271,15 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - gender */}
-        <div className="inputcontainer">
-          <label htmlFor="gender" id="gender_label" className="labeltext">
+        <div className="addsu-inputcontainer">
+          <label htmlFor="gender" id="gender_label" className="addsu-labeltext">
             Gender:{" "}
           </label>
           <input
             placeholder="Gender"
             name="gender"
             id="gender"
-            className="inputfield"
+            className="addsu-inputfield"
             value={gender}
             onChange={(e) =>
               setInputProfile({ ...inputProfile, gender: e.target.value })
@@ -297,8 +288,8 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - dob */}
-        <div className="inputcontainer">
-          <label htmlFor="dob" className="labeltext" id="dob_label">
+        <div className="addsu-inputcontainer">
+          <label htmlFor="dob" className="addsu-labeltext" id="dob_label">
             DOB:{" "}
           </label>
           <input
@@ -307,7 +298,7 @@ export default function AddSUComp({ staffId, staffName }) {
             // Min max dates are set to prevent users from entering dates that are too far in the past or future
             min={"1900-01-01"}
             max={"2040-12-18"}
-            className="inputfield"
+            className="addsu-inputfield"
             id="dob_input"
             value={dob}
             onChange={(e) =>
@@ -317,15 +308,15 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - ni_number */}
-        <div className="inputcontainer">
-          <label htmlFor="ni_number" id="ni_number_label" className="labeltext">
+        <div className="addsu-inputcontainer">
+          <label htmlFor="ni_number" id="ni_number_label" className="addsu-labeltext">
             NI Number:{" "}
           </label>
           <input
             placeholder="NI Number"
             value={ni_number}
             type="text"
-            className="inputfield"
+            className="addsu-inputfield"
             id="ni_number"
             //Pattern means NI number must be in the format of 2 letters, 6 numbers, 1 letter (captial letters)
             pattern="[A-Za-z]+\d{6}[A-Za-z]+"
@@ -340,8 +331,8 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - phone */}
-        <div className="inputcontainer">
-          <label htmlFor="phone" id="phone_label" className="labeltext">
+        <div className="addsu-inputcontainer">
+          <label htmlFor="phone" id="phone_label" className="addsu-labeltext">
             Phone:{" "}
           </label>
           <input
@@ -352,7 +343,7 @@ export default function AddSUComp({ staffId, staffName }) {
             pattern="[0-9]{11}"
             placeholder="Phone Number"
             id="phone"
-            className="inputfield"
+            className="addsu-inputfield"
             value={phone}
             onChange={(e) =>
               setInputProfile({ ...inputProfile, phone: e.target.value })
@@ -361,8 +352,8 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - email */}
-        <div className="inputcontainer">
-          <label htmlFor="email" id="email_label" className="labeltext">
+        <div className="addsu-inputcontainer">
+          <label htmlFor="email" id="email_label" className="addsu-labeltext">
             Email:{" "}
           </label>
           <input
@@ -370,7 +361,7 @@ export default function AddSUComp({ staffId, staffName }) {
             type="email"
             placeholder="Email"
             id="email"
-            className="inputfield"
+            className="addsu-inputfield"
             value={email}
             onChange={(e) =>
               setInputProfile({ ...inputProfile, email: e.target.value })
@@ -379,11 +370,11 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - emergency_contact_name */}
-        <div className="inputcontainer">
+        <div className="addsu-inputcontainer">
           <label
             htmlFor="emergency_contact_name"
             id="emergency_contact_name_label"
-            className="labeltext"
+            className="addsu-labeltext"
           >
             Emergency Contact Name:{" "}
           </label>
@@ -391,7 +382,7 @@ export default function AddSUComp({ staffId, staffName }) {
             type="text"
             placeholder="Emergency Contact Name"
             id="emergency_contact_name"
-            className="inputfield"
+            className="addsu-inputfield"
             value={emergency_contact_name}
             onChange={(e) =>
               setInputProfile({
@@ -401,13 +392,12 @@ export default function AddSUComp({ staffId, staffName }) {
             }
           />
         </div>
-
         {/* PROFILE - emergency_contact_relationship  */}
-        <div className="inputcontainer">
+        <div className="addsu-inputcontainer">
           <label
             htmlFor="emergency_contact_relationship"
             id="emergency_contact_relationship_label"
-            className="labeltext"
+            className="addsu-labeltext"
           >
             Emergency Contact Relationship:{" "}
           </label>
@@ -415,7 +405,7 @@ export default function AddSUComp({ staffId, staffName }) {
             type="text"
             placeholder="Emergency Contact Relationship"
             id="emergency_contact_relationship"
-            className="inputfield"
+            className="addsu-inputfield"
             value={emergency_contact_relationship}
             onChange={(e) =>
               setInputProfile({
@@ -427,11 +417,11 @@ export default function AddSUComp({ staffId, staffName }) {
         </div>
 
         {/* PROFILE - emergency_contact_phone  */}
-        <div className="inputcontainer">
+        <div className="addsu-inputcontainer">
           <label
             htmlFor="emergency_contact_phone"
             id="emergency_contact_phone_label"
-            className="labeltext"
+            className="addsu-labeltext"
           >
             Emergency Contact Phone:{" "}
           </label>
@@ -439,7 +429,7 @@ export default function AddSUComp({ staffId, staffName }) {
             type="tel"
             placeholder="Emergency Contact Phone"
             id="emergency_contact_phone"
-            className="inputfield"
+            className="addsu-inputfield"
             maxLength={11}
             pattern="[0-9]{11}"
             value={emergency_contact_phone}
@@ -455,7 +445,7 @@ export default function AddSUComp({ staffId, staffName }) {
         {/* PROFILE - submit button  */}
 
         <button
-          className="submit_button"
+          className="addsu-submit_button"
           onClick={async function (e) {
             // the e.preventDefault() prevents the page from refreshing when the button is clicked
             e.preventDefault();
@@ -499,47 +489,10 @@ export default function AddSUComp({ staffId, staffName }) {
             }
           }}
         >
-          + Add Service User
+          Add Service User +
         </button>
       </form>
-
-      {/* NEXT SECTION ||||| */}
-      {/* STRENGTHS INPUTS _________________________________________________________________________________________ */}
-      {/* const strengthsColumns = {strengths_id, strengths_text_one, strengths_text_two, strengths_text_three}; */}
-      {/* STRENGTHS - user_id */}
-      {/* <input
-                placeholder="user_id"
-                value={user_id}
-                onChange={e => setInputStrengths({...inputStrengths, user_id: e.target.value})}
-                /> */}
-      {/* STRENGTHS - strengths_id */}
-      {/* <input
-                placeholder="strengths_id"
-                value={strengths_id}
-                onChange={e => setInputStrengths({...inputStrengths, strengths_id: e.target.value})}
-                /> */}
-
-      {/* STRENGTHS - strengths_text_one */}
-      {/* <input
-                placeholder="strengths_text_one"
-                value={strengths_text_one}
-                onChange={e => setInputStrengths({...inputStrengths, strengths_text_one: e.target.value})}
-                /> */}
-
-      {/* STRENGTHS - strengths_text_two */}
-      {/* <input
-                placeholder="strengths_text_two"
-                value={strengths_text_two}
-                onChange={e => setInputStrengths({...inputStrengths, strengths_text_two: e.target.value})}
-                /> */}
-      {/* STRENGTHS - strengths_text_three */}
-      {/* <input
-                placeholder="strengths_text_three"
-                value={strengths_text_three}
-                onChange={e => setInputStrengths({...inputStrengths, strengths_text_three: e.target.value})}
-                /> */}
-      {/* PROFILE - submit button  */}
-      {/* <button onClick={function () {submitPost("strengths", [strengthsColumns], [strengthsColumnsBlank], false)}}>Post Strengths</button> */}
-    </div>
+      </section>
+    </>
   );
 }

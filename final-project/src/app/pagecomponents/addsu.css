@@ -1,52 +1,32 @@
-button {
-    margin-bottom: 3rem;
-}
-
-.labeltext {
-    margin-left: 5rem;
+.addsu-labeltext {
     font-size: 0.9rem;
     color: white;
 }
 
-.inputfield {
-   margin-right: 5rem;
+.addsu-inputfield {
    padding: 0.2rem;
    align-self:center;
    border-radius: 0.5rem;
 }
 
-.inputfield:focus {
+.addsu-inputfield:focus {
     border:solid 1px #4a453e;
     }
 
-.inputfield:invalid {
+.addsu-inputfield:invalid {
     color:red;
 }
 
-.inputcontainer {
-    padding-block: 0.5rem;
+.addsu-inputcontainer {
     width: 100%;
     display:flex;
     justify-content:space-between;
 }
 
-.submit_button {
-    margin-left: 40%;
+.addsu-submit_button {
     padding: 0.3rem;
+    border-color: rgba(17,23,105,1);
     border-radius: 0.5rem;
     background-color: #37991F;
     color: white;
-}
-
-.page-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 6rem;
-    row-gap: 0.5rem;
-    /* background-color: #2e3ca1; */
-    /* border: 1px solid white; */
-    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid white;
 }
