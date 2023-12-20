@@ -5,7 +5,7 @@ export default function BackButton() {
     return (
         <>
         <Link href="/dashboard">
-            <Image src="/logowhite.png" alt="back button" width="64" height="64" className="home"/>
+            <Image src="/logowhite.png" alt="back button" width="64" height="64" className="global-button-shadow"/>
         </Link>
         </>
         )

@@ -18,11 +18,6 @@
     color: white;
 }
 
-.flexbox-item-image {
-    /* background-color: #D1E7FE; */
-    border-radius: 20px;
-    padding-inline: 1rem;
-}
 
 .flexbox-item-status:hover {
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
