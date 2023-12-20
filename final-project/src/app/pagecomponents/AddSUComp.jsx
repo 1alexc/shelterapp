@@ -1,15 +1,16 @@
 import compStyles from "./addsu.css";
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 // Make sure to npm i to install Toast package
 import { toast } from "sonner";
+import { supabase } from "../AuthRouter";
 
-const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+// const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 //uses the supabase client to connect to supabase
-const supabase = createClient(supaurl, supakey);
+// const supabase = createClient(supaurl, supakey);
 //, last_name:"", age:"", gender:"", dob:"", ni_number:"", phone:"", emergency_contact_name:"", emergency_contact_relationship:"", email:"", emergency_contact_phone:""
 //, last_name, age, gender, dob, ni_number, phone, emergency_contact_name, emergency_contact_relationship, email, emergency_contact_phone
 

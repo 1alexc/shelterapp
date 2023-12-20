@@ -1,13 +1,14 @@
 import compStyles from "./displayallsu.css"
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { supabase } from "../AuthRouter";
 
-const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+// const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 //uses the supabase client to connect to supabase
-const supabase = createClient(supaurl, supakey);
+// const supabase = createClient(supaurl, supakey);
 
 export default function DisplayAllSUComp() {
     const [data, setData] = useState([]);
